@@ -593,3 +593,10 @@
 0:0:0:0:0:0:0:1 - - [28/Dec/2016:17:18:59 +0530] "GET /CollaborationFront/Images/logo1.jpg HTTP/1.1" 200 54376
 0:0:0:0:0:0:0:1 - - [28/Dec/2016:17:18:59 +0530] "GET /CollaborationFront/resources/js/angular-route.min.js HTTP/1.1" 200 4390
 0:0:0:0:0:0:0:1 - - [28/Dec/2016:17:18:59 +0530] "GET /favicon.ico HTTP/1.1" 404 1016
+127.0.0.1 - - [28/Dec/2016:17:22:47 +0530] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [28/Dec/2016:17:22:48 +0530] "GET /CollaborationFront/home.html HTTP/1.1" 200 3156
+0:0:0:0:0:0:0:1 - - [28/Dec/2016:17:22:48 +0530] "GET /CollaborationFront/css/style1.css HTTP/1.1" 200 880
+0:0:0:0:0:0:0:1 - - [28/Dec/2016:17:22:48 +0530] "GET /CollaborationFront/Images/logo3.jpg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [28/Dec/2016:17:22:54 +0530] "GET /CollaborationFront/home.html HTTP/1.1" 200 3156
+0:0:0:0:0:0:0:1 - - [28/Dec/2016:17:22:54 +0530] "GET /CollaborationFront/css/style1.css HTTP/1.1" 200 880
+0:0:0:0:0:0:0:1 - - [28/Dec/2016:17:22:54 +0530] "GET /favicon.ico HTTP/1.1" 404 1016
