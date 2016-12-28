@@ -1,0 +1,63 @@
+2016-12-28 15:12:59,345 [Worker-11] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.niit:collaborationbackend:0.0.1-SNAPSHOT @ C:\Users\Ankur\workspace\collaborationbackend\pom.xml.
+2016-12-28 15:12:59,345 [Worker-19] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.niit:collaborationbackend:0.0.1-SNAPSHOT @ C:\Users\Ankur\workspace\collaborationbackend\pom.xml.
+2016-12-28 15:13:03,396 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 15:13:03,404 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-28 15:13:03,408 [Worker-19] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 15:13:03,408 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Ankur\workspace\collaborationbackend\src\test\resources
+2016-12-28 15:13:05,369 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 15:13:05,375 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-28 15:13:05,879 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 15:13:05,879 [Worker-18] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.niit:collaborationbackend:0.0.1-SNAPSHOT @ C:\Users\Ankur\workspace\collaborationbackend\pom.xml.
+2016-12-28 15:13:05,879 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Ankur\workspace\collaborationbackend\src\test\resources
+2016-12-28 15:13:12,120 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 15:13:12,121 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-28 15:13:12,123 [Worker-16] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 15:13:12,124 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Ankur\workspace\collaborationbackend\src\test\resources
+2016-12-28 15:15:18,803 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 15:15:18,805 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-28 15:15:18,807 [Worker-37] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 15:15:18,807 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Ankur\workspace\collaborationbackend\src\test\resources
+2016-12-28 15:29:27,375 [Worker-44] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 15:29:27,377 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-28 15:29:27,379 [Worker-44] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 15:29:27,380 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Ankur\workspace\collaborationbackend\src\test\resources
+2016-12-28 17:09:00,239 [ModalContext] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-webapp/1.0/maven-archetype-webapp-1.0.jar
+2016-12-28 17:09:38,710 [Worker-60] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-webapp/1.0/maven-archetype-webapp-1.0.pom
+2016-12-28 17:15:14,878 [Worker-70] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Collecting project info '/pom.xml' D:\Collaboration\collaborationback\pom.xml
+2016-12-28 17:15:14,957 [Worker-70] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.niit:collaborationback:0.0.1-SNAPSHOT @ D:\Collaboration\collaborationback\pom.xml.
+2016-12-28 17:15:15,127 [Worker-70] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /collaborationback/src/main/java
+2016-12-28 17:15:15,128 [Worker-70] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /collaborationback/src/main/resources
+2016-12-28 17:15:15,128 [Worker-70] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /collaborationback/src/test/java
+2016-12-28 17:15:16,285 [Worker-70] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 1 sec
+2016-12-28 17:15:16,567 [Worker-75] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:15:16,568 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-28 17:15:16,569 [Worker-75] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:15:16,570 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Collaboration\collaborationback\src\test\resources
+2016-12-28 17:15:49,425 [Worker-69] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:15:49,426 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-28 17:15:49,428 [Worker-69] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:15:49,428 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Collaboration\collaborationback\src\test\resources
+2016-12-28 17:17:01,740 [Worker-60] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com.niit:collaborationback:0.0.1-SNAPSHOT @ D:\Collaboration\collaborationback\pom.xml.
+2016-12-28 17:17:02,572 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:17:02,573 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-28 17:17:02,575 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:17:02,576 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Collaboration\collaborationback\src\test\resources
+2016-12-28 17:17:02,576 [Worker-60] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of collaborationback
+2016-12-28 17:17:02,578 [Worker-60] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for collaborationback
+2016-12-28 17:17:02,592 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:17:04,080 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:17:04,081 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-28 17:17:04,083 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:17:04,083 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Collaboration\collaborationback\src\test\resources
+2016-12-28 17:17:35,046 [Worker-69] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:17:35,047 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-28 17:17:35,049 [Worker-69] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:17:35,049 [Worker-69] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Collaboration\collaborationback\src\test\resources
+2016-12-28 17:18:15,140 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:18:15,142 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-28 17:18:15,145 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:18:15,146 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Collaboration\collaborationback\src\test\resources
+2016-12-28 17:18:42,568 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:18:42,569 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2016-12-28 17:18:42,571 [Worker-60] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2016-12-28 17:18:42,571 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Ankur\workspace\collaborationbackend\src\test\resources
