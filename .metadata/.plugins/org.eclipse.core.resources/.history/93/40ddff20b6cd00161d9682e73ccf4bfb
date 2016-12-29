@@ -1,0 +1,14 @@
+package com.nitt.collaborationbackend.model;
+
+import java.util.Date;
+
+public class Forum {
+
+	private int Id;
+	
+	private String emailId;
+	
+	private String message;
+	
+	private Date Date_Time;
+}

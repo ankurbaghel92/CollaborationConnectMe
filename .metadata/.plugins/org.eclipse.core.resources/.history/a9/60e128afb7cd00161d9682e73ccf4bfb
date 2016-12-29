@@ -1,0 +1,6 @@
+package com.nitt.collaborationbackend.DAO;
+
+public class Snippet {
+	Event event
+}
+

@@ -1,0 +1,8 @@
+package com.nitt.collaborationbackend.model;
+
+public class Blog {
+	private int Id;
+	private String Title;
+	private String EmailId;
+
+}

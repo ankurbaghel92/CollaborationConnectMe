@@ -1,0 +1,19 @@
+package com.nitt.collaborationbackend.DAO;
+
+import java.util.List;
+
+import com.nitt.collaborationbackend.model.Blog;
+
+public interface ChatDAO {
+	
+	public boolean save(Chat chat);
+	
+	public Chat get(String id);
+	
+	public boolean Delete(Chat chat);
+	
+	public boolean Update(Chat chat);
+	
+	public List<Chat> list();
+
+}

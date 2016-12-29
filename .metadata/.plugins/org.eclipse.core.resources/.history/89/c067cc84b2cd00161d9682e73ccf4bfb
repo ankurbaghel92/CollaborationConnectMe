@@ -1,0 +1,6 @@
+package com.nitt.collaborationbackend.DAO;
+
+public interface BlogDAO {
+	public Blog save(Blog blog);
+
+}

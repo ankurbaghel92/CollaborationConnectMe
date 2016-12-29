@@ -1,0 +1,8 @@
+package com.nitt.collaborationbackend.model;
+
+public class Forum {
+
+	private int Id;
+	
+	private String EmailId;
+}

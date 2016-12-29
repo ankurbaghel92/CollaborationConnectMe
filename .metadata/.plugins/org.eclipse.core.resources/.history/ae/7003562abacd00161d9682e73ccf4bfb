@@ -1,0 +1,5 @@
+package com.nitt.collaborationbackend.model;
+
+public class Chat {
+
+}

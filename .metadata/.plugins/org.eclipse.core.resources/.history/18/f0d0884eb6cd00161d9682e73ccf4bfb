@@ -1,0 +1,13 @@
+package com.nitt.collaborationbackend.DAO;
+
+import com.nitt.collaborationbackend.model.Forum;
+
+public interface ForumDAO {
+	
+	public boolean save(Forum forum);
+	
+	public boolean delete(Forum forum);
+	
+	public boolean udpata(Forum forum);
+
+}

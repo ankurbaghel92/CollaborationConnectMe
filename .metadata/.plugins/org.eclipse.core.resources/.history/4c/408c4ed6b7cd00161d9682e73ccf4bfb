@@ -1,0 +1,7 @@
+package com.nitt.collaborationbackend.DAOIMPL;
+
+import com.nitt.collaborationbackend.DAO.EventDAO;
+
+public class EventDAOIMPL implements EventDAO {
+
+}

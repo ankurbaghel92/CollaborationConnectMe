@@ -1,0 +1,12 @@
+package com.nitt.collaborationbackend.DAO;
+
+import com.nitt.collaborationbackend.model.Blog;
+
+public interface BlogDAO {
+	public Blog save(Blog blog);
+	
+	public Blog get(String id);
+	
+	public Blog Delete(String id);
+
+}

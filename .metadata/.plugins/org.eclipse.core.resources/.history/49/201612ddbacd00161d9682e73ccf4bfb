@@ -1,0 +1,27 @@
+package com.nitt.collaborationbackend.DAOIMPL;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.nitt.collaborationbackend.DAO.ChatDAO;
+import com.nitt.collaborationbackend.model.Chat;
+
+@Repository("ChatDAO")
+public class ChatDAOIMPL implements ChatDAO{
+
+	@Autowired
+	SessionFactory sessionFactory;
+	
+	public ChatDAOIMPL(SessionFactory sessionFactory)
+	{
+		this.sessionFactory = sessionFactory;
+	}
+		
+	}
+	
+	

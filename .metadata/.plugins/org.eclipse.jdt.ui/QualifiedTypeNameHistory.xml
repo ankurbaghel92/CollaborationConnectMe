@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="com.nitt.collaborationbackend.DAO.BlogDAO"/>
+<fullyQualifiedTypeName name="com.nitt.collaborationbackend.model.Blog"/>
+<fullyQualifiedTypeName name="javax.transaction.Transactional"/>
+<fullyQualifiedTypeName name="com.nitt.collaborationbackend.model.Forum"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.nitt.collaborationbackend.DAO.ForumDAO"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+<fullyQualifiedTypeName name="com.nitt.collaborationbackend.DAOIMPL.ForumDAOIMPL"/>
+<fullyQualifiedTypeName name="com.nitt.collaborationbackend.model.Event"/>
+<fullyQualifiedTypeName name="com.nitt.collaborationbackend.DAO.EventDAO"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="com.sun.jmx.snmp.Timestamp"/>
+<fullyQualifiedTypeName name="java.sql.Timestamp"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.nitt.collaborationbackend.model.Chat"/>
+<fullyQualifiedTypeName name="org.hibernate.Query"/>
+</qualifiedTypeNameHistroy>

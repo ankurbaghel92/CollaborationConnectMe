@@ -3,16 +3,28 @@ package com.nitt.collaborationbackend.model;
 public class User {
 	
 	private String fname;
+	
 	private String lname;
+	
 	private String emailId;
+	
 	private String password;
+	
 	private String role;
+	
 	private String mobile;
+	
 	private String gender;
+	
 	private String enabled;
+	
 	private String status;
+	
+	private String reason;
+
 	private String remarks;
-	private String isOnline;
+	
+	private char isOnline;
 	
 	public String getFname() {
 		return fname;
@@ -77,12 +89,20 @@ public class User {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
-	public String getIsOnline() {
+	public char getIsOnline() {
 		return isOnline;
 	}
-	public void setIsOnline(String isOnline) {
+	public void setIsOnline(char isOnline) {
 		this.isOnline = isOnline;
 	}
+	public String getReason() {
+		return reason;
+	}
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+	
+	
 	
 	
 }

@@ -1,0 +1,17 @@
+package com.nitt.collaborationbackend.model;
+
+import java.util.Date;
+
+public class Chat {
+	
+	private int Id;
+	
+	private String emailId;
+	
+	private String friendEmailId;
+	
+	private String Message;
+	
+	private Date date;
+
+}

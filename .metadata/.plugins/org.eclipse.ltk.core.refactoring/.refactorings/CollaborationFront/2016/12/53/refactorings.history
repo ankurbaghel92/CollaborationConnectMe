@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;c_blog&apos; to &apos;collaborationback/src/main/java/com.nitt.collaborationbackend.DAO&apos;&#x0D;&#x0A;- Original project: &apos;CollaborationFront&apos;&#x0D;&#x0A;- Destination element: &apos;collaborationback/src/main/java/com.nitt.collaborationbackend.DAO&apos;&#x0D;&#x0A;- Original element: &apos;c_blog&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move folder" destination="=collaborationback/src\/main\/java&lt;com.nitt.collaborationbackend.DAO" element1="WebContent/c_blog" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1483009921279" units="0" version="1.0"/>
+</session>

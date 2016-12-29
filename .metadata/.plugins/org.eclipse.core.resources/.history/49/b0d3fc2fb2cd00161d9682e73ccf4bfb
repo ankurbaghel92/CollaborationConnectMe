@@ -1,0 +1,14 @@
+package com.nitt.collaborationbackend.model;
+
+import java.util.Date;
+
+public class Blog {
+	private int Id;
+	private String Title;
+	private String EmailId;
+	private Date Date_Time;
+	private char status;
+	private String Reason;
+	private String Description;
+
+}

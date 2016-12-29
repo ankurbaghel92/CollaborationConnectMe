@@ -1,0 +1,34 @@
+package com.nitt.collaborationbackend.DAOIMPL;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.nitt.collaborationbackend.DAO.EventDAO;
+import com.nitt.collaborationbackend.model.Event;
+
+@Repository("eventDAO")
+public class EventDAOIMPL implements EventDAO {
+
+	public boolean save(Event event) {
+		return false;
+	}
+
+	public boolean delete(Event event) {
+		return false;
+	}
+
+	public boolean update(Event event) {
+		return false;
+	}
+
+	public Event get(String id) {
+		return null;
+	}
+
+	public List<Event> list() {
+		return null;
+	}
+
+	
+}

@@ -1,0 +1,64 @@
+package com.nitt.collaborationbackend.DAOIMPL;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.nitt.collaborationbackend.DAO.BlogDAO;
+import com.nitt.collaborationbackend.model.Blog;
+
+@Repository("blogDAO")
+public class BlogDAOIMPL implements BlogDAO {
+
+	@Autowired
+	SessionFactory sessionFactory;
+	
+	public BlogDAOIMPL(SessionFactory sessionFactory)
+	{
+		this.sessionFactory = sessionFactory;
+	}
+
+	public boolean save(Blog blog) {
+
+		try {
+			sessionFactory.getCurrentSession().save(blog);
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+
+	public Blog get(String id) {
+		return (Blog) sessionFactory.getCurrentSession().get(Blog.class, id);
+	}
+
+	public boolean Delete(Blog blog) {
+		try {
+			sessionFactory.getCurrentSession().delete(blog);
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean Update(Blog blog) {
+		try {
+			sessionFactory.getCurrentSession().update(sessionFactory);
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return falsel
+		}
+	}
+
+	public List<Blog> list() {
+		return null;
+	}
+	
+}

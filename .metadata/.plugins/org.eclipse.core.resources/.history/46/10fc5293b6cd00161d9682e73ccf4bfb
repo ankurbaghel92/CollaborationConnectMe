@@ -1,0 +1,35 @@
+package com.nitt.collaborationbackend.DAOIMPL;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.nitt.collaborationbackend.DAO.ForumDAO;
+import com.nitt.collaborationbackend.model.Forum;
+
+@Repository("forumDAO")
+public class ForumDAOIMPL implements ForumDAO{
+
+	public boolean save(Forum forum) {
+		return false;
+	}
+
+	public boolean delete(Forum forum) {
+		return false;
+	}
+
+	public boolean update(Forum forum) {
+		return false;
+	}
+
+	public Forum get(String id) {
+		return null;
+	}
+
+	public List<Forum> list() {
+		return null;
+	}
+	
+	
+
+}

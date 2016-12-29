@@ -1,0 +1,13 @@
+package com.nitt.collaborationbackend.model;
+
+public class Job {
+	
+	private int Id;
+	
+	private String tittle;
+	
+	private String qualificaton;
+	
+	private String description;
+
+}
