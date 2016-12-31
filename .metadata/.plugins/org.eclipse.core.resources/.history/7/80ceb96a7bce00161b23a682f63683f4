@@ -1,0 +1,106 @@
+package com.nitt.collaborationbackend.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nitt.collaborationbackend.DAO.EventDAO;
+import com.nitt.collaborationbackend.model.Event;
+
+@RestController
+public class EventController {
+
+	@Autowired
+	Event blog;
+	
+	@Autowired
+	EventDAO blogDAO;
+	
+	//Get List Of ALL Events
+	@RequestMapping("allEvents")
+	public ResponseEntity<List<Event>> getAllEvent()
+	{
+		List<Event> blogs = blogDAO.list();
+		
+		if(blogs.isEmpty())
+		{
+			blog.setErrorCode("404");
+			blog.setErrorMessage("No Events Were Found");
+			blogs.add(blog);
+		}
+		
+		return new ResponseEntity<List<Event>>(blogs, HttpStatus.OK);
+	}
+
+
+	
+	//Get Event By Id
+	@RequestMapping("/blogById/{id")
+	public ResponseEntity<Event> getEventByID(@PathVariable("id") String blogId)
+	{
+		 blog = blogDAO.get(blogId);
+		if(blog==null)
+		{
+			blog  = new Event();
+			blog.setErrorCode("404");
+			blog.setErrorMessage("No Events Were Found");
+		}
+		
+		return new ResponseEntity<Event>(blog, HttpStatus.OK);
+	}
+	
+	
+	
+	//Save a new Event
+	@RequestMapping("/saveblog")
+	public ResponseEntity<Event> saveEvent(@RequestBody Event blog)
+	{
+		if(blogDAO.save(blog)==false)
+		{
+			blog.setErrorCode("404");
+			blog.setErrorMessage("Event was not Created.. !! ..!! .. Please Try Again After Some time..!!..!!..");
+		}
+		else
+		{
+			blog.setErrorCode("200");
+			blog.setErrorMessage("Thank you !!..!!..Event is Created SuccessFully");
+		}
+		
+		return new ResponseEntity<Event>(blog, HttpStatus.OK);
+	}
+	
+	
+	@RequestMapping("/updateEvent")
+	public ResponseEntity<Event> updateEvent(@RequestBody Event blog)
+	{
+		if(blogDAO.Update(blog)==false)
+		{
+			blog.setErrorCode("404");
+			blog.setErrorMessage("Event was not Updated.. !! ..!! .. Please Try Again After Some time..!!..!!..");
+		}
+		
+		else
+		{
+			blog.setErrorCode("404");
+			blog.setErrorMessage("Thank you !!..!!..Event is updated SuccessFully");
+		}
+		
+		return new ResponseEntity<Event>(blog, HttpStatus.OK);
+	}
+	
+
+}
+
+
+
+
+
+
+
+

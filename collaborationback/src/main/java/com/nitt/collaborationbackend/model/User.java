@@ -1,6 +1,6 @@
 package com.nitt.collaborationbackend.model;
 
-public class User {
+public class User extends BaseDomain {
 	
 	private String fname;
 	

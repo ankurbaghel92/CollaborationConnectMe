@@ -2,7 +2,7 @@ package com.nitt.collaborationbackend.model;
 
 import java.util.Date;
 
-public class Forum {
+public class Forum extends BaseDomain{
 
 	private int Id;
 	

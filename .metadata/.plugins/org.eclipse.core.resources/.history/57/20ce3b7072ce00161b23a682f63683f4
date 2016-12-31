@@ -1,0 +1,114 @@
+package com.nitt.collaborationbackend.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nitt.collaborationbackend.DAO.UserDAO;
+import com.nitt.collaborationbackend.model.User;
+
+@RestController
+public class UserController {
+
+	@Autowired
+	User user;
+	
+	@Autowired
+	UserDAO userDAO;
+	
+	//Get List of all users
+	//http://localhost:8080/collaboration/allusers
+	@RequestMapping("/allUsers")
+	public ResponseEntity<List<User>> getAllUser()
+	{
+		List<User> users = userDAO.list();
+		
+		if(users.isEmpty())
+		{
+			user.setErrorCode("404");
+			user.setErrorMessage("No User are available");
+			users.add(user);
+		}
+		
+		// errorcode	:200		:404
+		//errormessage	Success		:Not Found
+		
+		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+	}
+	
+	
+	
+	
+	//Get User by Id
+	//http://localhost:8080/collaboration/allusers/id
+	@RequestMapping("userById/{id}")
+	public ResponseEntity<User> getUserById(@PathVariable("id") String userEmailId)
+	{
+		user = userDAO.get(userEmailId);
+		
+		if(user==null)
+		{
+			user=new User();//to avoid NullPointerException
+			user.setErrorCode("404");
+			user.setErrorMessage("User Not Found with ID"+userEmailId);
+		}
+		
+		return new ResponseEntity<User>(user,HttpStatus.OK);
+	}
+	
+	
+	
+	
+	
+	//http://localhost:8080/collaboration/allusers/id/password
+	//Instead of Request mapping POST method we can use @PostMapping("authenticate") also
+		@RequestMapping(value="authenticate/{id}/{password}",method=RequestMethod.POST)
+		public ResponseEntity<User> authenticate(@RequestBody User user)
+		{
+			String userEmailId = ;
+			String password = user.getPassword();
+			user = userDAO.IsValidUser(user.getEmailId(), user.getPassword());
+			
+			if(user==null)
+			{
+				user=new User();//to avoid NullPointerException
+				user.setErrorCode("404");
+				user.setErrorMessage("Invalid Credentials,., Please Try Again");
+			}
+			
+			return new ResponseEntity<User>(user,HttpStatus.OK);
+		}
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

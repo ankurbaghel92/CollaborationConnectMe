@@ -1,0 +1,14 @@
+package com.nitt.collaborationbackend.model;
+
+import javax.persistence.Transient;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class BaseDomain {
+
+	public String errorCode;
+	
+	@Transient
+	public String errorMessage;
+}

@@ -1,0 +1,37 @@
+#navMenu{
+	
+	margin: 0;
+	padding: 0;
+}
+
+#navMenu ul{
+	
+	margin: 0;
+	padding: 0;
+}
+
+#red{
+	color: red;
+}
+
+#navMenu li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	
+}
+
+#navMenu ul li a{
+	text-decoration: none;
+	display: block;
+	height: 30px;
+	width: 150px;
+	font-family: sans-serif;
+	color: black;
+	
+}
+
+#navMenu ul ul{
+	
+	
+}

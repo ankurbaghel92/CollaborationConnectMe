@@ -1,0 +1,11 @@
+package com.nitt.collaborationbackend.model;
+
+public class JobApplication {
+	
+	private String Id;
+	
+	private String emailId;
+	
+	private Strint jobId;
+
+}

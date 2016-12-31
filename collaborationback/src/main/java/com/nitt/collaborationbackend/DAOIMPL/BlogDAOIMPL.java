@@ -43,7 +43,7 @@ public class BlogDAOIMPL implements BlogDAO {
 	}
 
 	@Transactional
-	public boolean Delete(Blog blog) {
+	public boolean delete(Blog blog) {
 		try {
 			sessionFactory.getCurrentSession().delete(blog);
 			return true;
@@ -54,7 +54,7 @@ public class BlogDAOIMPL implements BlogDAO {
 	}
 
 	@Transactional
-	public boolean Update(Blog blog) {
+	public boolean update(Blog blog) {
 		try {
 			sessionFactory.getCurrentSession().update(sessionFactory);
 			return true;

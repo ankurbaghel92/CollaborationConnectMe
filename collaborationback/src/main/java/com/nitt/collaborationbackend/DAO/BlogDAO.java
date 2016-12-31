@@ -10,9 +10,9 @@ public interface BlogDAO {
 	
 	public Blog get(String id);
 	
-	public boolean Delete(Blog blog);
+	public boolean delete(Blog blog);
 	
-	public boolean Update(Blog blog);
+	public boolean update(Blog blog);
 	
 	public List<Blog> list();
 

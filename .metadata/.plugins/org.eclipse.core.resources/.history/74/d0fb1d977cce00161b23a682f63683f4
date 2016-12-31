@@ -1,0 +1,7 @@
+package com.nitt.collaborationbackend.DAO;
+
+public interface JobApplicationDAO {
+	
+	public JobApplication getById(String Id);
+
+}

@@ -1,0 +1,53 @@
+package com.nitt.collaborationbackend.DAOIMPL;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.nitt.collaborationbackend.DAO.JobApplicationDAO;
+import com.nitt.collaborationbackend.model.JobApplication;
+
+public class JobApplicationDAOIMPL implements JobApplicationDAO {
+	
+	@Autowired
+	SessionFactory sessionFactory;
+	public JobApplicationDAOIMPL(SessionFactory sessionFactory)
+	{
+		this.sessionFactory = sessionFactory;
+	}
+
+	public JobApplication getById(String Id) {
+		return null;
+	}
+
+	public List<JobApplication> list() {
+		String hql= "From JobApplication";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		return query.list();
+	}
+
+	public boolean save(JobApplication jobApplication) {
+		try {
+			sessionFactory.getCurrentSession().save(jobApplication);
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+
+	public boolean update(JobApplication jobApplication) {
+		try {
+			sessionFactory.getCurrentSession().update(jobApplication);
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+}

@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 
-public class Blog {
+public class Blog extends BaseDomain {
 	
 	
 	private int Id;

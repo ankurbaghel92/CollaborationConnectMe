@@ -1,0 +1,15 @@
+#navMenu{
+	
+	margin: 0;
+	padding: 0;
+}
+
+#navmenu ul{
+	
+	margin: 0;
+	padding: 0;
+}
+
+#red{
+	color: red;
+}

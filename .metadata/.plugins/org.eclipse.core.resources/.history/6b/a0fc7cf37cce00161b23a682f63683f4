@@ -1,0 +1,17 @@
+package com.nitt.collaborationbackend.DAO;
+
+import java.util.List;
+
+import com.nitt.collaborationbackend.model.JobApplication;
+
+public interface JobApplicationDAO {
+	
+	public JobApplication getById(String Id);
+	
+	public List<JobApplication> list();
+	
+	public boolean save(JobApplication jobApplication);
+	
+	public boolean delete(JobApplication jobApplication);
+
+}

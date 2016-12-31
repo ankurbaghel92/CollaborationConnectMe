@@ -1,0 +1,22 @@
+#navMenu{
+	
+	margin: 0;
+	padding: 0;
+}
+
+#navMenu ul{
+	
+	margin: 0;
+	padding: 0;
+}
+
+#red{
+	color: red;
+}
+
+#navMenu li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
