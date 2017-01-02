@@ -1,0 +1,33 @@
+package collaborationback;
+
+import static org.junit.Assert.*;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+
+public class UserTestCases {
+
+	@Autowired
+	static User user;
+	
+	@Autowired
+	static UserDAO userDAO;
+	
+	@Autowired
+	static AnnotationConfigWebApplicationContext context;
+	
+	
+	@BeforeClass
+	public static void init()
+	{
+		
+	}
+	
+	/*@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+*/
+}

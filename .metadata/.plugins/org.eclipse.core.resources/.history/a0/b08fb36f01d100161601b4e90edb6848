@@ -1,0 +1,16 @@
+package collaborationback;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import junit.framework.TestCase;
+
+public class UserTestCases extends TestCase {
+	
+	
+	@Autowired
+	UserDAO userDAO;
+	
+	@Autowired
+	User user;
+
+}

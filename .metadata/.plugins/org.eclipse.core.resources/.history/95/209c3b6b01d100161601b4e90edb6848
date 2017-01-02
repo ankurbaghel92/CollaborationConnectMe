@@ -1,0 +1,7 @@
+package collaborationback;
+
+import junit.framework.TestCase;
+
+public class UserTestCases extends TestCase {
+
+}

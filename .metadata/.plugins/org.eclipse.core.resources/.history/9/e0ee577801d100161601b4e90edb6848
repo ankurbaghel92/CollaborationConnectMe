@@ -1,0 +1,21 @@
+package collaborationback;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.nitt.collaborationbackend.DAO.UserDAO;
+import com.nitt.collaborationbackend.model.User;
+
+import junit.framework.TestCase;
+
+public class UserTestCases extends TestCase {
+	
+	
+	@Autowired
+	UserDAO userDAO;
+	
+	@Autowired
+	static User user;
+	
+	
+
+}

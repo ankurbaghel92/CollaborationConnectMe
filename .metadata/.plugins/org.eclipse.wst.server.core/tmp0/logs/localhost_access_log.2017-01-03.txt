@@ -1,0 +1,2 @@
+0:0:0:0:0:0:0:1 - - [03/Jan/2017:00:04:06 +0530] "GET /collaborationback//userById/ HTTP/1.1" 404 992
+0:0:0:0:0:0:0:1 - - [03/Jan/2017:00:04:33 +0530] "GET /collaborationback//userById/%7BemailId%7D HTTP/1.1" 406 1110

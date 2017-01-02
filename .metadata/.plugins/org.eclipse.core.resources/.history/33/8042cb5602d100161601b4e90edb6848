@@ -1,0 +1,22 @@
+package collaborationback;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class UserTestCases {
+
+	@Autowired
+	static User user;
+	
+	@Autowired
+	statuc UserDAO userDAO;
+	
+	
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}
