@@ -59,3 +59,17 @@ button[type="submit"] {
 label {
 	color:#04519b;
 }
+
+
+.dropdown-menu li a{
+	text-align:center;
+/* 	text-decoration: none;
+ */	display: block;
+	height: 30px;
+	width: 150px;
+	font-family: sans-serif;
+	color: #ff80ff;
+	/* border: 1px solid black; */
+/* 	text-shadow: 1px 1px 1px #000;
+ */		
+}	

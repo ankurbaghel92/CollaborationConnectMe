@@ -1,5 +1,13 @@
 package com.nitt.collaborationbackend.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name="User")
+@Component
 public class User extends BaseDomain {
 	
 	private String fname;

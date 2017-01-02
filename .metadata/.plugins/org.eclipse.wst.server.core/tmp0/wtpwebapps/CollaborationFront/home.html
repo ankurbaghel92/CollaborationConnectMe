@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myapp">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
  <link rel="stylesheet" type="text/css" href="css/style1.css">
+ 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -15,103 +16,73 @@
 </head>
 <body>
 <header>
+
 <div class="header1">
 <img src="Images/logo3.jpg" width="200" height="100" class="header1">
 <input placeholder="Search Here,.,." type="text" id="searcharea" class="col-md-offset-2">
-<button type="button" class="btn btn-default btn-lg">Home</button>
-<button type="button" class="btn btn-default btn-lg">Blog</button>
-<button type="button" class="btn btn-default btn-lg">Group</button>
-<button type="button" class="btn btn-default btn-lg">Logout</button>
 
+
+
+<div class="btn-group" >
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Groups <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Create Group</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#">All Groups</a></li>
+      </ul>
+</div>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Blogs <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Create Blog</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#">Read Blogs</a></li>
+      </ul>
+</div>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Events <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Create Event</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#">All Event</a></li>
+      </ul>
+</div>
+
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Friends <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Friend Lists</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#">Search For a Friend</a></li>
+      </ul>
+</div>
+
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Logout <span class="caret"></span>
+  </button>
+  </div>
 </div>
 </header>
-<br><br><br>
-<div class="col-md-2">
 
-<div class="panel panel-default">
-  <div class="panel-heading">Groups</div>
-  <marquee onmouseover="this.stop()" onmouseout="this.start()">
-  <div class="panel-body">
-    Group1
-  </div>
-  <div class="panel-body">
-    Group2
-  </div>
-  <div class="panel-body">
-    Group3
-  </div>
-  <div class="panel-body">
-    Group4
-  </div>
-  </marquee>
-</div>
-
-<!-- <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Panel title</h3>
-  </div>
-  <div class="panel-body">
-    Panel content
-  </div>
-</div>
- --></div>
-<div class="container">
-<div class="row">
-<div class="col-md-8">
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Wall</h3>
-  </div>
-  <div class="panel-body">
-  
-<form>
-  <div class="form-group">
-    <textarea  class="form-control" placeholder="Write on the wall"></textarea>
-  </div>
-  <button type="submit" class="btn btn-default">Post</button>
-  <div class="pull-right">
-<div class="btn-group">
-  <button type="button" class="btn btn-default"><i class="fa fa-pencil" aria-hidden="true"></i> Text</button>
-  <button type="button" class="btn btn-default"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image</button>
-  <button type="button" class="btn btn-default"><i class="fa fa-file-video-o" aria-hidden="true"></i> Video</button>
-</div>
-</div>
-  </form>
-</div>
-</div>
-</div>
-<div class="col-md-2">
-
-<div class="panel panel-default">
-  <div class="panel-heading">Job Post</div>
-  <marquee onmouseover="this.stop()" onmouseout="this.start()">
-  <div class="panel-body">
-    Job1
-  </div>
-<div class="panel-body">
-    Job2
-  </div>
-<div class="panel-body">
-    Job3
-  </div>
-<div class="panel-body">
-    Job4
-  </div>
-</marquee>
+ <div ng-view="">
 
 </div>
-<!-- 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Panel title</h3>
-  </div>
-  <div class="panel-body">
-    Panel content
-  </div>
- --></div>
-</div>
-</div>
-</div>
-
 </body>
+<script src="resources/js/angular.js"></script>
+<script src="resources/js/angular-route.min.js"></script>
+<script src="app.js"></script>
+
 </html>

@@ -1,13 +1,15 @@
 #navMenu{
 	
-	margin: 0;
+	margin:0;
 	padding: 0;
+	
 }
 
 #navMenu ul{
 	
 	margin: 0;
-	padding: 0;
+	
+	padding:0;
 	line-height: 30px;
 }
 
@@ -16,7 +18,8 @@
 }
 
 #navMenu li{
-	margin: 0;
+	margin-right:20px;
+	
 	padding: 0;
 	list-style: none;
 	float: left;
