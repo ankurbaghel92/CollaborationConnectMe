@@ -63,13 +63,21 @@ label {
 
 .dropdown-menu li a{
 	text-align:center;
-/* 	text-decoration: none;
- */	display: block;
-	height: 30px;
+ 	display: block;
+	/* height: 80px;
 	width: 150px;
-	font-family: sans-serif;
-	color: #ff80ff;
-	/* border: 1px solid black; */
-/* 	text-shadow: 1px 1px 1px #000;
- */		
+	 */font-family: sans-serif;
+ 	text-shadow: 1px 1px 1px #000; 
+ 	color: #ffff00;
 }	
+
+.dropdown-menu li{
+	margin-right:20px;
+	padding: 0;
+	list-style: none;
+/* 	float: right;
+ */	position: relative;
+	
+	
+}
+

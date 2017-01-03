@@ -26,7 +26,16 @@ public class UserController {
 	// Get List of all users
 	// http://localhost:8080/collaboration/allusers
 	
-	@RequestMapping(value="/allUsers")
+	//headers="Accept=application/json"
+	@RequestMapping(value="/helloworld",method=RequestMethod.GET)
+	
+	public String Hello()
+	{
+		return "Hello";
+	}
+	
+	
+	@RequestMapping(value="/allUsers",method=RequestMethod.GET)
 	public ResponseEntity<List<User>> getAllUser() {
 		List<User> users = userDAO.list();
 
@@ -44,14 +53,15 @@ public class UserController {
 
 	// Get User by Id
 	// http://localhost:8080/collaboration/allusers/id
-	@RequestMapping("/userById/{id}")
+	
+	@RequestMapping(value="/userById/{id}",method=RequestMethod.GET,headers="Accept=application/json")
 	public ResponseEntity<User> getUserById(@PathVariable("id") String userEmailId) {
 		user = userDAO.get(userEmailId);
 
 		if (user == null) {
 			user = new User();// to avoid NullPointerException
 			user.setErrorCode("404");
-			user.setErrorMessage("User Not Found with ID" + userEmailId);
+			user.setErrorMessage("User Not Found with ID  " + userEmailId);
 		}
 
 		return new ResponseEntity<User>(user, HttpStatus.OK);
@@ -69,7 +79,10 @@ public class UserController {
 	// Instead of Request mapping POST method we can use
 	// @PostMapping("authenticate") also
 	// sending values from request body--- {"emailId":"abc", "password":"xyz"}
-	@RequestMapping(value = "/authenticate/{emailId}/{password}", method = RequestMethod.POST)
+	
+/*	@RequestMapping(value = "/authenticate/{emailId}/{password}", method = RequestMethod.POST)
+*/
+	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<User> authenticate(@RequestBody User user) {
 		user = userDAO.IsValidUser(user.getEmailId(), user.getPassword());
 
@@ -91,7 +104,7 @@ public class UserController {
 	
 	
 	
-	@RequestMapping(value = "/registerUser/", method = RequestMethod.POST)
+	@RequestMapping(value = "/registerUser", method = RequestMethod.POST)
 	public ResponseEntity<User> registerUser(@RequestBody User user) {
 		
 
