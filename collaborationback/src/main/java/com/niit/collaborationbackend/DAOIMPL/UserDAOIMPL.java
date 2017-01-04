@@ -84,7 +84,7 @@ public class UserDAOIMPL implements UserDAO {
 	@Transactional
 		public User IsValidUser(String emailId, String password) {
 		try{
-			String hql = "FROM User o where o.email= :email and o.password= :password";
+			String hql = "FROM User o where o.emailId= :email and o.password= :password";
 			Query st  = sessionFactory.getCurrentSession().createQuery(hql);
 			st.setString("email", emailId);
 			st.setString("password", password);

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.collaborationbackend.DAO.BlogDAO;
@@ -23,7 +24,7 @@ public class BlogController {
 	BlogDAO blogDAO;
 	
 	//Get List Of ALL Blogs
-	@RequestMapping("allBlogs")
+	@RequestMapping(value="/allBlogs",method=RequestMethod.GET)
 	public ResponseEntity<List<Blog>> getAllBlog()
 	{
 		List<Blog> blogs = blogDAO.list();
@@ -41,7 +42,7 @@ public class BlogController {
 
 	
 	//Get Blog By Id
-	@RequestMapping("/blogById/{id")
+	@RequestMapping(value="/blogById/{id}",method=RequestMethod.GET)
 	public ResponseEntity<Blog> getBlogByID(@PathVariable("id") String blogId)
 	{
 		 blog = blogDAO.get(blogId);
@@ -58,7 +59,7 @@ public class BlogController {
 	
 	
 	//Save a new Blog
-	@RequestMapping("/saveblog")
+	@RequestMapping(value="/saveblog",method=RequestMethod.POST)
 	public ResponseEntity<Blog> saveBlog(@RequestBody Blog blog)
 	{
 		if(blogDAO.save(blog)==false)

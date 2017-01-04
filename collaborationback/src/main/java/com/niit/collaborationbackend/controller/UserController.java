@@ -54,7 +54,7 @@ public class UserController {
 	// Get User by Id
 	// http://localhost:8080/collaboration/allusers/id
 	
-	@RequestMapping(value="/userById/{id}",method=RequestMethod.GET,headers="Accept=application/json")
+	@RequestMapping(value="/userById/{id}",method=RequestMethod.GET)
 	public ResponseEntity<User> getUserById(@PathVariable("id") String userEmailId) {
 		user = userDAO.get(userEmailId);
 
@@ -82,7 +82,7 @@ public class UserController {
 	
 /*	@RequestMapping(value = "/authenticate/{emailId}/{password}", method = RequestMethod.POST)
 */
-	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+	@RequestMapping(value = "/authenticate/", method = RequestMethod.POST)
 	public ResponseEntity<User> authenticate(@RequestBody User user) {
 		user = userDAO.IsValidUser(user.getEmailId(), user.getPassword());
 

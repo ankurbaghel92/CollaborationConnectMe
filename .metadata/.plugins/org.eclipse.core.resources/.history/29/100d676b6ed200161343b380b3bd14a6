@@ -1,0 +1,7 @@
+"use strict"
+app.factory('UserServices','http','$q','$rootScope',function($http,$q,$rootScope){
+	
+	
+	
+	
+})

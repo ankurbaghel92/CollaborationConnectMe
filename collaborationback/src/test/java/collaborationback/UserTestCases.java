@@ -53,16 +53,29 @@ public class UserTestCases {
 	//@Test
 	public void GetuserTestCase() {
 		User user = userDAO.get("ankur.baghel92@gmail.com");
+		
 		System.out.println(user.getPassword());
+		System.out.println(user.getFname());
 		Assert.assertEquals("Get One user Test Case", null, userDAO.get("ankur.baghel92@gmail.com"));
 	}
 
 	
-	@Test
+	//@Test
 	public void ListuserTestCase() {
 		Assert.assertEquals("Get One user Test Case", null, userDAO.list());
 	}
 	
+	
+	@Test
+	public void IsValidUserTestCase(){
+		
+		//Assert.assertEquals("IsValidUserTestCAse", 1, userDAO.IsValidUser("ankur.baghel92@gmail.com", "Ankurb92"));
+		
+		User u = userDAO.IsValidUser("ankur.baghel92@gmail.com", "Ankurb92");
+		System.out.println("--------------------------------------------------------------------------------------->"+u.getFname());
+		System.out.println(u.getIsOnline());
+		System.out.println(u.getMobile());
+	}
 	
 	/*@Test
 	public void test() {
