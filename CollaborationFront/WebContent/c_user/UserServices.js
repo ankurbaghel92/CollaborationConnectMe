@@ -1,10 +1,12 @@
 "use strict"
+
 app.factory('UserServices','http','$q','$rootScope',function($http,$q,$rootScope){
 	
 	var BaseURL='http://localhost:8088/collaborationback'
 	
 		return{
 		
+		//start of fetchAllUsers
 		fetchAllUsers:function(){
 			return $http.get(BaseUrl+'/allUsers')
 			.then(
@@ -13,9 +15,12 @@ app.factory('UserServices','http','$q','$rootScope',function($http,$q,$rootScope
 					},
 					null
 				)
-		},//end of fetchAllUser:function()
+		},//end of fetchAllUsers:function()
 	
-	createUser:function(user){
+
+		
+		//start of createUser function()
+		createUser:function(user){
 		return $http.post(BaseURL+'/registerUser/',user)
 		.then(
 				function(Response){
@@ -26,9 +31,12 @@ app.factory('UserServices','http','$q','$rootScope',function($http,$q,$rootScope
 				}
 				
 		);
-		
 	},//end of createUser function()
 	
+	
+	
+	
+	//start of updateUser function()
 	updateUser:function(user){
 		return $http.put(BaseURL+'/updateUser/'+user)
 		.then(
@@ -40,10 +48,14 @@ app.factory('UserServices','http','$q','$rootScope',function($http,$q,$rootScope
 			{
 				return $q.reject(errResponse);
 			}
-			
 		);
 	},//end of updateUser function()
 	
+	
+	
+	
+	
+	//start of accept function()
 	accept:function(id){
 		return $http.get(BaseURL+'/userById'+id)
 		.then(
@@ -55,11 +67,14 @@ app.factory('UserServices','http','$q','$rootScope',function($http,$q,$rootScope
 				{
 					return $q.reject(errResponse);
 				}
-		
 		);
 
 	},//end of accept function()
 	
+	
+	
+	
+	//start of the authenticate function()
 	authenticate:function(user){
 		return $http.post(BaseURL+'/authenticate/',user)
 		.then(
@@ -71,7 +86,23 @@ app.factory('UserServices','http','$q','$rootScope',function($http,$q,$rootScope
 					return $q.reject(errResponse);
 				}
 		);
-	}
+	}, //end of authenticate function()
+	
+	
+	
+	//start of myProfile function()
+	myProfile : function(){
+		return $http.get(BasURL+'/myprofile').then
+		(
+				function(Response)
+				{
+					return Response.data;
+				},
+				null
+		)
+		
+	}//end of myProfile function()
+	
 	
 	}
 	

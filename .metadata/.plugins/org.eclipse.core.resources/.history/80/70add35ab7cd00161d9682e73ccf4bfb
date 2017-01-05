@@ -1,7 +1,0 @@
-package com.nitt.collaborationbackend.model;
-
-public class Event {
-	
-	private int Id;
-
-}

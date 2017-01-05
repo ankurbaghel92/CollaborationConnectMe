@@ -1,8 +1,0 @@
-package com.nitt.collaborationbackend.DAOIMPL;
-
-import org.springframework.stereotype.Repository;
-
-@Repository("blogDAO")
-public class BlogDAOIMPL {
-
-}

@@ -1,0 +1,12 @@
+"use strict"
+
+app.controller('UserController',['$scope','UserServices','$location','$rootScope','$cookieStore','$http',
+                                 function($scope, $UserServices, $location, $rootScope, $cookieStore, $http){
+	
+										var self =this;
+									
+										self.user = {fname : '', lname : '', emailId : '', password : '', mobile : '', role : '', isOnline : '', status : '', errorCode : '',
+													 errorMessage : '', gender : '', reason: ''	}
+										
+										self.users = [];
+}])

@@ -1,5 +1,0 @@
-package com.nitt.collaborationbackend.DAOIMPL;
-
-public interface EventDAO {
-
-}

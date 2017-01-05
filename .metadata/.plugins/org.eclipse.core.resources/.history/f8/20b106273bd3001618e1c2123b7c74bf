@@ -1,0 +1,12 @@
+"use strict"
+
+app.factory('BlogServices', '$http', '$rootScope', '$q',function($http, $rootScope, $q){
+
+	var BaseURL='http://localhost:8088/collaborationback'
+
+	
+	return{
+		
+		
+	}
+})

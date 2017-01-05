@@ -1,0 +1,5 @@
+"use strict"
+
+app.factory('BlogServices', '$http', '$rootScope', '$q',function($http, $rootScope, $q){
+	
+})
