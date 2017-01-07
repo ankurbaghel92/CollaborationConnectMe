@@ -1,0 +1,11 @@
+
+app.controller('BlogController',['$BlogServices','$http','$q','$location','$rootScope','$scope',function($BlogServices,$http,$q,$location,$rootScoper,$scope){
+	
+	var self=this;
+	
+	self.blog= {id:'', tittle:'', emailId:'', Date_time:'', status:'', reason:'', description:''};
+	
+	self-blogs = [];
+	
+	
+}])

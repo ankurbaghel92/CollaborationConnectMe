@@ -1,3 +1,0 @@
-"use strict"
-
-app.controller('UserController',['$scope','UserServices','$location','$rootScope','cookiesStore'])

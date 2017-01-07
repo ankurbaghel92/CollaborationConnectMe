@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html ng-app="myapp">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -13,26 +13,92 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body ng-controller="UserController as ctrl">
 <header>
 <div class="container">
-<img src="Images/logo3.jpg" width="200" height="100" class="logo" id="logo">
-<form class="form-inline">
+<img src="Images/logo3.jpg" width="100" height="100" class="logo" id="logo">
+ 
+ <div class="btn-group">
+ <a href="#/home"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Home  </button></a>
+  </div>
+ 
+ <div class="btn-group" >
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Groups <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#/createforum">Create Group</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#">All Groups</a></li>
+      </ul>
+</div>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Blogs <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#/createblog">Create Blog</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#/bloghome">Read Blogs</a></li>
+      </ul>
+</div>
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Events <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#/createevent">Create Event</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#/eventhome">All Event</a></li>
+      </ul>
+</div>
+
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Friends <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Friend Lists</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="#">Search For a Friend</a></li>
+      </ul>
+</div>
+ 
+ <div class="btn-group col-md-offset-2">
+ <a href="#/register"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Register  </button></a>
+  </div>
+   
+ <div class="btn-group">
+<a href="#/login"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Login  </button></a>
+  </div> 
+  
+  
+   <div class="btn-group">
+<a href=""><button type="button" ng-click="test()" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Test  </button></a>
+  </div>  </div>
+<!--  <div ng-hide="IsLoggedIn=='true'">
+ --><!-- <form class="form-inline">
   <div class="form-group">
     <input type="email" class="form-control" placeholder="Email">
   </div>
   <div class="form-group">
     <input type="password" class="form-control"  placeholder="Password">
   </div>
-  <button type="submit" class="btn btn-default">Sign in</button><br>
+  <a href="login.html"><button type="submit" class="btn btn-default" > Sign in</button></a><br>
   <div class="checkbox">
-    <label>
-      <input type="checkbox"> Remember me
-    </label>
-  </div>
+   <a href="#/register">Register here</a> </div>
   </form>
-</div>
-</header>
+  -->
+  
+<!-- </div>
+ --></header>
 <!-- <div class="collapse navbar-collapse">
 
 <nav class="navbar navbar-default">
@@ -78,7 +144,7 @@
 </div>
 
 </div> -->
-<table class="table" style=" background: linear-gradient(white, lightblue);">
+<!-- <table class="table" style=" background: linear-gradient(white, lightblue);">
 <tr>
 <td width="70%" valign="top" style="padding-top: 10px">
 <center> <h2 style="color:#04519b">Connect Me !! <br><small style="color:#04519b">It Helps you to Connect with Friends, Search for Jobs, Read Blogs</small> </h2></center>
@@ -126,13 +192,13 @@
     <h4>  <input type="radio" name="optradio">Student</h4>
     </label>
  </div> 
-  <!-- 
+  
   <div class="form-group">
     <div class="col-sm-10">
       <input type="text" class="form-control" placeholder="Role">
     </div>
   </div>
-   -->
+  
   <div class="form-group">
     <div class="col-sm-10">
       <input type="text" class="form-control" placeholder="Password">
@@ -145,7 +211,7 @@
     </div>
   </div>
   
-  <!-- <div class="form-group">
+  <div class="form-group">
     <div class="col-sm-10">
       <input type="text" class="form-control" placeholder="Gender">
     </div>
@@ -156,7 +222,7 @@
       <input type="text" class="form-control" placeholder="Enabled">
     </div>
   </div>
-   -->
+  
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default btn-lg">Sign up</button>
@@ -166,12 +232,15 @@
 </td>
 </tr>
 </table>
+ -->
 
 
 
+ <div ng-view="">
 
+</div>
 
-
+<div ng-include src="'footer.html'"></div>
 
 
 
@@ -180,4 +249,8 @@
 
 <script src="resources/js/angular.js"></script>
 <script src="resources/js/angular-route.min.js"></script>
+<script src="app.js"></script>
+<script src="c_user/UserController.js"></script>
+<script src="c_user/UserServices.js"></script>
+
 </html>

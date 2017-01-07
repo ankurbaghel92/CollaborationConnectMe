@@ -1,7 +1,0 @@
-package com.nitt.collaborationbackend.DAOIMPL;
-
-import com.nitt.collaborationbackend.DAO.JobApplicationDAO;
-
-public class JobApplicationDAOIMPL implements JobApplicationDAO {
-
-}

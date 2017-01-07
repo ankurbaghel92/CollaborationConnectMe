@@ -1,6 +1,6 @@
 "use strict"
 
-app.factory('UserServices','http','$q','$rootScope',function($http,$q,$rootScope){
+app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootScope){
 	
 	var BaseURL='http://localhost:8088/collaborationback'
 	
@@ -106,4 +106,4 @@ app.factory('UserServices','http','$q','$rootScope',function($http,$q,$rootScope
 	
 	}
 	
-})
+}])

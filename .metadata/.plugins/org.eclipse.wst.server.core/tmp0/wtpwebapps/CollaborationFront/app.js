@@ -7,6 +7,16 @@ app.config(function($routeProvider){
 		templateUrl:'c_blog/blogHome.html'
 	})
 	
+	.when('/login',{
+		templateUrl:'c_user/login.html',
+			controller:'UserController'
+	})
+
+	.when('/register',{
+		templateUrl:'c_user/register.html'
+	})
+
+	
 	.when('/createblog',{
 		templateUrl:'c_blog/createBlog.html'
 	})
@@ -48,13 +58,13 @@ app.config(function($routeProvider){
 	
 	
 	
-		.when('/login',{
+		/*.when('/login',{
 			
 			templateUrl:'login.html',
 			controller:'LoginController'
 
 		})
-
+*/
 		.when('/logout',{
 			
 			templateUrl:'logout.html',

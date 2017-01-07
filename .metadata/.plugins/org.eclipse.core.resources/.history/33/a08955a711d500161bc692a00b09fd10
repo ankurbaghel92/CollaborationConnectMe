@@ -1,0 +1,2 @@
+
+app.controller('BlogController',['$BlogServices','$http','$q','$location','$rootScope','$scope'])

@@ -1,7 +1,0 @@
-package com.nitt.collaborationbackend.DAO;
-
-public interface JobApplication {
-	
-	public List<>
-
-}

@@ -1,1 +1,6 @@
 1483383354174	Delete element
+1483805505393	Move 'leftpanel.html' to 'WebContent'
+1483810385519	Move 2 resources to 'c_user'
+1483812768315	Move 'UserController.js' to 'WebContent'
+1483815146441	Move 'UserController.js' to 'c_user'
+1483818037998	Move 'BlogServices.js' to 'c_blog'
