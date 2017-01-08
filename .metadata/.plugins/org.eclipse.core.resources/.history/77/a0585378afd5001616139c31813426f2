@@ -1,0 +1,14 @@
+"use strict"
+
+app.controller('ForumController',['ForumServices','$http','$q','$location','$scope','$rootScope',function($http,$scope,$rootScope,$q,$location){
+	
+	var self = this;
+	
+	self.forum = {};
+	
+	self.forums = [];
+	
+	
+	
+	
+}])

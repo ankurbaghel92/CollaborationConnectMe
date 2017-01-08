@@ -1,0 +1,11 @@
+package com.niit.collaborationbackend.model;
+
+public class Friend extends BaseDomain {
+	
+	private int Id;
+	
+	private emailID;
+	
+	private
+
+}

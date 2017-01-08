@@ -18,7 +18,9 @@ app.config(function($routeProvider){
 
 	
 	.when('/createblog',{
-		templateUrl:'c_blog/createBlog.html'
+		templateUrl:'c_blog/createBlog.html',
+			controller:'BlogController'
+
 	})
 
 		.when('/jobHome',{

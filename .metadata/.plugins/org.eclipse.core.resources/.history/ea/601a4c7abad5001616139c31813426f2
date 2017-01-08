@@ -1,0 +1,16 @@
+package com.niit.collaborationbackend.DAOIMPL;
+
+import com.niit.collaborationbackend.DAO.FriendDAO;
+import com.niit.collaborationbackend.model.Friend;
+
+public class FriendDAOIMPL implements FriendDAO {
+
+	public boolean save(Friend friend) {
+		return false;
+	}
+
+	public boolean delete(Friend friend) {
+		return false;
+	}
+
+}

@@ -37,7 +37,8 @@ $scope.message="Message From User Contoller"
 	
 
 app.controller('UserController',['$scope','UserServices','$location','$rootScope','$http',
-                                 function($scope, $UserServices, $location, $rootScope, $http){
+                                 function($scope, UserServices, $location, $rootScope, $http){
+	$scope.message="Message From User Contoller"
 
 										var self =this;
 									

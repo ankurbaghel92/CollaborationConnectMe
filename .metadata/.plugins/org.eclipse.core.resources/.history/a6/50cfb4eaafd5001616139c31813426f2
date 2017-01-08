@@ -1,0 +1,28 @@
+"use strict"
+
+app.controller('ForumController',['ForumServices','$http','$q','$location','$scope','$rootScope',function($http,$scope,$rootScope,$q,$location){
+	
+	var self = this;
+	
+	self.forum = {Id : '', emailId : '', message : '', Date_Time: ''};
+	
+	self.forums = [];
+	
+	self.fetchAllForums = function()
+	{
+		ForumServices.fetchAllForum().then
+		(
+				function(d)
+				{
+					self.forums = d;
+				},
+				function(errResponse)
+				{
+					console.log("Error while fetching all the forums,.,!!,.,!!,.,")
+				}
+		)
+	}
+	
+	
+	
+}])

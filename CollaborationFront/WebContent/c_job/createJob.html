@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
 <head>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -22,7 +22,13 @@ padding-right: 300px
 }
 </style>
 <body>
-<div class="panel panel-login">
+ -->
+ <div ng-include src="'leftpanel.html'"></div>
+ {{message}}
+ <div ng-controller="JobController as ctrl">
+ <div class="col-md-10">
+ 
+ <div class="panel panel-login">
   <div class="row" >
    
      <div class="col-md-10">
@@ -44,7 +50,7 @@ padding-right: 300px
    
          <div class="col-sm-8">
              
- <input type="text" placeholder="JOB ID" class="form-control">
+ <input type="text" placeholder="JOB ID" class="form-control" ng-model="ctrl.job.Id" id="Id">
     
        </div>
     </h4>       </div>
@@ -59,7 +65,7 @@ padding-right: 300px
    
          <div class="col-sm-8">
              
- <input type="text" placeholder="JOB Tittle" class="form-control">
+ <input type="text" placeholder="JOB Tittle" class="form-control" ng-model="ctrl.job.tittle" id="tittle">
     
        </div>
     </h4>       </div>
@@ -73,7 +79,7 @@ padding-right: 300px
    
          <div class="col-sm-8">
              
- <input type="text" placeholder="Required Qualification" class="form-control">
+ <input type="text" placeholder="Required Qualification" class="form-control" ng-model="ctrl.job.qualification" id="qualification">
     
        </div>
     </h4>       </div>
@@ -87,7 +93,7 @@ padding-right: 300px
     
         <div class="col-sm-8">
             
-  <textarea placeholder="Blog Body" class="form-control">
+  <textarea placeholder="Blog Body" class="form-control" ng-model="ctrl.job.description" id="description">
  </textarea> 
      
      </div>
@@ -104,7 +110,7 @@ padding-right: 300px
     
           <div class="pull-right">
              
-   <button style="color:#0084c6" type="submit" class="btn btn-default">Cancel</button>
+   <button style="color:#0084c6" type="submit" class="btn btn-default" ng-click="ctrl.reset()">Reset</button>
        
     <button type="submit" class="btn btn-primary">Save</button>
  
@@ -114,6 +120,7 @@ padding-right: 300px
      </div>
      
      </div>
+     </div>
 
        
  </fieldset>
@@ -121,6 +128,6 @@ padding-right: 300px
    </form>
  </div>
  </div>
-  </div>
-</body>
-</html>
+  </div></div>
+<!-- </body>
+</html> -->

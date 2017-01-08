@@ -57,7 +57,7 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 	
 	//start of accept function()
 	accept:function(id){
-		return $http.get(BaseURL+'/userById'+id)
+		return $http.get(BaseURL+'/userById/'+id)
 		.then(
 				function(Response)
 				{

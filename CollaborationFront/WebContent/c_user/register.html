@@ -24,9 +24,18 @@
 <td width="30%" style="padding-top: 10px">
 <h2 style="color:#04519b">Sign up Below.....</h2>
 {{message}}
-<form class="form-horizontal">
-  
-  <div class="form-group">
+
+
+
+
+
+
+
+
+
+
+<form name="form" ng-submit="ctrl.submit()" class="form-horizontal">
+     <div class="form-group">
     <div class="col-sm-10">
       <input type="text" class="form-control" placeholder="First name" ng-model="ctrl.user.fname" id="fname">
     </div>

@@ -1,0 +1,19 @@
+package com.niit.collaborationbackend.model;
+
+import javax.persistence.*;
+public class Friend extends BaseDomain {
+	
+	@Id
+	private int Id;
+	
+	private String emailID;
+	
+	private String friendEmailId;
+	
+	private char status;
+	
+	@Column(name="IS_ONLINE")
+
+	private char isOnline;
+
+}

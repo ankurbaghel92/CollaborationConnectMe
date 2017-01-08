@@ -23,7 +23,7 @@ public class ForumController {
 	ForumDAO forumDAO;
 	
 	//Get List Of ALL Forums
-	@RequestMapping("allForums")
+	@RequestMapping("/allForums")
 	public ResponseEntity<List<Forum>> getAllForum()
 	{
 		List<Forum> forums = forumDAO.list();
@@ -41,7 +41,7 @@ public class ForumController {
 
 	
 	//Get Forum By Id
-	@RequestMapping("/forumById/{id")
+	@RequestMapping("/forumById/{id)")
 	public ResponseEntity<Forum> getForumByID(@PathVariable("id") String forumId)
 	{
 		 forum = forumDAO.get(forumId);

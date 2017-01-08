@@ -1,0 +1,24 @@
+package com.niit.collaborationbackend.model;
+
+import javax.persistence.*;
+
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name="friend")
+@Component
+public class Friend extends BaseDomain {
+	
+	@Id
+	private int Id;
+	
+	private String emailID;
+	
+	private String friendEmailId;
+	
+	private char status;
+	
+	@Column(name="IS_ONLINE")
+	private char isOnline;
+
+}
