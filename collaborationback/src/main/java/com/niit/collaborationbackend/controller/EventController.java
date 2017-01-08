@@ -23,7 +23,7 @@ public class EventController {
 	EventDAO eventDAO;
 	
 	//Get List Of ALL Events
-	@RequestMapping("allEvents")
+	@RequestMapping("/allEvents")
 	public ResponseEntity<List<Event>> getAllEvent()
 	{
 		List<Event> events = eventDAO.list();

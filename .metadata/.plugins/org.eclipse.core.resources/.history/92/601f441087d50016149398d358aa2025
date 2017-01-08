@@ -1,0 +1,34 @@
+"use strict"
+
+app.factory('EventServies','$http','$q','$scope','$rootScope',function($http,$q,$scope,$rootScope){
+
+	var BaseURL='http://localhost:8088/collaborationback'
+	
+		return
+		{
+			fetchAllEvents:function()
+			(
+					return $http.get(BaseURL+'/allEvents').
+			)
+			
+			
+		}
+	
+	
+	
+	
+	
+	
+})
+
+
+
+
+
+
+
+
+
+
+
+

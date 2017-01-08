@@ -23,7 +23,7 @@ public class JobApplicationController {
 	JobApplicationDAO jobApplicationDAO;
 	
 	//Get List Of ALL JobApplications
-	@RequestMapping("allJobApplications")
+	@RequestMapping("/allJobApplications")
 	public ResponseEntity<List<JobApplication>> getAllJobApplication()
 	{
 		List<JobApplication> jobApplications = jobApplicationDAO.list();
@@ -41,7 +41,7 @@ public class JobApplicationController {
 
 	
 	//Get JobApplication By Id
-	@RequestMapping("/jobApplicationById/{id")
+	@RequestMapping("/jobApplicationById/{id}")
 	public ResponseEntity<JobApplication> getJobApplicationByID(@PathVariable("id") String jobApplicationId)
 	{
 		 jobApplication = jobApplicationDAO.get(jobApplicationId);

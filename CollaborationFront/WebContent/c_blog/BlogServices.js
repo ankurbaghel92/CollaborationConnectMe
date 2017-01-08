@@ -22,7 +22,7 @@ app.factory('BlogServices', '$http', '$rootScope', '$q',function($http, $rootSco
 		
 		//start of createBlog function()
 		createBlog:function(blog){
-			return $http.post(BaseURL+'/saveblog/',user).then(
+			return $http.post(BaseURL+'/saveBlog/',user).then(
 				function(Response){
 					return Response.data;
 				},

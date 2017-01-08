@@ -1,0 +1,34 @@
+"use strict"
+
+app.controller('JobController',['JobServices','$http','$q','$rootScope','$location','$scope',function($http,$q,$location,$scope,$rootScope)
+{
+	var self = this;
+	
+	self.job = {id : '', tittle : '', qualification : '', description : '', status : '', date : ''};
+	
+	self.jobs = [];
+	
+	self.fetchAllJobs = function()
+	{
+		JobServices.fetchAllJobs().then
+		(
+				function(d)
+				{
+					self.jobs=d;
+				},
+				function(errResponse)
+				{
+					console.log("Error While Fetching all Jobs !!,.,!!,.,.")
+				}
+		)
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}])
+

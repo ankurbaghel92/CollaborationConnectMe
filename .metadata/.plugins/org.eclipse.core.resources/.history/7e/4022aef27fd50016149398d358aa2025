@@ -1,0 +1,9 @@
+"use stict"
+
+app.factory('JobServices'['$http','$q','$rootScope',function($http,$q,$rootScope)
+                          {
+	
+                          }
+                          
+                          
+                          ])

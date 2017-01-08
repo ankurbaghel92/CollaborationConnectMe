@@ -1,0 +1,3 @@
+"use strict"
+
+app.controller('JobController',['JobServices','$http','$q','$rootScope','$location','$scope'])

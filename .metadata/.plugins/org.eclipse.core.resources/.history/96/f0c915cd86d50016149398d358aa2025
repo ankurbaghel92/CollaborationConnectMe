@@ -1,0 +1,26 @@
+"use strict"
+
+app.factory('EventServies','$http','$q','$scope','$rootScope',function($http,$q,$scope,$rootScope){
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+})
+
+
+
+
+
+
+
+
+
+
+
+

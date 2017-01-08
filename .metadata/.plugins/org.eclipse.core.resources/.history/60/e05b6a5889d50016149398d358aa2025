@@ -1,0 +1,9 @@
+"use strict"
+
+app.controller('EventController',['EventServices','$http','$location','$scope','$rootScope',function($http,$location,$scope,$rootScope){
+
+	
+	
+	
+	
+}])

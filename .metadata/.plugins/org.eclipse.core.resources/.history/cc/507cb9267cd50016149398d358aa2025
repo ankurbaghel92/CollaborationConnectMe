@@ -1,0 +1,16 @@
+package com.niit.collaborationbackend.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.niit.collaborationbackend.DAOIMPL.JobDAOIMPL;
+
+@Component
+public class JobController {
+
+	@Autowired
+	Job job;
+	
+	JobDAOIMPL jobDAOIMPL;
+	
+}

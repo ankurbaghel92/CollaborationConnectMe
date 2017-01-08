@@ -59,7 +59,7 @@ public class BlogController {
 	
 	
 	//Save a new Blog
-	@RequestMapping(value="/saveblog",method=RequestMethod.POST)
+	@RequestMapping(value="/saveBlog",method=RequestMethod.POST)
 	public ResponseEntity<Blog> saveBlog(@RequestBody Blog blog)
 	{
 		if(blogDAO.save(blog)==false)
