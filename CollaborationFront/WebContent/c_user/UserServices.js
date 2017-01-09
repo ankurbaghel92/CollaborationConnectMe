@@ -8,7 +8,7 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 		
 		//start of fetchAllUsers
 		fetchAllUsers:function(){
-			return $http.get(BaseUrl+'/allUsers')
+			return $http.get(BaseURL+'/allUsers')
 			.then(
 					function(Response){
 						return Response.data;
@@ -79,12 +79,13 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 		return $http.post(BaseURL+'/authenticate/',user)
 		.then(
 				function(Response){
-					return Response;
+					return Response.data;
 				},
-				function(errResponse)
+				null
+				/*function(errResponse)
 				{
 					return $q.reject(errResponse);
-				}
+				}*/
 		);
 	}, //end of authenticate function()
 	

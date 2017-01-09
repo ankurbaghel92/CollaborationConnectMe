@@ -15,7 +15,7 @@
 <body>
  -->
  
-<div ng-controller="UserController">
+<div ng-controller="UserController as ctrl">
 <table class="table" style=" background: linear-gradient(white, lightblue);">
 <tr>
 <td width="70%" valign="top" style="padding-top: 10px">
@@ -26,20 +26,20 @@
 <h2 style="color:#04519b">Login Here.....</h2>
 {{message}}
 
-<form class="form-horizontal">
+<form class="form-horizontal" name="form" ng-submit="ctrl.login()">
   
   
   
   
   <div class="form-group">
     <div class="col-sm-10">
-      <input type="text" class="form-control" placeholder="UserName">
+      <input type="text" class="form-control" placeholder="UserName" ng-model="ctrl.user.emailId" id="emailId">
     </div>
   </div>
   
   <div class="form-group">
     <div class="col-sm-10">
-      <input type="text" class="form-control" placeholder="Password">
+      <input type="text" class="form-control" placeholder="Password" ng-model="ctrl.user.password" id="password">
     </div>
   </div>
   

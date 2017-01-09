@@ -1,0 +1,11 @@
+<div ng-controller="UserController as ctrl">
+
+	<div ng-repeat ="user on ctrl">
+	
+		<span class ="<span class="glyphicon glyphicon-user " style="color:DarkCyan"></span>	
+		{{user.name}}
+				
+	</div>
+
+
+</div>

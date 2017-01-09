@@ -84,6 +84,30 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										
 										
 										
+										self.authenticate = function(user)
+										{
+											UserServices.authenticate(user).then
+											(
+													function(d)
+													{
+														self.user = d;
+														if(self.user.errorCode =="404")
+															{
+																alert(self.user.errorMessage)
+																self.emailId=''
+																self.password=''
+																
+															}
+														else
+															{
+																$rootScope.currentUser = self.user
+																$rootScope.IsLoggedIn="true"
+																$location.path('/createblog')
+															}
+													}
+											)
+										}
+										
 										
 										//start of myProfile function()
 										self.myProfile = function(){
@@ -111,8 +135,14 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										};//end of submit function()
 										
 										
+										self.login = function()
+										{
+											self.authenticate(self.user)
+										}
 										
 										
+										
+										self.fetchAllUsers();
 										
 										//start of reset function
 										self.reset = function(){

@@ -6,6 +6,11 @@ app.config(function($routeProvider){
 	.when('/bloghome',{
 		templateUrl:'c_blog/blogHome.html'
 	})
+
+	.when('/users',{
+		templateUrl:'c_user/users.html'
+	})
+
 	
 	.when('/login',{
 		templateUrl:'c_user/login.html',

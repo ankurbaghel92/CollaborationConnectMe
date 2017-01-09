@@ -2925,3 +2925,7 @@
 2017-01-08 22:34:17,884 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2017-01-08 22:34:17,885 [Worker-82] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2017-01-08 22:34:17,886 [Worker-82] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Collaboration\collaborationback\src\test\resources
+2017-01-09 16:53:55,664 [Worker-87] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-01-09 16:53:55,698 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-01-09 16:53:55,701 [Worker-87] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-01-09 16:53:55,702 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Collaboration\collaborationback\src\test\resources

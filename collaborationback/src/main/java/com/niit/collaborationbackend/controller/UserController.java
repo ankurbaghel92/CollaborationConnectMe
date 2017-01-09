@@ -104,7 +104,7 @@ public class UserController {
 	
 	
 	
-	@RequestMapping(value = "/registerUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/registerUser/", method = RequestMethod.POST)
 	public ResponseEntity<User> registerUser(@RequestBody User user) {
 		
 

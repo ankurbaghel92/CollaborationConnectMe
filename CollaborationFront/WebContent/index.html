@@ -19,8 +19,8 @@
 <img src="Images/logo3.jpg" width="100" height="100" class="logo" id="logo">
  
  <div class="btn-group">
- <a href="#/home"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    Home  </button></a>
+ <button type="button"  class="btn btn-default dropdown-toggle" data-toggle="dropdown"><a href="#/home" style="text-decoration:none;color: black">
+    Home</a>  </button>
   </div>
  
  <div class="btn-group" >
@@ -79,6 +79,7 @@
     <li><a href="#">Search For a Friend</a></li>
       </ul>
 </div>
+ <span ng-hide="IsLoggedIn=='true'">
  
  <div class="btn-group col-md-offset-2">
  <a href="#/register"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -89,10 +90,18 @@
 <a href="#/login"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     Login  </button></a>
   </div> 
+  </span>
+  
+  <span ng-show="IsLoggedIn=='true'">
+  <div class="btn-group col-md-offset-2">
+ <a href="#/logout"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Logout  </button></a>
+  </div>
+  </span>
   
   
    <div class="btn-group">
-<a href=""><button type="button" ng-click="test()" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+<a href="#/users"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     Test  </button></a>
   </div>  </div>
 <!--  <div ng-hide="IsLoggedIn=='true'">
