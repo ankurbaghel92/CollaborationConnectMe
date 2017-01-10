@@ -2,6 +2,8 @@ package com.niit.collaborationbackend.DAOIMPL;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.collaborationbackend.DAO.JobApplicationDAO;
+import com.niit.collaborationbackend.model.Job;
 import com.niit.collaborationbackend.model.JobApplication;
 
 @Repository("jobApplicationDAO")
@@ -21,17 +24,23 @@ public class JobApplicationDAOIMPL implements JobApplicationDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public JobApplication get(String Id) {
+	
+	@Transactional
+	public JobApplication getJobApplication(String Id) {
 		return (JobApplication) sessionFactory.getCurrentSession().get(JobApplication.class, Id);
 	}
 
+	
+	
 	public List<JobApplication> list() {
 		String hql= "From JobApplication";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		return query.list();
 	}
 
-	public boolean save(JobApplication jobApplication) {
+	
+	@Transactional
+	public boolean saveJobApplication(JobApplication jobApplication) {
 		try {
 			sessionFactory.getCurrentSession().save(jobApplication);
 			return true;
@@ -42,7 +51,9 @@ public class JobApplicationDAOIMPL implements JobApplicationDAO {
 		
 	}
 
-	public boolean update(JobApplication jobApplication) {
+	
+	@Transactional
+	public boolean updateJobApplication(JobApplication jobApplication) {
 		try {
 			sessionFactory.getCurrentSession().update(jobApplication);
 			return true;
@@ -51,5 +62,22 @@ public class JobApplicationDAOIMPL implements JobApplicationDAO {
 			return false;
 		}
 	}
+
+	
+	@Transactional
+	public JobApplication getJobApplication(String emailId, String jobId) {
+		String hql = "FROM JobApplication where emailId='"+emailId+"' and JobId = '"+jobId+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		return (JobApplication) query.uniqueResult();
+	}
+	
+	@Transactional
+	public List<JobApplication> myAppliedJob(String emailId) 
+	{
+		String hql = "From JobApplication where emailId = '"+emailId+"'";
+	Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		return query.list()	;
+	}
+	
 
 }

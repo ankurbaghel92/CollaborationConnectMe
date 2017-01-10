@@ -2,6 +2,8 @@ package com.niit.collaborationbackend.DAOIMPL;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -22,7 +24,9 @@ public class JobDAOIMPL implements JobDAO {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public boolean save(Job job) {
+	
+	@Transactional
+	public boolean saveJob(Job job) {
 	try {
 		sessionFactory.getCurrentSession().save(job);
 		return true;
@@ -41,8 +45,9 @@ public class JobDAOIMPL implements JobDAO {
 			return false;
 		}
 	}
-
-	public boolean update(Job job) {
+	
+	@Transactional
+	public boolean updateJob(Job job) {
 		try {
 			sessionFactory.getCurrentSession().update(job);
 			return true;
@@ -52,15 +57,21 @@ public class JobDAOIMPL implements JobDAO {
 		}
 	}
 
-	public Job get(String id) {
+	
+	@Transactional
+	public Job getJob(String id) {
 		return (Job) sessionFactory.getCurrentSession().get(Job.class, id);
 	}
 
-	public List<Job> list() {
+	
+	@Transactional
+	public List<Job> getOpenJobs() {
 		String hql= "From Job";
 		Query query= sessionFactory.getCurrentSession().createQuery(hql);
 		return query.list();
 	}
+
+	
 	
 	
 

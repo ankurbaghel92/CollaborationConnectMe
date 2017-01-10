@@ -2,12 +2,15 @@ package com.niit.collaborationbackend.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.collaborationbackend.DAO.JobApplicationDAO;
@@ -40,11 +43,11 @@ public class JobApplicationController {
 
 
 	
-	//Get JobApplication By Id
+	//Get JobApplication By Id----->
 	@RequestMapping("/jobApplicationById/{id}")
 	public ResponseEntity<JobApplication> getJobApplicationByID(@PathVariable("id") String jobApplicationId)
 	{
-		 jobApplication = jobApplicationDAO.get(jobApplicationId);
+		 jobApplication = jobApplicationDAO.getJobApplication(jobApplicationId);
 		if(jobApplication==null)
 		{
 			jobApplication  = new JobApplication();
@@ -57,11 +60,12 @@ public class JobApplicationController {
 	
 	
 	
-	//Save a new JobApplication
-	@RequestMapping("/savejobApplication")
-	public ResponseEntity<JobApplication> saveJobApplication(@RequestBody JobApplication jobApplication)
+	//To Apply for a Job
+	@RequestMapping(value="/applyForJob")
+	public ResponseEntity<JobApplication> applyForJob(@RequestBody JobApplication jobApplication)
 	{
-		if(jobApplicationDAO.save(jobApplication)==false)
+		jobApplication.setStatus('N');//N-->New		S-->Selected		C-->Call For Interview
+		if(jobApplicationDAO.saveJobApplication(jobApplication)==false)
 		{
 			jobApplication.setErrorCode("404");
 			jobApplication.setErrorMessage("Some Thing Went Wrong.. !! ..!! .. Please Try Again After Some time..!!..!!..");
@@ -76,23 +80,71 @@ public class JobApplicationController {
 	}
 	
 	
-	@RequestMapping("/updateJobApplication")
-	public ResponseEntity<JobApplication> updateJobApplication(@RequestBody JobApplication jobApplication)
+	//if a person wants to see his all Applied Jobs
+	@RequestMapping(value="/myAppliedJobs", method=RequestMethod.GET)
+	public ResponseEntity<List<JobApplication>> myAppliedJobs(HttpSession session){
+		String emailId = (String) session.getAttribute("emailId");
+		List<JobApplication> jobApplications  = jobApplicationDAO.myAppliedJob(emailId);
+		return new ResponseEntity<List<JobApplication>>(jobApplications,HttpStatus.OK);
+	}
+	
+	
+	//If a Person is selected for a Job
+	@RequestMapping(value="/selectJobApplication/{emailId}/{jobId}/{remarks}")
+	public ResponseEntity<JobApplication> selectJobApplication(@PathVariable("emailId") String emailId, @PathVariable("jobId") String jobId,
+			@PathVariable("remarks") String remarks)
 	{
-		if(jobApplicationDAO.update(jobApplication)==false)
-		{
-			jobApplication.setErrorCode("404");
-			jobApplication.setErrorMessage("JobApplication was not Updated.. !! ..!! .. Please Try Again After Some time..!!..!!..");
-		}
-		
-		else
-		{
-			jobApplication.setErrorCode("404");
-			jobApplication.setErrorMessage("Thank you !!..!!..JobApplication is updated SuccessFully");
-		}
+
+			jobApplication =updateJobApplication(emailId, jobId,'S', remarks);
 		
 		return new ResponseEntity<JobApplication>(jobApplication, HttpStatus.OK);
 	}
+	
+
+	
+	
+	//If a Person is rejected for a Job
+	@RequestMapping("/rejectJobApplication/{emailId}/{jobId}/{remarks}")
+	public ResponseEntity<JobApplication> rejectJobApplication(@PathVariable("emailId") String emailId, @PathVariable("jobId") String jobId,
+			@PathVariable("remarks") String remarks)
+	{
+
+			jobApplication =updateJobApplication(emailId, jobId,'R', remarks);
+		
+		return new ResponseEntity<JobApplication>(jobApplication, HttpStatus.OK);
+	}
+	
+	
+	
+	//If a Person has been called for an Interview
+	@RequestMapping("/callForInterview/{emailId}/{jobId}/{remarks}")
+	public ResponseEntity<JobApplication> callForInterview(@PathVariable("emailId") String emailId, @PathVariable("jobId") String jobId,
+			@PathVariable("remarks") String remarks)
+	{
+
+			jobApplication =updateJobApplication(emailId, jobId,'C', remarks);
+		
+		return new ResponseEntity<JobApplication>(jobApplication, HttpStatus.OK);
+	}
+
+
+	
+	//Private method to minimize the Code
+	private JobApplication updateJobApplication(String emailId, String id, char status, String remarks)
+	{
+		jobApplication = jobApplicationDAO.getJobApplication(emailId, id);
+		jobApplication.setStatus(status);
+		if(jobApplicationDAO.updateJobApplication(jobApplication)==false)
+		{
+			jobApplication.setErrorCode("404");
+			jobApplication.setErrorMessage("We are Sorry!!,., SomeThing went wrong,.,Unable to update the status");
+		}
+		return jobApplication;
+	}
+	
+	
+	
+	
 	
 
 }

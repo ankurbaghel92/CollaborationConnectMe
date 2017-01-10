@@ -3,27 +3,31 @@ package com.niit.collaborationbackend.model;
 import java.util.Date;
 
 import org.springframework.stereotype.Component;
+import javax.persistence.*;
 
+@Entity
+@Table(name="job")
 @Component
 public class Job extends BaseDomain {
 	
-	private int Id;
+	@Id
+	private String Id;
 	
 	private String tittle;
 	
-	private String qualificaton;
+	private String qualification;
 	
 	private String description;
 	
 	private char status;
 	
-	private Date date;
+	private Date Date_Time;
 
-	public int getId() {
+	public String getId() {
 		return Id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		Id = id;
 	}
 
@@ -35,12 +39,12 @@ public class Job extends BaseDomain {
 		this.tittle = tittle;
 	}
 
-	public String getQualificaton() {
-		return qualificaton;
+	public String getQualification() {
+		return qualification;
 	}
 
-	public void setQualificaton(String qualificaton) {
-		this.qualificaton = qualificaton;
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
 	}
 
 	public String getDescription() {
@@ -60,11 +64,11 @@ public class Job extends BaseDomain {
 	}
 
 	public Date getDate() {
-		return date;
+		return Date_Time;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(Date Date_Time) {
+		this.Date_Time = Date_Time;
 	}
 	
 	

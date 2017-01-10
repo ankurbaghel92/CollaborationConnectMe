@@ -6,15 +6,17 @@ import com.niit.collaborationbackend.model.Job;
 
 public interface JobDAO {
 	
-public boolean save(Job job);
+	public boolean saveJob(Job job);
 	
 	public boolean delete(Job job);
 	
-	public boolean update(Job job);
+	public boolean updateJob(Job job);
 	
-	public Job get(String id);
+	public Job getJob(String id);
 	
-	public List<Job> list();
+	public List<Job> getOpenJobs();
+	
+
 
 
 }
