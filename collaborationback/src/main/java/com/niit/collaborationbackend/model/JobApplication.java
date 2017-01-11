@@ -1,13 +1,18 @@
 package com.niit.collaborationbackend.model;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
 
+@Entity
+@Table(name="Job_Applied")
 @Component
 public class JobApplication extends BaseDomain {
 	
-	private String Id;
+	@Id
+	private Long Id;
 	
 	private String emailId;
 	
@@ -19,11 +24,11 @@ public class JobApplication extends BaseDomain {
 	
 	private String remarks;
 
-	public String getId() {
+	public Long getId() {
 		return Id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		Id = id;
 	}
 

@@ -1,5 +1,6 @@
 package com.niit.collaborationbackend.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class JobController {
 	
 	
 	//To Get All the Jobs from the Job Table
-	@RequestMapping("/getOpenJobs")
+	@RequestMapping(value ="/getOpenJobs",method=RequestMethod.GET)
 	public ResponseEntity<List<Job>> getOpenJobs(){
 		
 		List<Job> jobs = jobDAO.getOpenJobs();
@@ -61,6 +62,7 @@ public class JobController {
 	@RequestMapping(value="/postJob/",method=RequestMethod.POST)
 	public ResponseEntity<Job> postJob(@RequestBody Job job)
 		{
+		job.setDate(new Date());
 		job.setStatus('V');//v-->Vacant  F-->Filled  P-->Pending
 		if(jobDAO.saveJob(job)==false)
 		{

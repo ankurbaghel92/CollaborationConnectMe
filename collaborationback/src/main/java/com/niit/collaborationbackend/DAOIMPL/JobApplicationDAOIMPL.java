@@ -79,5 +79,19 @@ public class JobApplicationDAOIMPL implements JobApplicationDAO {
 		return query.list()	;
 	}
 	
+	@Transactional
+	public Long maxID()
+	{
+		Long maxId = 100L;
+		try {
+			String hql = "Select max(id) from JobApplication";
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			maxId= (Long) query.uniqueResult();
+		} catch (HibernateException e) {
+			maxId= 100L;
+			e.printStackTrace();
+		}
+		return maxId+1;
+	}
 
 }

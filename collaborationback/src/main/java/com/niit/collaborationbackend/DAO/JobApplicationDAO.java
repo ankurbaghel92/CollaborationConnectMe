@@ -18,5 +18,6 @@ public interface JobApplicationDAO {
 	
 	public List<JobApplication> myAppliedJob(String emailID);
 
+	public Long maxID();
 
 }

@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.collaborationbackend.model.Blog;
 import com.niit.collaborationbackend.model.Job;
+import com.niit.collaborationbackend.model.JobApplication;
 import com.niit.collaborationbackend.model.User;
 
 @Configuration
@@ -74,7 +75,7 @@ sessionBuilder.addAnnotatedClass(Cart.class);
 		sessionBuilder.addAnnotatedClass(User.class);
 		sessionBuilder.addAnnotatedClass(Blog.class);
 		sessionBuilder.addAnnotatedClass(Job.class);
-
+		sessionBuilder.addAnnotatedClass(JobApplication.class);
 return sessionBuilder.buildSessionFactory();
 	}
 	

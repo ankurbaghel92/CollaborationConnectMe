@@ -5,7 +5,9 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.niit.collaborationbackend.DAO.JobApplicationDAO;
 import com.niit.collaborationbackend.DAO.UserDAO;
+import com.niit.collaborationbackend.DAOIMPL.JobDAOIMPL;
 import com.niit.collaborationbackend.model.User;
 
 import junit.framework.Assert;
@@ -18,6 +20,9 @@ public class UserTestCases {
 	@Autowired
 	static UserDAO userDAO;
 	
+	@Autowired 
+	static JobApplicationDAO jobApplicationDAO;
+	
 	@Autowired
 	static AnnotationConfigApplicationContext context;
 	
@@ -28,6 +33,7 @@ public class UserTestCases {
 		context = new AnnotationConfigApplicationContext();
 		context.scan("com.niit");
 		context.refresh();
+		jobApplicationDAO = (JobApplicationDAO) context.getBean("jobApplicationDAO");
 		userDAO = (UserDAO) context.getBean("userDAO");
 		user= (User) context.getBean("user");
 	}
@@ -66,7 +72,7 @@ public class UserTestCases {
 	}
 	
 	
-	@Test
+	//@Test
 	public void IsValidUserTestCase(){
 		
 		//Assert.assertEquals("IsValidUserTestCAse", 1, userDAO.IsValidUser("ankur.baghel92@gmail.com", "Ankurb92"));
@@ -75,6 +81,12 @@ public class UserTestCases {
 		System.out.println("--------------------------------------------------------------------------------------->"+u.getFname());
 		System.out.println(u.getIsOnline());
 		System.out.println(u.getMobile());
+	}
+	
+	@Test
+	public void getMaxId()
+	{
+		System.out.println(jobApplicationDAO.maxID());
 	}
 	
 	/*@Test

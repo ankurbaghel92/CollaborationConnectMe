@@ -2,6 +2,8 @@ package com.niit.collaborationbackend.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,9 @@ public class UserController {
 
 	@Autowired
 	UserDAO userDAO;
+	
+	@Autowired(required=false)
+	HttpSession session;
 
 	// Get List of all users
 	// http://localhost:8080/collaboration/allusers
@@ -91,6 +96,16 @@ public class UserController {
 			user.setErrorCode("404");
 			user.setErrorMessage("Invalid Credentials,., Please Try Again");
 		}
+		else
+		{
+			user.setErrorCode("200");
+			user.setErrorMessage("You are SuccessFully Logged In,.,!!,.,.");
+			user.setIsOnline('Y');
+			session.setAttribute("loggedInUserID", user.getEmailId());
+			session.setAttribute("loggedInUserRole", user.getRole());
+		}
+		/*else
+			setsession id and role*/
 
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
