@@ -68,7 +68,7 @@ public class JobApplicationController {
 	
 	//To Apply for a Job
 	@RequestMapping(value="/applyForJob/{jobId}",method=RequestMethod.POST)
-	public ResponseEntity<JobApplication> applyForJob(@PathVariable("jobId") String jobId, @RequestBody JobApplication jobApplication,HttpSession session)
+	public ResponseEntity<JobApplication> applyForJob(@PathVariable("jobId") String jobId,HttpSession session)
 	{
 		String emailId = (String) session.getAttribute("loggedInUserID");
 		System.out.println(emailId);
@@ -98,6 +98,7 @@ public class JobApplicationController {
 				//if user is logged in and to check if already applied for the job
 				else
 				{
+					System.out.println("You have already applied for a job.. !! ..!! ..");
 					jobApplication.setErrorCode("404");
 					jobApplication.setErrorMessage("You have already applied for a job.. !! ..!! ..");
 				}

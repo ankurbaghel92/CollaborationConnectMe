@@ -3,6 +3,7 @@ package com.niit.collaborationbackend.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -101,8 +102,9 @@ public class UserController {
 			user.setErrorCode("200");
 			user.setErrorMessage("You are SuccessFully Logged In,.,!!,.,.");
 			user.setIsOnline('Y');
-			session.setAttribute("loggedInUserID", user.getEmailId());
+			session.setAttribute("loggedInUserId", user.getEmailId());
 			session.setAttribute("loggedInUserRole", user.getRole());
+			userDAO.setOnline(user.getEmailId());
 		}
 		/*else
 			setsession id and role*/
@@ -148,6 +150,55 @@ public class UserController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
+	
+	@RequestMapping(value="/makeAdmin/{emailId}",method=RequestMethod.PUT)
+	public ResponseEntity<User> makeAdmin(@PathVariable("emailId") String emailId)
+	{
+		user = userDAO.get(emailId);
+		if(user==null){
+			user= new User();
+			user.setErrorCode("404");
+			user.setErrorMessage("User Does Not present with the UserID:-  "+emailId);
+		}
+		else{
+			user.setRole("Admin");
+			userDAO.update(user);
+			user.setErrorCode("200");
+			user.setErrorMessage("User :- "+emailId+" Role has been successfully updated");
+		}
+		return new ResponseEntity<User>(user,HttpStatus.OK);
+		
+	}
+	
+	
+	@RequestMapping(value="/logout",method=RequestMethod.GET)
+	public ResponseEntity<User> logout()
+	{
+		String loggedInUserId = (String) session.getAttribute("loggedInUserId");
+		System.out.println(loggedInUserId);
+		user.setIsOnline('N');
+		userDAO.setOffline(loggedInUserId);
+		session.invalidate();
+		user.setErrorCode("200");
+		user.setErrorMessage("You Have Been Successfully Logged Out");
+		return new ResponseEntity<User>(user,HttpStatus.OK);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 }

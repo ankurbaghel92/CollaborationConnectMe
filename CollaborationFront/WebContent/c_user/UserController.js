@@ -101,10 +101,37 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 														else
 															{
 																$rootScope.currentUser = self.user
+																console.log("Logging in with Email :- "+$rootScope.currentUser.emailId)
 																$rootScope.IsLoggedIn="true"
 																$location.path('/createblog')
 															}
 													}
+											)
+										}
+										
+										self.makeAdmin = function(emailId){
+											UserServices.makeAdmin(emailId).then
+											(
+													function(d)
+													{
+														self.user =  d;
+														alert(self.user.errorMessage)
+													}											)
+										}
+										
+										self.logoutUser = function()
+										{
+											UserServices.logout().then
+											(
+													function(d)
+													{	
+														$rootScope.IsLoggedIn="false"
+
+															self.user = d;
+															alert(self.user.errorMessage)
+															$location.path('/login')
+													},
+													null
 											)
 										}
 										
@@ -138,6 +165,11 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										self.login = function()
 										{
 											self.authenticate(self.user)
+										}
+										
+										self.logout = function()
+										{
+											self.logoutUser()
 										}
 										
 										

@@ -7,7 +7,7 @@ app.factory('JobServices',['$http','$q','$rootScope',function($http,$q,$rootScop
 											
 									
 											fetchAllJobs : function(){
-												return $http.get(BaseURL+'/alljobs').then
+												return $http.get(BaseURL+'/getOpenJobs').then
 												(
 														function(Response){
 															return Response.data;
@@ -55,6 +55,23 @@ app.factory('JobServices',['$http','$q','$rootScope',function($http,$q,$rootScop
 														{
 															return $q.reject(errResponse)
 															
+														}
+												)
+											},
+											
+											
+											applyForJob : function(jobId)
+											{
+												return $http.post(BaseURL	+'/applyForJob/'+jobId).then
+												(
+														function(Response)
+														{
+															return Response.data;
+														},
+														function(errResponse)
+														{
+															console.error("Error While Applying For Job")
+															return $q.reject(errResponse)
 														}
 												)
 											}

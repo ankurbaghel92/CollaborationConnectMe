@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;CollaborationFront/WebContent/c_job/users.html&apos; to &apos;openJobs.html&apos;" description="Rename resource &apos;users.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/c_job/users.html" name="openJobs.html" stamp="1484381982549" updateReferences="true"/>
+</session>

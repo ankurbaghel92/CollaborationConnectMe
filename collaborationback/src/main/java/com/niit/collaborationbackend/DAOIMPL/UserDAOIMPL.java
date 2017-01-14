@@ -97,6 +97,38 @@ public class UserDAOIMPL implements UserDAO {
 				return null;
 			}
 		}
+	
+	
+	
+	@Transactional
+	public void setOnline(String emailId)
+	{
+		String hql = "UPDATE User SET isOnline = 'Y' where emailID= '"+emailId+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.executeUpdate();
+	}
+	
+	
+	@Transactional
+	public void setOffline(String emailId)
+	{
+		String hql = "UPDATE User SET isOnline = 'N' where emailID= '"+emailId+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.executeUpdate();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
 
 

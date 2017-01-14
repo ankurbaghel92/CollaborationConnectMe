@@ -90,6 +90,30 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 	}, //end of authenticate function()
 	
 	
+	makeAdmin : function(emailId){
+		return $http.get(BaseURL+"/makeAdmin/"+emailId).then
+		(
+				function(Response)
+				{
+					return Response.data;
+				},
+				null
+		)
+	},
+	
+	logout : function()
+	{
+		return $http.get(BaseURL+'/logout').then
+		(
+				function(Response)
+				{
+					return Response.data;
+				},
+				null
+		)
+	},
+	
+	
 	
 	//start of myProfile function()
 	myProfile : function(){

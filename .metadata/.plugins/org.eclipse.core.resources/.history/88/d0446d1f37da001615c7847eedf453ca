@@ -1,0 +1,17 @@
+<div class="col-md-offset-4" ng-controller="JobController as ctrl">
+{{message}}
+	<h3>Below are the new jobs</h3>
+		<p style="color: #0729e7;font-size:20px ">Search for the job
+	<input type="text" ng-model="search_text"></p>
+	<div ng-repeat ="job in ctrl.jobs | filter: search_text">
+	
+		<span class="glyphicon glyphicon-user " style="color:DarkCyan"></span>	
+		<h4 style="color: #0729e7" >Job Id:- {{job.id}} &nbsp; <button type="button" ng-click="ctrl.applyForJob(job.id)" class="btn btn-primary btn-md">Apply for Job</button></h4>
+		<h4 style="color: #e87e13 ">Job Tittle:- {{job.tittle}}</h4>
+		<h4 style="color: #63adeb ">Job Description:- {{job.description}}</h4>
+		<hr>  
+					
+	</div>
+
+
+</div>

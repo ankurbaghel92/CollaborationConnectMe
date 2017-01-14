@@ -1,0 +1,126 @@
+"use strict"
+
+app.controller('JobController',['JobServices','$http','$rootScope','$location','$scope',function(JobServices,$http,$location,$scope,$rootScope)
+{
+	$scope.message = "Message from JobController"
+
+	var self = this;
+	
+	self.job = {id : '', tittle : '', qualification : '', description : '', status : '', date : ''};
+	
+	self.jobs = [];
+	
+	var currentUser = $rootScope.currentUser;
+
+	
+	self.fetchAllJobs = function()
+	{
+		JobServices.fetchAllJobs().then
+		(
+				function(d)
+				{
+					self.jobs=d;
+				},
+				function(errResponse)
+				{
+					console.log("Error While Fetching all Jobs !!,.,!!,.,.")
+				}
+		)
+	},
+	
+	self.fetchAllJobs();
+	
+	
+	function applyForJob(jobId)
+	{
+		console.log("Starting Function applyForJob---->")
+	//	console.log("Logged In User Id:-  "+$rootScope.currentUser.emailId)
+
+	//	var currentUserId = $rootScope.currentUser.emailId
+	//	console.log("Logged In User Id:-  "+$rootScope.currentUser.emailId)
+		if (typeof currentUser.emailId == 'undefined')
+			{
+				alert("Please login to apply for the Job")
+				//console.log("User Not Logged In So Not Able To Apply  ---->")
+				return;
+			}
+		
+		JobServices.applyForJob(jobId).then
+		(
+				function(d)
+				{
+					self.job = d
+					alert(self.job.errorMessage)
+				}
+		)
+	}
+	
+	self.applyForJob = applyForJob
+	
+	self.jobByID = function(id)
+	{
+			JobServices.jobById(id).then
+			(
+					function(d)
+					{
+						self.job = d;
+					},
+					function(errRespose)
+					{
+						console.log("Error While Fetching Jon ,.,!!,.,!!,.,")
+					}
+			)
+	},
+	
+	
+	self.createJob = function(job)
+	{
+		JobServices.createJob(job).then
+		(
+				function(d)
+				{
+					alert("Thankyou Job has been Posted Successfull")
+				},
+				function(errResponse)
+				{
+					console.log("Error while posting job,, please try again after sometime ,.,!!,.,!!,.,")
+				}
+		)
+	}
+	
+	self.updateJob = function(job)
+	{
+		JobServices.updateJob(job).then
+		(
+				function(d)
+				{
+					alert("Thankyou Job has been udpate Successfully")
+				},
+				function(errResponse)
+				{
+					console.log("Error While Updating Job.,.,Please try again after sometime,.,!!,.,!!,.,")
+				}
+		)
+	}
+	
+	
+	self.submit =function()
+	{
+		self.createJob(self.job);
+		self.reset();
+	};
+	
+	
+	self.reset = function()
+	{
+	self.job={
+			
+			Id :'',
+			tittle :'',
+			qualification : '',
+			description :''
+	}
+	};
+	
+}])
+

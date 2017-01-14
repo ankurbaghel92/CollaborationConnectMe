@@ -3,11 +3,7 @@ var app = angular.module('myapp',['ngRoute']);
 app.config(function($routeProvider){
 	$routeProvider
 	
-	.when('/bloghome',{
-		templateUrl:'c_blog/blogHome.html'
-	})
-
-	.when('/users',{
+		.when('/users',{
 		templateUrl:'c_user/users.html'
 	})
 
@@ -22,19 +18,34 @@ app.config(function($routeProvider){
 	})
 
 	
+	/*.when('/logout',{
+			
+			templateUrl:'c_user/register.html',
+			controller:'UserController'
+
+		})
+
+*/	
+	.when('/bloghome',{
+		templateUrl:'c_blog/blogHome.html'
+	})
+	
 	.when('/createblog',{
 		templateUrl:'c_blog/createBlog.html',
 			controller:'BlogController'
 
 	})
 
+	
+	
+	
 		.when('/jobHome',{
 		templateUrl:'c_job/jobHome.html',
 		controller:'JobController'
 	})
 	
-		.when('/createjob',{
-		templateUrl:'c_job/createJob.html'
+		.when('/openJobs',{
+		templateUrl:'c_job/openJobs.html'
 	})
 	
 		.when('/eventhome',{
@@ -72,13 +83,7 @@ app.config(function($routeProvider){
 
 		})
 */
-		.when('/logout',{
-			
-			templateUrl:'logout.html',
-			controller:'LogoutController'
-
-		})
-
+		
 	
 
 })

@@ -1,0 +1,15 @@
+<div ng-controller="JobController as ctrl">
+{{message}}
+	<h3>Below are the new jobs</h3>
+
+	<div ng-repeat ="job in ctrl.jobs">
+	
+		<span class="glyphicon glyphicon-user " style="color:DarkCyan"></span>	
+		<h4>Job Id:- {{job.id}}</h4>
+		{{job.tittle}}
+			{{job.description}}
+					
+	</div>
+
+
+</div>

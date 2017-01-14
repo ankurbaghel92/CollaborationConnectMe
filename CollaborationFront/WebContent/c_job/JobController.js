@@ -10,6 +10,9 @@ app.controller('JobController',['JobServices','$http','$rootScope','$location','
 	
 	self.jobs = [];
 	
+	var currentUser = $rootScope.currentUser;
+
+	
 	self.fetchAllJobs = function()
 	{
 		JobServices.fetchAllJobs().then
@@ -25,6 +28,35 @@ app.controller('JobController',['JobServices','$http','$rootScope','$location','
 		)
 	},
 	
+	self.fetchAllJobs();
+	
+	
+	function applyForJob(jobId)
+	{
+		console.log("Starting Function applyForJob---->")
+		console.log("Logged In User Id:-  "+$rootScope.currentUser)
+		var currentUser = $rootScope.currentUser;
+
+	//	var currentUserId = $rootScope.currentUser.emailId
+	//	console.log("Logged In User Id:-  "+$rootScope.currentUser.emailId)
+		if (typeof currentUser == 'undefined')
+			{
+				alert("Please login to apply for the Job")
+				//console.log("User Not Logged In So Not Able To Apply  ---->")
+				return;
+			}
+		
+		JobServices.applyForJob(jobId).then
+		(
+				function(d)
+				{
+					self.job = d
+					alert(self.job.errorMessage)
+				}
+		)
+	}
+	
+	self.applyForJob = applyForJob
 	
 	self.jobByID = function(id)
 	{

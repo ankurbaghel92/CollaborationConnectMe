@@ -15,8 +15,8 @@
 </head>
 <body ng-controller="UserController as ctrl">
 <header>
-<div class="container">
-<img src="Images/logo3.jpg" width="100" height="100" class="logo" id="logo">
+<!-- <div class="container">
+ --><img src="Images/logo3.jpg" width="200" height="100" class="logo" id="logo">
  
  <div class="btn-group">
  <button type="button"  class="btn btn-default dropdown-toggle" data-toggle="dropdown"><a href="#/home" style="text-decoration:none;color: black">
@@ -64,7 +64,7 @@
   <ul class="dropdown-menu">
     <li><a href="#/createjob">Post a Job</a></li>
         <li role="separator" class="divider"></li>
-    <li><a href="#/eventhome">All Jobs</a></li>
+    <li><a href="#/openJobs">All Jobs</a></li>
       </ul>
 </div>
 
@@ -93,9 +93,9 @@
   </span>
   
   <span ng-show="IsLoggedIn=='true'">
-  <div class="btn-group col-md-offset-2">
- <a href="#/logout"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    Logout  </button></a>
+  <div class="btn-group col-md-offset-2" ng-controller="UserController as ctrl">
+ <!-- <a href=""> --><button type="button" class="btn btn-default dropdown-toggle" ng-click="ctrl.logout()" data-toggle="dropdown">
+    Logout  </button><!-- </a> -->
   </div>
   </span>
   
@@ -103,7 +103,7 @@
    <div class="btn-group">
 <a href="#/users"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     Test  </button></a>
-  </div>  </div>
+  </div> <!--  </div> -->
 <!--  <div ng-hide="IsLoggedIn=='true'">
  --><!-- <form class="form-inline">
   <div class="form-group">
