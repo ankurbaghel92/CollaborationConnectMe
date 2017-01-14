@@ -123,8 +123,11 @@ public class UserController {
 	
 	@RequestMapping(value = "/registerUser/", method = RequestMethod.POST)
 	public ResponseEntity<User> registerUser(@RequestBody User user) {
+		if(userDAO.get(user.getEmailId())==null)
+		{
+			user.setIsOnline('N');
+			user.setStatus('N');
 		
-
 		if (userDAO.save(user)==false) {
 			user.setErrorCode("404");
 			user.setErrorMessage("Registration Not Successful.,., Please try Again,.,!!,.,!!");
@@ -132,10 +135,11 @@ public class UserController {
 			user.setErrorCode("200");
 			user.setErrorMessage("Thankyou for Registration !!..!!");
 		}
+		}
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
-
+	
 	@RequestMapping(value = "/UpdateUser", method = RequestMethod.PUT)
 	public ResponseEntity<User> updateUser(@RequestBody User user) {
 		

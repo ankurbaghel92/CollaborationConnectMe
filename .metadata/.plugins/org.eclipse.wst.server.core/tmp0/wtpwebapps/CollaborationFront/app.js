@@ -3,6 +3,15 @@ var app = angular.module('myapp',['ngRoute']);
 app.config(function($routeProvider){
 	$routeProvider
 	
+	.when('/',{
+		templateUrl:'c_user/home.html'
+	})
+	
+	.when('/home',{
+		templateUrl:'c_user/home.html'
+	})
+
+	
 		.when('/users',{
 		templateUrl:'c_user/users.html'
 	})

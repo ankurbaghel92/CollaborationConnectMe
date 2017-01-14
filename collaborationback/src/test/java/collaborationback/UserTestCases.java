@@ -49,7 +49,7 @@ public class UserTestCases {
 		user.setRole("Admin");
 		user.setReason("No Reason");
 		user.setIsOnline('N');
-		user.setStatus("N");
+		user.setStatus('N');
 		boolean status = userDAO.save(user);
 		
 		Assert.assertEquals("CreateUserTestCase", true, status);

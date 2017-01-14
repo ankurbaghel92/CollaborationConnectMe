@@ -42,8 +42,9 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 
 										var self =this;
 									
-										self.user = {fname : '', lname : '', emailId : '', password : '', mobile : '', role : '', isOnline : '', status : '', errorCode : '',
-													 errorMessage : '', gender : '', reason: ''	};
+										self.user = {fname : '', lname : '', emailId : '', password : '', conPassword : '', mobile : '', role : '', isOnline : '', status : '', errorCode : '',
+													 errorMessage : '', gender : '', reason : ''	};
+										console.log(self.user.gender)
 										
 										self.users = [];
 										
@@ -67,7 +68,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										
 										//start of createUser function()
 										self.createUser = function(user){
-											//console
+											console.log(self.user.gender)
 											UserServices.createUser(user).then
 											(
 													function(d)
@@ -157,8 +158,11 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										
 										//start of submit function()
 										self.submit = function() {
+											{
 											self.createUser(self.user);
+											}
 											self.reset();
+
 										};//end of submit function()
 										
 										

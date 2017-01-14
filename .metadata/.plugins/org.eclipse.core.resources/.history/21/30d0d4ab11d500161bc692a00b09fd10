@@ -1,8 +1,0 @@
-
-app.controller('BlogController',['$BlogServices','$http','$q','$location','$rootScope','$scope',function($BlogServices,$http,$q,$location,$rootScoper,$scoper){
-	
-	
-	
-	
-	
-})

@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
 
@@ -29,9 +30,12 @@ public class User extends BaseDomain {
 	
 //	private String enabled;
 	
-	private String status;
+	private char status;
 	
 	private String reason;
+	
+	@Transient
+	private String ConPassword;
 
 	//private String remarks;
 	@Column(name="IS_ONLINE")
@@ -88,10 +92,10 @@ public class User extends BaseDomain {
 	public void setEnabled(String enabled) {
 		this.enabled = enabled;
 	}*/
-	public String getStatus() {
+	public char getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(char status) {
 		this.status = status;
 	}
 	/*public String getRemarks() {
@@ -112,6 +116,13 @@ public class User extends BaseDomain {
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
+	public String getConPassword() {
+		return ConPassword;
+	}
+	public void setConPassword(String conPassword) {
+		ConPassword = conPassword;
+	}
+	
 	
 	
 	
