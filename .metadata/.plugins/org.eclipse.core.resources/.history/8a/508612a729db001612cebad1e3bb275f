@@ -1,0 +1,18 @@
+
+<div class="col-md-6">
+
+<div class="panel panel-default">
+  <div class="panel-heading">Blog</div>
+  <div class="panel-body">
+    Group1
+  </div>
+ 
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{blog.tittle}}</h3>
+  </div>
+  <div class="panel-body">
+    {{tittle.description}}
+  </div>
+</div>
+</div>

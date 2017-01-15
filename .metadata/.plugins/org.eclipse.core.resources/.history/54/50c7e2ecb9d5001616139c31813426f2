@@ -1,7 +1,0 @@
-package com.niit.collaborationbackend.DAO;
-
-public interface FriendDAO {
-	
-	public boolean save(Friend)
-
-}

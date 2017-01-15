@@ -22,12 +22,20 @@ app.factory('BlogServices', ['$http', '$rootScope', '$q',function($http,$rootSco
 		
 		//start of createBlog function()
 		createBlog:function(blog){
+			console.log(blog.Id)
+
+			console.log("BlogServices=====>Starting createBlog function()=====>")
+
 			return $http.post(BaseURL+'/saveBlog/',blog).then(
 				function(Response){
 					return Response.data;
+					console.log("BlogServices=====>Ending createBlog function()=====>")
+
 				},
 				function(errResponse){
 					$q.reject(errResponse);
+					console.log("BlogServices=====>Ending createBlog function()=====>")
+
 				}
 			)
 		},//end of createBlog function()
@@ -54,12 +62,16 @@ app.factory('BlogServices', ['$http', '$rootScope', '$q',function($http,$rootSco
 		
 		//start of getBlog function()
 		getBlogbyId:function(id){
-			return $http.get(BaseURl+'/blogById'+id).then(
+			console.log("BlogServices=====>Starting getBlogbyId function()=====>")
+
+			return $http.get(BaseURL+'/blogById/'+id).then(
 					function(Response){
+						console.log("BlogServices=====>Ending getBlogbyId function()=====>")
 						return Response.data;
 					},
 					function(errResponse)
 					{
+						console.log("BlogServices=====>Ending getBlogbyId function()=====>")
 						$q.reject(errResponse)
 					}
 					

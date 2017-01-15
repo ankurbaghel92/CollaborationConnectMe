@@ -23,7 +23,7 @@ padding-right: 300px
 </style>
 <body>
  -->
- <div ng-include src="'leftpanel.html'"></div>
+<div ng-include src="'c_user/leftpanel.html'"></div>
  {{message}}
  <div ng-controller="JobController as ctrl">
  <div class="col-md-10">
@@ -93,7 +93,7 @@ padding-right: 300px
     
         <div class="col-sm-8">
             
-  <textarea placeholder="Blog Body" class="form-control" ng-model="ctrl.job.description" id="description">
+  <textarea placeholder="Provide Job Description" class="form-control" ng-model="ctrl.job.description" id="description">
  </textarea> 
      
      </div>
@@ -110,9 +110,9 @@ padding-right: 300px
     
           <div class="pull-right">
              
-   <button style="color:#0084c6" type="submit" class="btn btn-default" ng-click="ctrl.reset()">Reset</button>
+   <button style="color:#0084c6" type="submit" class="btn btn-default btn-lg" ng-click="ctrl.reset()">Reset</button>
        
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-default btn-lg">Save</button>
  
    
          </div>

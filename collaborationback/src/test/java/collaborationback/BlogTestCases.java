@@ -36,37 +36,37 @@ public class BlogTestCases {
 
 	//@Test
 	public void CreateBlogTestCase() {
-		blog.setId(2);
+		//blog.setId(2);
 		blog.setEmailId("ankur2.baghel92@gmail.com");
 		blog.setDescription("First Blog");
 		blog.setReason("NO");
 		Timestamp t = new Timestamp(System.currentTimeMillis());
 		blog.setDate_Time(t);
 		blog.setStatus('N');
-		blog.setTitle("First Blog");
+		blog.setTittle("First Blog");
 		boolean status = blogDAO.save(blog);
 		Assert.assertEquals("CreateBlogTestCase", true, status);
 
 	}
-
-	// @Test
+/*
+	//@Test
 	public void GetblogTestCase() {
-		Blog blog = blogDAO.get("ankur.baghel92@gmail.com");
-		// System.out.println(blog.getPassword());
-		Assert.assertEquals("Get One blog Test Case", null, blogDAO.get("ankur.baghel92@gmail.com"));
+		//Blog blog = blogDAO.get(100);
+		System.out.println(blog.getDescription());
+		Assert.assertEquals("Get One blog Test Case", null, blogDAO.get("2"));
 	}
+*/	 
 	 
-	 
-	 @Test
+	// @Test
 	 public void UpdateBlogTestCase(){
-		 	blog.setId(2);
+		 	//blog.setId("2");
 			blog.setEmailId("ankur2.baghel92@gmail.com");
 			blog.setDescription("Second Blog");
 			blog.setReason("NO");
 			Timestamp t = new Timestamp(System.currentTimeMillis());
 			blog.setDate_Time(t);
 			blog.setStatus('N');
-			blog.setTitle("First Blog");
+			blog.setTittle("First Blog");
 			boolean status = blogDAO.update(blog);
 			Assert.assertEquals("UpdateBlogTestCase", true, status);
 
@@ -75,4 +75,14 @@ public class BlogTestCases {
 	/*
 	 * @Test public void test() { fail("Not yet implemented"); }
 	 */
+	 
+	 
+	 @Test
+		public void GetblogByIdTestCase() {
+			Blog blog = blogDAO.getById(100);
+			System.out.println(blog.getDescription());
+			//Assert.assertEquals("Get One blog Test Case", null, blogDAO.get("2"));
+		}
+	 
+	 
 }

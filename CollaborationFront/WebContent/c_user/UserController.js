@@ -44,7 +44,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 									
 										self.user = {fname : '', lname : '', emailId : '', password : '', conPassword : '', mobile : '', role : '', isOnline : '', status : '', errorCode : '',
 													 errorMessage : '', gender : '', reason : ''	};
-										console.log(self.user.gender)
+										//console.log(self.user.gender)
 										
 										self.users = [];
 										

@@ -1,5 +1,0 @@
-package com.niit.collaborationbackend.DAOIMPL;
-
-public class FriendDAOIMPL implements FriendDAO {
-
-}

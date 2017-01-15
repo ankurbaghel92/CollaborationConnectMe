@@ -8,7 +8,7 @@ app.config(function($routeProvider){
 	})
 	
 	.when('/home',{
-		templateUrl:'c_user/home.html'
+		redirectTo:'/'
 	})
 
 	
@@ -35,9 +35,11 @@ app.config(function($routeProvider){
 		})
 
 */	
-	.when('/bloghome',{
-		templateUrl:'c_blog/blogHome.html'
+	.when('/blogs',{
+		templateUrl:'c_blog/blogs.html'
 	})
+	
+	
 	
 	.when('/createblog',{
 		templateUrl:'c_blog/createBlog.html',
@@ -46,6 +48,19 @@ app.config(function($routeProvider){
 	})
 
 	
+	.when('/getSelectedBlog',{
+		templateUrl:'c_blog/getSelectedBlog.html',
+			controller:'BlogController'
+
+	})
+
+	
+
+		.when('/createjob',{
+		templateUrl:'c_job/createJob.html',
+			controller:'JobController'
+
+	})
 	
 	
 		.when('/jobHome',{

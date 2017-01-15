@@ -1,10 +1,7 @@
 package com.niit.collaborationbackend.model;
 
-import java.sql.Timestamp;
 import java.util.Date;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
 
@@ -13,39 +10,38 @@ import org.springframework.stereotype.Component;
 @Component
 public class Blog extends BaseDomain {
 	
-	
+	@Id
 	private int Id;
 	
-	private String Title;
+	private String tittle;
 	
-	@javax.persistence.Id
 	private String emailId;
 	
-	private Timestamp Date_Time;
-	
-
+	private Date date_Time;
 	
 	private char status;
 	
-	private String Reason;
+	private String reason;
 	
-	private String Description;
+	private String description;
 	
 
 	public int getId() {
 		return Id;
+		
 	}
+	
 
 	public void setId(int id) {
-		Id = id;
+		this.Id = id;
 	}
 
-	public String getTitle() {
-		return Title;
+	public String getTittle() {
+		return tittle;
 	}
 
-	public void setTitle(String title) {
-		Title = title;
+	public void setTittle(String tittle) {
+		this.tittle = tittle;
 	}
 	
 	public String getEmailId() {
@@ -56,12 +52,12 @@ public class Blog extends BaseDomain {
 		this.emailId = emailId;
 	}
 
-	public Timestamp getDate_Time() {
-		return Date_Time;
+	public Date getDate_Time() {
+		return date_Time;
 	}
 
-	public void setDate_Time(Timestamp date_Time) {
-		Date_Time = date_Time;
+	public void setDate_Time(Date date_Time) {
+		this.date_Time = date_Time;
 	}
 
 	public char getStatus() {
@@ -72,23 +68,27 @@ public class Blog extends BaseDomain {
 		this.status = status;
 	}
 
+
 	public String getReason() {
-		return Reason;
+		return reason;
 	}
+
 
 	public void setReason(String reason) {
-		Reason = reason;
+		this.reason = reason;
 	}
+
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
+
 
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 
-	
+		
 	
 	
 

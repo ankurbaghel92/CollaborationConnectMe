@@ -1,3 +1,0 @@
-"use strict"
-
-app.factory('ForumServices','$http','$q','$location','$scope','$rootScope',function($http,$q,$location,$rootScope,$root))

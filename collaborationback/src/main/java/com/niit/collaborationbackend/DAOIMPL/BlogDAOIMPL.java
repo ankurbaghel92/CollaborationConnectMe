@@ -38,7 +38,7 @@ public class BlogDAOIMPL implements BlogDAO {
 	}
 	
 	@Transactional
-	public Blog get(String id) {
+	public Blog get(int id) {
 		return (Blog) sessionFactory.getCurrentSession().get(Blog.class, id);
 	}
 
@@ -71,5 +71,25 @@ public class BlogDAOIMPL implements BlogDAO {
 		return query.list();
 		
 			}
+	
+	@Transactional
+	public Integer maxID()
+	{
+		Integer maxId = 100;
+		try {
+			String hql = "Select max(id) from Blog";
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			maxId= (Integer) query.uniqueResult();
+		} catch (HibernateException e) {
+			maxId= 100;
+			e.printStackTrace();
+		}
+		return maxId+1;
+	}
+
+	@Transactional
+	public Blog getById(int id) {
+		return (Blog) sessionFactory.getCurrentSession().get(Blog.class, id);
+	}
 	
 }
