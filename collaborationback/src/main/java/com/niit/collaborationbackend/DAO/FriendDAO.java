@@ -10,6 +10,26 @@ public interface FriendDAO {
 	
 	public boolean delete(Friend friend);
 	
-	public List<Friend> get(String emailId);
+	public boolean update(Friend friend);
+
+	public List<Friend> getMyFriends(String friendEmaildId);
+	
+	public List<Friend> getMyFriendRequests(String emailId);
+	
+	
+	//public void delete(String emailId, String friendEmailID);
+	
+	public Friend get(String emailId, String friendEmailID);
+	
+	public void setOnline(String emailId);
+
+	public void setOffline(String emailId);
+	
+	
+	public Integer maxID();
+
+
+	
+	
 	
 	}
