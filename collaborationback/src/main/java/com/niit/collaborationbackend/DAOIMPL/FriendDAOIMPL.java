@@ -48,7 +48,15 @@ public class FriendDAOIMPL implements FriendDAO {
 
 	@Transactional
 	public List<Friend> getMyFriendRequests(String emailId) {
-		String hql = "From Friend where emaild= '"+emailId+"' and status ='N'";
+		String hql = "select emailId From Friend where friendEmailId= '"+emailId+"' and status ='N'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		return query.list();
+	}
+	
+	
+	@Transactional
+	public List<Friend> getMySentFriendRequest(String emailId) {
+		String hql = "select friendEmailId From Friend where emailId= '"+emailId+"' and status ='N'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		return query.list();
 	}
@@ -95,22 +103,27 @@ public class FriendDAOIMPL implements FriendDAO {
 
 	@Transactional
 	public List<Friend> getMyFriends(String emailId) {
-		String hql = "From Friend where emailId = '"+ emailId + "' and status ='A'"
-				+ "UNION +"
-				+ "From Friend Where emailId = '" +emailId+ "' and status = 'A'"
-						+ "MINUS"
-						+ "From Friend where emaild = '"+emailId+"'";
+		String hql1 = "Select friendEmailId from Friend where emailId = '"+ emailId + "' and status ='A'";
+			//	+ "UNION +"
+				String hql2 = "Select emailId From Friend Where friendEmailId = '" +emailId+ "' and status = 'A'";
+						//+ "MINUS"
+						//+ "From Friend where emaild = '"+emailId+"'";
 		
-		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		List<Friend> myFriends = query.list();
-		return myFriends;
+		Query query1 = sessionFactory.getCurrentSession().createQuery(hql1);
+		Query query2 = sessionFactory.getCurrentSession().createQuery(hql2);
+
+		List<Friend> myFriends1 = query1.list();
+		List<Friend> myFriends2 = query2.list();
+
+		myFriends1.addAll(myFriends2);
+		return myFriends1;
 	}
 	
 	@Transactional
 	public Integer maxID()
 	{
 		Integer maxId = 100;
-		String hql = "Select max(id) from JobApplication";
+		String hql = "Select max(id) from Friend";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		try {
 			maxId= (Integer) query.uniqueResult();

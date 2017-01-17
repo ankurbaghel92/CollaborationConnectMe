@@ -25,6 +25,8 @@ public interface FriendDAO {
 
 	public void setOffline(String emailId);
 	
+	public List<Friend> getMySentFriendRequest(String emailId);
+
 	
 	public Integer maxID();
 

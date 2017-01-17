@@ -135,7 +135,7 @@ public class UserController {
 			session.setAttribute("loggedInUserId", user.getEmailId());
 			session.setAttribute("loggedInUserRole", user.getRole());
 			userDAO.setOnline(user.getEmailId());
-			friendDAO.setOnline(user.getEmailId());
+			//friendDAO.setOnline(user.getEmailId());
 			
 			log.debug("UserController ====> Ending of the authenticate method()");
 

@@ -54,14 +54,55 @@ public class FriendController {
 		if(friendRequest.isEmpty())
 		{
 			friend.setErrorCode("404");
-			friend.setErrorMessage("No friends are available,.,!!,.,!!,.,");
+			friend.setErrorMessage("Currently There are no Friend Request Available.");
 			friendRequest.add(friend);
 			log.debug("FriendController ====> Ending of the getMyFriendRequest method()");
 
 		}
-		
+
+		log.debug("FriendController ====> Ending of the getMyFriendRequest method()");
+
 		return new ResponseEntity<List<Friend>>(friendRequest,HttpStatus.OK);
 	}
+
+	
+	
+	
+	
+	
+	@RequestMapping(value="/getMySentFriendRequest",method=RequestMethod.GET)
+	public ResponseEntity<List<Friend>> getMySentFriendRequest(HttpSession session)
+	{
+		log.debug("FriendController ====> Starting of the getMyFriendRequest method()");
+
+		String loggedInUserId = (String) session.getAttribute("loggedInUserId");
+		
+		List<Friend> sentFriendRequest = new ArrayList<Friend>();
+		
+		if(loggedInUserId==null)
+		{
+			friend.setErrorCode("404");
+			friend.setErrorMessage("Please Login to Continue,.,");
+			sentFriendRequest.add(friend);
+			log.debug("FriendController ====> Ending of the getMyFriendRequest method()");
+		}
+		
+		sentFriendRequest= friendDAO.getMySentFriendRequest(loggedInUserId);
+		
+		if(sentFriendRequest.isEmpty())
+		{
+			friend.setErrorCode("404");
+			friend.setErrorMessage("Currently you have not sent Friend Request to AnyOne");
+			sentFriendRequest.add(friend);
+			log.debug("FriendController ====> Ending of the getMyFriendRequest method()");
+
+		}
+
+		log.debug("FriendController ====> Ending of the getMyFriendRequest method()");
+
+		return new ResponseEntity<List<Friend>>(sentFriendRequest,HttpStatus.OK);
+	}
+
 	
 	@RequestMapping(value="/getMyFriends",method=RequestMethod.GET)
 	public ResponseEntity<List<Friend>> getMyFriends()
@@ -86,7 +127,7 @@ public class FriendController {
 		
 		if(myFriends.isEmpty())
 		{
-			friend.setErrorCode("202");
+			friend.setErrorCode("404");
 			friend.setErrorMessage("Currently You Does Not Have Any Friends Added");
 			myFriends.add(friend);
 			
@@ -113,25 +154,38 @@ public class FriendController {
 			log.debug("FriendController ====> Ending of the sendFriendRequest method()");
 
 		}
+		
 		else
 		{
 			friend.setId(friendDAO.maxID());
 			friend.setStatus('N');
+			friend.setIsOnline('N');
 			friend.setEmailId(loggedInUserId);
 			friend.setFriendEmailId(friendId);
-			if(friendDAO.save(friend)==false)
+			if(friendDAO.get(loggedInUserId, friendId)!=null)
 			{
 				friend.setErrorCode("404");
-				friend.setErrorMessage("Error while adding friend ,.,please try again after sometime,.,!!,.,!!,.,");
+				friend.setErrorMessage("You Already sent a friend request to "+friendId);
 				log.debug("FriendController ====> Ending of the sendFriendRequest method()");
 
 			}
+			
 			else
 			{
-				friend.setErrorCode("200");
-				friend.setErrorMessage("Friend Request has been sent");
-				log.debug("FriendController ====> Ending of the sendFriendRequest method()");
-
+				if(friendDAO.save(friend)==false)
+				{
+					friend.setErrorCode("404");
+					friend.setErrorMessage("Error while adding friend ,.,please try again after sometime,.,!!,.,!!,.,");
+					log.debug("FriendController ====> Ending of the sendFriendRequest method()");
+	
+				}
+				else
+				{
+					friend.setErrorCode("200");
+					friend.setErrorMessage("Friend Request has been sent");
+					log.debug("FriendController ====> Ending of the sendFriendRequest method()");
+	
+				}
 			}
 		}
 		
@@ -193,8 +247,8 @@ public class FriendController {
 	{
 		log.debug("FriendController ====> Starting of the acceptOrRejectFriendRequest method()");
 
-		String loggedInUser = (String) session.getAttribute("loggedInUser");
-		if(loggedInUser==null)
+		String loggedInUserId = (String) session.getAttribute("loggedInUserId");
+		if(loggedInUserId==null)
 		{
 			friend.setErrorCode("404");
 			friend.setErrorMessage("Please Login to Continue,.,");
@@ -203,7 +257,7 @@ public class FriendController {
 		}
 		else
 		{
-			friend = friendDAO.get(friendEmailId, loggedInUser);
+			friend = friendDAO.get(friendEmailId, loggedInUserId);
 			friend.setStatus(status);
 			friendDAO.update(friend);
 			friend.setErrorCode("200");
