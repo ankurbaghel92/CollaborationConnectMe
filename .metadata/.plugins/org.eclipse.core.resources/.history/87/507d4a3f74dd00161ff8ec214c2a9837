@@ -1,0 +1,21 @@
+'use strict'
+
+app.config('FriendController',['FriendServices','$http','$rootScope','$scope','$location',function(FriendServices,$http,$rootScope,$scope,$location){
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}])

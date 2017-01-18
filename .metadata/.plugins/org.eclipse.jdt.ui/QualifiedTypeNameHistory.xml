@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.nitt.collaborationbackend.model.Blog"/>
-<fullyQualifiedTypeName name="com.nitt.collaborationbackend.DAO.BlogDAO"/>
-<fullyQualifiedTypeName name="oracle.net.aso.b"/>
-<fullyQualifiedTypeName name="sun.net.www.content.audio.basic"/>
-<fullyQualifiedTypeName name="com.fasterxml.jackson.databind.deser.Deserializers.Base"/>
 <fullyQualifiedTypeName name="com.nitt.collaborationbackend.model.JobApplication"/>
 <fullyQualifiedTypeName name="com.nitt.collaborationbackend.DAO.JobApplicationDAO"/>
 <fullyQualifiedTypeName name="com.nitt.collaborationbackend.DAOIMPL.JobApplicationDAOIMPL"/>
@@ -45,10 +40,8 @@
 <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthSeparatorUI"/>
 <fullyQualifiedTypeName name="javax.persistence.Transient"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="javax.persistence.Id"/>
 <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
-<fullyQualifiedTypeName name="com.niit.collaborationbackend.model.Friend"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="com.niit.collaborationbackend.DAO.FriendDAO"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
@@ -60,4 +53,11 @@
 <fullyQualifiedTypeName name="org.slf4j.Logger"/>
 <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
 <fullyQualifiedTypeName name="com.niit.collaborationbackend.controller.FriendController"/>
+<fullyQualifiedTypeName name="com.niit.collaborationbackend.model.Friend"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="org.springframework.messaging.handler.annotation.MessageMapping"/>
+<fullyQualifiedTypeName name="org.springframework.messaging.handler.annotation.SendTo"/>
+<fullyQualifiedTypeName name="com.niit.collaborationbackend.model.Message"/>
+<fullyQualifiedTypeName name="com.niit.collaborationbackend.model.OutputMessage"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,87 @@
+'use strict'
+
+app.factory('FriendServices',['$http','$q','$rootScope',function($http,$q,$rootScope){
+
+	
+	var BaseURL='http://localhost:8088/collaborationback'
+
+		return
+		{
+		
+		sendFriendRequest : function(friendId)
+		{
+			return $http.get(BaseURL+'/sendFriendRequest/'+friendId).
+			then(
+				function(Response)
+				{
+					return Response.data;
+				},
+				function(errResponse)
+				{
+					return $q.reject(errResponse);
+				}
+			);
+		}
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+]
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

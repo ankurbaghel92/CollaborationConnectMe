@@ -1,0 +1,26 @@
+'use strict'
+
+app.config('FriendController',['FriendServices','$http','$rootScope','$scope','$location',function(FriendServices,$http,$rootScope,$scope,$location){
+	
+	$scope.friendmessage="Message From Friend Controller"
+		
+		var self = this;
+		
+		self.friend = {Id:'',emailId : '',friendEmailId : '',status : '',IsOnline : '' }
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}])
