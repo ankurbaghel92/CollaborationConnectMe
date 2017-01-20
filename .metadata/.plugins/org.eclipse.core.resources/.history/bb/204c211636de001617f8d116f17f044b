@@ -1,0 +1,19 @@
+"use strict"
+
+app.controller('ChatForumController',function(ForumServices,$scope){
+	
+	console.log("Starting ==>  ChatForumController")
+
+	
+	$scope.chatmessage = "Message from CharForumController"
+
+	$scope.messages = [];
+	
+	$scope.message = "";
+	
+	$scope.max = 50;
+	
+		
+	
+	
+})

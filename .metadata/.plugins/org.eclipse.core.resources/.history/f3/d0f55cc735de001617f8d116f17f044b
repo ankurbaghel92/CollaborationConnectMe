@@ -1,0 +1,15 @@
+"use strict"
+
+app.controller('ChatForumController',function(ForumServices,$scope){
+	
+	$scope.chatmessage = "Message from CharForumController"
+
+	var self = this;
+	
+	self.forum = {Id : '', emailId : '', message : '', Date_Time: ''};
+	
+	self.forums = [];
+	
+	
+	
+})

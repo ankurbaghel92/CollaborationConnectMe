@@ -1,0 +1,17 @@
+"use strict"
+
+app.factory('ChatForumServices',function($q,$timeout){
+	
+	console.log("Starting ==>  ChatForumServices")
+	
+	var service = {};
+	
+	var listner = $q.defer();
+	
+	
+	
+	
+	
+	
+	
+})
