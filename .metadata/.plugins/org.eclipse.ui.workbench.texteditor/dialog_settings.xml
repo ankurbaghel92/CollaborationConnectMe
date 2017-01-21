@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="FriendController" key="selection"/>
+		<item value="username" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="username"/>
 			<item value="FriendController"/>
 			<item value="slf"/>
 			<item value="Blog"/>
@@ -15,7 +16,6 @@
 			<item value="blog"/>
 			<item value="logout"/>
 			<item value="getapplied"/>
-			<item value="applied"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Friend"/>

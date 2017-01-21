@@ -42,7 +42,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 
 										var self =this;
 									
-										self.user = {fname : '', lname : '', emailId : '', password : '', conPassword : '', mobile : '', role : '', isOnline : '', status : '', errorCode : '',
+										self.user = {username:'',fname : '', lname : '', emailId : '', password : '', conPassword : '', mobile : '', role : '', isOnline : '', status : '', errorCode : '',
 													 errorMessage : '', gender : '', reason : ''	};
 										//console.log(self.user.gender)
 										
@@ -95,7 +95,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 														if(self.user.errorCode =="404")
 															{
 																alert(self.user.errorMessage)
-																self.emailId=''
+																self.username=''
 																self.password=''
 																
 															}

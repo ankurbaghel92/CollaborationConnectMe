@@ -117,7 +117,7 @@ public class UserController {
 		
 		log.debug("UserController ====> Starting of the authenticate method()");
 
-		user = userDAO.IsValidUser(user.getEmailId(), user.getPassword());
+		user = userDAO.IsValidUser(user.getUsername(), user.getPassword());
 
 		if (user == null) {
 			user = new User();// to avoid NullPointerException
@@ -132,10 +132,14 @@ public class UserController {
 			user.setErrorCode("200");
 			user.setErrorMessage("You are SuccessFully Logged In,.,!!,.,.");
 			user.setIsOnline('Y');
-			session.setAttribute("loggedInUserId", user.getEmailId());
+			session.setAttribute("loggedInUserId", user.getUsername());
+			
+			log.debug("UserController ====> Login in with Username:-  "+session.getAttribute("loggedInUserId"));
+
+			
 			session.setAttribute("loggedInUserRole", user.getRole());
-			userDAO.setOnline(user.getEmailId());
-			//friendDAO.setOnline(user.getEmailId());
+			userDAO.setOnline(user.getUsername());
+			friendDAO.setOnline(user.getUsername());
 			
 			log.debug("UserController ====> Ending of the authenticate method()");
 
@@ -230,10 +234,11 @@ public class UserController {
 		System.out.println(loggedInUserId);
 		user.setIsOnline('N');
 		userDAO.setOffline(loggedInUserId);
+		friendDAO.setOffline(loggedInUserId);
 		session.invalidate();
 		user.setErrorCode("200");
 		user.setErrorMessage("You Have Been Successfully Logged Out");
-
+		
 		log.debug("UserController ====> Ending of the logout method()");
 
 		return new ResponseEntity<User>(user,HttpStatus.OK);

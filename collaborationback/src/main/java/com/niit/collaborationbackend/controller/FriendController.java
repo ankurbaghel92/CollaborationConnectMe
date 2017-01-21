@@ -49,6 +49,9 @@ public class FriendController {
 			log.debug("FriendController ====> Ending of the getMyFriendRequest method()");
 		}
 		
+		log.debug("FriendController ====> Searching friends for "+loggedInUserId);
+
+		
 		friendRequest= friendDAO.getMyFriendRequests(loggedInUserId);
 		
 		if(friendRequest.isEmpty())
@@ -141,8 +144,8 @@ public class FriendController {
 
 	
 	
-	@RequestMapping(value="/sendFriendRequest/{friendId}",method=RequestMethod.GET)
-	public ResponseEntity<Friend> sendFriendRequest(@PathVariable("friendId") String friendId)
+	@RequestMapping(value="/sendFriendRequest/{friendUserName}",method=RequestMethod.GET,headers="Accept=*/*")
+	public ResponseEntity<Friend> sendFriendRequest(@PathVariable("friendUserName") String friendUserName)
 	{
 		log.debug("FriendController ====> Starting of the sendFriendRequest method()");
 		
@@ -160,12 +163,12 @@ public class FriendController {
 			friend.setId(friendDAO.maxID());
 			friend.setStatus('N');
 			friend.setIsOnline('N');
-			friend.setEmailId(loggedInUserId);
-			friend.setFriendEmailId(friendId);
-			if(friendDAO.get(loggedInUserId, friendId)!=null)
+			friend.setUsername(loggedInUserId);
+			friend.setFriendUserName(friendUserName);
+			if(friendDAO.get(loggedInUserId, friendUserName)!=null)
 			{
 				friend.setErrorCode("404");
-				friend.setErrorMessage("You Already sent a friend request to "+friendId);
+				friend.setErrorMessage("You Already sent a friend request to "+friendUserName);
 				log.debug("FriendController ====> Ending of the sendFriendRequest method()");
 
 			}
@@ -194,11 +197,11 @@ public class FriendController {
 	
 	
 	@RequestMapping(value="/acceptFriendRequest/{friendId}",method=RequestMethod.PUT)
-	public ResponseEntity<Friend> acceptFriendRequest(@PathVariable("friendId") String friendEmailId)
+	public ResponseEntity<Friend> acceptFriendRequest(@PathVariable("friendUserName") String friendUserName)
 	{
 		log.debug("FriendController ====> Starting of the acceptFriendRequest method()");
 
-		friend = acceptOrRejectFriendRequest(friendEmailId, 'A');
+		friend = acceptOrRejectFriendRequest(friendUserName, 'A');
 		
 		log.debug("FriendController ====> Ending of the acceptFriendRequest method()");
 
@@ -208,12 +211,12 @@ public class FriendController {
 	}
 
 	
-	@RequestMapping(value="/rejectFriendRequest/{friendId}",method=RequestMethod.PUT)
-	public ResponseEntity<Friend> rejectFriendRequest(@PathVariable("friendId") String friendEmailId)
+	@RequestMapping(value="/rejectFriendRequest/{friendUserName}",method=RequestMethod.PUT)
+	public ResponseEntity<Friend> rejectFriendRequest(@PathVariable("friendId") String friendUserName)
 	{
 		log.debug("FriendController ====> Starting of the rejectFriendRequest method()");
 
-		friend = acceptOrRejectFriendRequest(friendEmailId, 'R');
+		friend = acceptOrRejectFriendRequest(friendUserName, 'R');
 		
 		log.debug("FriendController ====> Ending of the rejectFriendRequest method()");
 
@@ -224,10 +227,10 @@ public class FriendController {
 	
 	
 	
-	@RequestMapping("/deleteFriend/{friendId}")
-	public ResponseEntity<Friend> deleteFriend(@PathVariable("friendId") String friendId)
+	@RequestMapping("/deleteFriend/{friendUserName}")
+	public ResponseEntity<Friend> deleteFriend(@PathVariable("friendUserName") String friendUserName)
 	{
-		Friend friend = (Friend) friendDAO.getMyFriendRequests(friendId);
+		Friend friend = (Friend) friendDAO.getMyFriendRequests(friendUserName);
 		if(friendDAO.delete(friend)==false)
 		{
 			friend.setErrorCode("404");
@@ -243,7 +246,7 @@ public class FriendController {
 		
 	}
 	
-	private Friend acceptOrRejectFriendRequest(String friendEmailId,char status)
+	private Friend acceptOrRejectFriendRequest(String friendUserName,char status)
 	{
 		log.debug("FriendController ====> Starting of the acceptOrRejectFriendRequest method()");
 
@@ -257,7 +260,7 @@ public class FriendController {
 		}
 		else
 		{
-			friend = friendDAO.get(friendEmailId, loggedInUserId);
+			friend = friendDAO.get(friendUserName, loggedInUserId);
 			friend.setStatus(status);
 			friendDAO.update(friend);
 			friend.setErrorCode("200");

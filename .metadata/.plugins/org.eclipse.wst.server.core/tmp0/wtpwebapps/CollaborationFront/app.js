@@ -94,6 +94,16 @@ app.config(function($routeProvider){
 			
 	})
 	
+	.when('/allfriends',{
+		templateUrl:'c_friend/allfriends.html'
+			
+	})
+
+	.when('/viewfriendrequest',{
+		templateUrl:'c_friend/viewfriendrequest.html'
+			
+	})
+
 	
 	
 	

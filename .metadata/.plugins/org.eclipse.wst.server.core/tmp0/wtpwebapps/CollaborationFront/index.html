@@ -76,7 +76,7 @@
   <ul class="dropdown-menu">
     <li><a href="#">Friend Lists</a></li>
         <li role="separator" class="divider"></li>
-    <li><a href="#">Search For a Friend</a></li>
+    <li><a href="#/allfriends">Search For a Friend</a></li>
       </ul>
 </div>
  <span ng-hide="IsLoggedIn=='true'">
@@ -94,15 +94,26 @@
   
   <span ng-show="IsLoggedIn=='true'">
   <div class="btn-group col-md-offset-2" ng-controller="UserController as ctrl">
- <!-- <a href=""> --><button type="button" class="btn btn-default dropdown-toggle" ng-click="ctrl.logout()" data-toggle="dropdown">
-    Logout  </button><!-- </a> -->
+ <button type="button" class="btn btn-default dropdown-toggle" ng-click="ctrl.logout()" data-toggle="dropdown">
+    Logout  </button>
   </div>
+  
+  <div class="btn-group" ng-controller="FriendController as ctrl">
+<a href="#/viewfriendrequest"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    ViewFriendRequest  </button></a>
+   
   </span>
   
   
    <div class="btn-group">
 <a href="#/users"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     Test  </button></a>
+    
+    
+    
+    
+    
+    
   </div> <!--  </div> -->
 <!--  <div ng-hide="IsLoggedIn=='true'">
  --><!-- <form class="form-inline">
@@ -275,6 +286,8 @@
 <script src="c_user/UserServices.js"></script>
 <script src="c_blog/BlogController.js"></script>
 <script src="c_blog/BlogServices.js"></script>
+<script src="c_friend/FriendController.js"></script>
+<script src="c_friend/FriendServices.js"></script>
 <script src="c_event/EventController.js"></script>
 <script src="c_event/EventServices.js"></script>
 <script src="c_chatforum/ChatForumController.js"></script>

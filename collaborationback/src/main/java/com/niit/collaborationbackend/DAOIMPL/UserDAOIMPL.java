@@ -82,11 +82,11 @@ public class UserDAOIMPL implements UserDAO {
 		}
 
 	@Transactional
-		public User IsValidUser(String emailId, String password) {
+		public User IsValidUser(String username, String password) {
 		try{
-			String hql = "FROM User o where o.emailId= :email and o.password= :password";
+			String hql = "FROM User o where o.username= :username and o.password= :password";
 			Query st  = sessionFactory.getCurrentSession().createQuery(hql);
-			st.setString("email", emailId);
+			st.setString("username", username);
 			st.setString("password", password);
 		return (User) st.uniqueResult();
 		
@@ -101,18 +101,18 @@ public class UserDAOIMPL implements UserDAO {
 	
 	
 	@Transactional
-	public void setOnline(String emailId)
+	public void setOnline(String username)
 	{
-		String hql = "UPDATE User SET isOnline = 'Y' where emailID= '"+emailId+"'";
+		String hql = "UPDATE User SET isOnline = 'Y' where username= '"+username+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.executeUpdate();
 	}
 	
 	
 	@Transactional
-	public void setOffline(String emailId)
+	public void setOffline(String username)
 	{
-		String hql = "UPDATE User SET isOnline = 'N' where emailID= '"+emailId+"'";
+		String hql = "UPDATE User SET isOnline = 'N' where username= '"+username+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		query.executeUpdate();
 	}

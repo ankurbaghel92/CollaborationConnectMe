@@ -12,9 +12,9 @@ public class Friend extends BaseDomain {
 	@Id
 	private int Id;
 	
-	private String emailId;
+	private String username;
 	
-	private String friendEmailId;
+	private String friendUserName;
 	
 	private char status;
 	
@@ -29,20 +29,20 @@ public class Friend extends BaseDomain {
 		Id = id;
 	}
 
-	public String getEmailId() {
-		return emailId;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getFriendEmailId() {
-		return friendEmailId;
+	public String getFriendUserName() {
+		return friendUserName;
 	}
 
-	public void setFriendEmailId(String friendEmailId) {
-		this.friendEmailId = friendEmailId;
+	public void setFriendUserName(String friendUserName) {
+		this.friendUserName = friendUserName;
 	}
 
 	public char getStatus() {

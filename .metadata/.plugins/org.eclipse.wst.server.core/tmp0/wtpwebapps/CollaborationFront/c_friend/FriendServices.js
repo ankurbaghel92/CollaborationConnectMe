@@ -10,12 +10,12 @@ app.factory('FriendServices',['$http','$q','$rootScope',function($http,$q,$rootS
 		return{
 			
 		//To send Friend Request to a Friend
-		sendFriendRequest:function(friendEmailId)
+		sendFriendRequest:function(friendUserName)
 		{
 			
 			console.log("FriendService ==> Starting sendFriendRequest function()")
 			
-			return $http.get(BaseURL+'/sendFriendRequest/'+friendEmailId).
+			return $http.get(BaseURL+'/sendFriendRequest/'+friendUserName).
 			then(
 				function(Response)
 				{
@@ -35,11 +35,11 @@ app.factory('FriendServices',['$http','$q','$rootScope',function($http,$q,$rootS
 		
 		
 		//To Accept Friend Request
-		acceptFriendRequest:function(friendEmailId){
+		acceptFriendRequest:function(friendUserName){
 			
 			console.log("FriendService ==> Starting acceptFriendRequest function()")
 
-			return $http.put(BaseURL+'/acceptFriendRequest/'+friendEmailId).then
+			return $http.put(BaseURL+'/acceptFriendRequest/'+friendUserName).then
 			(
 					function(Response)
 					{
@@ -58,10 +58,10 @@ app.factory('FriendServices',['$http','$q','$rootScope',function($http,$q,$rootS
 		
 		
 		//To Reject Friend Request
-		rejectFriendRequest:function(friendId){
+		rejectFriendRequest:function(friendUserName){
 			console.log("FriendService ==> Starting rejectFriendRequest function()")
 
-			return $http.put(BaseURL+'/rejectFriendRequest/'+friendId).then
+			return $http.put(BaseURL+'/rejectFriendRequest/'+friendUserName).then
 			(
 
 					function(Response)

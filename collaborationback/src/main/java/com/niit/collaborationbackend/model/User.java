@@ -14,6 +14,9 @@ import org.springframework.stereotype.Component;
 public class User extends BaseDomain {
 	
 	private String fname;
+
+	private String username;
+
 	
 	private String lname;
 	
@@ -121,6 +124,12 @@ public class User extends BaseDomain {
 	}
 	public void setConPassword(String conPassword) {
 		ConPassword = conPassword;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	
