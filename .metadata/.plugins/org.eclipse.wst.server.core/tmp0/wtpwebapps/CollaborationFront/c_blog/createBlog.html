@@ -1,5 +1,6 @@
-<div ng-include src="'c_user/leftpanel.html'"></div>
-
+  <span ng-show="showProfile=='true'">
+<div ng-include src="'c_user/profile.html'"></div>
+</span>
 <div class="col-md-offset-2" ng-controller="BlogController as ctrl">
 <br>
 <div ng-hide="IsLoggedIn=='true'">

@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
 public class JobApplication extends BaseDomain {
 	
 	@Id
-	private Long Id;
+	private int Id;
 	
-	private String emailId;
+	private String username;
 	
 	private String jobId;
 
@@ -24,20 +24,20 @@ public class JobApplication extends BaseDomain {
 	
 	private String remarks;
 
-	public Long getId() {
+	public int getId() {
 		return Id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		Id = id;
 	}
 
-	public String getEmailId() {
-		return emailId;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getJobId() {

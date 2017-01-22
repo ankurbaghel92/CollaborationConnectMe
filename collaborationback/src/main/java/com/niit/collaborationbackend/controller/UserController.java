@@ -197,25 +197,26 @@ public class UserController {
 	}
 
 	
-	@RequestMapping(value="/makeAdmin/{emailId}",method=RequestMethod.PUT)
-	public ResponseEntity<User> makeAdmin(@PathVariable("emailId") String emailId)
+	@RequestMapping(value="/makeAdmin/{username}",method=RequestMethod.PUT)
+	public ResponseEntity<User> makeAdmin(@PathVariable("username") String username)
 	{
 		log.debug("UserController ====> Starting of the makeAdmin method()");
 
-		user = userDAO.get(emailId);
+		user = userDAO.get(username);
 		if(user==null){
 			user= new User();
 			user.setErrorCode("404");
-			user.setErrorMessage("User Does Not present with the UserID:-  "+emailId);
+			user.setErrorMessage("User Does Not present with the UserID:-  "+username);
 			
 			log.debug("UserController ====> Ending of the makeAdmin method()");
 
 		}
 		else{
-			user.setRole("Admin");
+			user.setRole("admin");
+			user.setStatus('A');
 			userDAO.update(user);
 			user.setErrorCode("200");
-			user.setErrorMessage("User :- "+emailId+" Role has been successfully updated");
+			user.setErrorMessage("User :- "+username+" Role has been successfully updated");
 			
 			log.debug("UserController ====> Ending of the makeAdmin method()");
 

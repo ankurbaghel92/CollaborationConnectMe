@@ -1,4 +1,6 @@
-<div ng-include src="'c_user/leftpanel.html'"></div>
+  <span ng-show="showProfile=='true'">
+<div ng-include src="'c_user/profile.html'"></div>
+</span>
 <div ng-controller="JobController as ctrl">
 		<p style="color: #0729e7;font-size:20px ">Search for the job
 	<input type="text" ng-model="search_text" placeholder="Type here,.,"></p>
@@ -13,5 +15,5 @@
 					
 	</div>
 
-
+	<br><br><br><br><br>
 </div>

@@ -1,16 +1,22 @@
 "use strict"
 
 app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootScope){
-	
+
+	console.log("Starting ==>  UserServices")
+
 	var BaseURL='http://localhost:8088/collaborationback'
 	
 		return{
 		
 		//start of fetchAllUsers
 		fetchAllUsers:function(){
+			console.log("UserServices ==> Starting fetchAllUsers function()")
+
 			return $http.get(BaseURL+'/allUsers')
 			.then(
 					function(Response){
+						console.log("UserServices ==> Ending fetchAllUsers function()")
+
 						return Response.data;
 					},
 					null
@@ -21,12 +27,18 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 		
 		//start of createUser function()
 		createUser:function(user){
+			console.log("UserServices ==> Starting createUser function()")
+
 		return $http.post(BaseURL+'/registerUser/',user)
 		.then(
 				function(Response){
+					console.log("UserServices ==> Ending createUser function()")
+
 					return Response.data;
 				},
 				function(errResponse){
+					console.log("UserServices ==> Ending createUser function()")
+
 					return $q.reject(errResponse);
 				}
 				
@@ -38,14 +50,20 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 	
 	//start of updateUser function()
 	updateUser:function(user){
+		console.log("UserServices ==> Starting updateUser function()")
+
 		return $http.put(BaseURL+'/updateUser/'+user)
 		.then(
 			function(Response)
 			{
+				console.log("UserServices ==> Ending updateUser function()")
+
 				return Response.data
 			},
 			function(errResponse)
 			{
+				console.log("UserServices ==> Ending updateUser function()")
+
 				return $q.reject(errResponse);
 			}
 		);
@@ -57,14 +75,20 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 	
 	//start of accept function()
 	accept:function(id){
+		console.log("UserServices ==> Starting accept function()")
+
 		return $http.get(BaseURL+'/userById/'+id)
 		.then(
 				function(Response)
 				{
+					console.log("UserServices ==> Ending accept function()")
+
 					return Response.data;
 				},
 				function(errResponse)
 				{
+					console.log("UserServices ==> Ending accept function()")
+
 					return $q.reject(errResponse);
 				}
 		);
@@ -76,9 +100,13 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 	
 	//start of the authenticate function()
 	authenticate:function(user){
+		console.log("UserServices ==> Starting authenticate function()")
+
 		return $http.post(BaseURL+'/authenticate/',user)
 		.then(
 				function(Response){
+					console.log("UserServices ==> Ending authenticate function()")
+
 					return Response.data;
 				},
 				null
@@ -90,11 +118,16 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 	}, //end of authenticate function()
 	
 	
-	makeAdmin : function(emailId){
-		return $http.get(BaseURL+"/makeAdmin/"+emailId).then
+	makeAdmin : function(username){
+		console.log("UserServices ==> Starting makeAdmin function()")
+
+		return $http.put(BaseURL+"/makeAdmin/"+username).then
 		(
 				function(Response)
 				{
+					
+					console.log("UserServices ==> Ending makeAdmin function()")
+
 					return Response.data;
 				},
 				null
@@ -103,10 +136,14 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 	
 	logout : function()
 	{
+		console.log("UserServices ==> Starting logout function()")
+
 		return $http.get(BaseURL+'/logout').then
 		(
 				function(Response)
 				{
+					console.log("UserServices ==> Ending logout function()")
+
 					return Response.data;
 				},
 				null
@@ -117,10 +154,14 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 	
 	//start of myProfile function()
 	myProfile : function(){
+		console.log("UserServices ==> Starting myProfile function()")
+
 		return $http.get(BasURL+'/myprofile').then
 		(
 				function(Response)
 				{
+					console.log("UserServices ==> Ending myProfile function()")
+
 					return Response.data;
 				},
 				null

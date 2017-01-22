@@ -10,10 +10,25 @@ app.config(function($routeProvider){
 	.when('/home',{
 		redirectTo:'/'
 	})
+	
+	
+	.when('/selectReject',{
+	templateUrl:'c_admin/NewFile.html'
+	})
 
 	
-		.when('/users',{
-		templateUrl:'c_user/allusers.html'
+	.when('/adminhome',{
+	templateUrl:'c_admin/adminNavbar.html'
+	})
+
+	
+	.when('/alljobapplication',{
+	templateUrl:'c_admin/alljobapplication.html'
+	})
+
+	
+		.when('/allusers',{
+		templateUrl:'c_admin/allusers.html'
 	})
 
 	
@@ -101,6 +116,11 @@ app.config(function($routeProvider){
 
 	.when('/viewfriendrequest',{
 		templateUrl:'c_friend/viewfriendrequest.html'
+			
+	})
+	
+		.when('/myFriends',{
+		templateUrl:'c_friend/myfriends.html'
 			
 	})
 

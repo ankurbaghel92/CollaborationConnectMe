@@ -14,6 +14,9 @@ app.controller('FriendController',['UserServices','FriendServices','$rootScope',
 		
 		self.friends = [];
 		
+		self.myFriends = [];
+
+		
 
 		
 		self.user = {username:'',fname : '', lname : '', emailId : '', password : '', conPassword : '', mobile : '', role : '', isOnline : '', status : '', errorCode : '',
@@ -85,17 +88,21 @@ app.controller('FriendController',['UserServices','FriendServices','$rootScope',
 		self.acceptFriendRequest = function(friendUsername)
 		{
 			console.log("FriendController ==> Starting acceptFriendRequest function()")
+		console.log("FriendController ==> calling acceptFriendRequest fucntion with username "+friendUsername)
 
 			FriendServices.acceptFriendRequest(friendUsername).then
-			(
-					
+			(					
 					function(d)
 					{
 						self.friend=d;
+						
+						$rootScope.friendRequestAccepted = "true";
 
 						console.log("FriendController ==> Ending acceptFriendRequest function()")
 
 						alert(self.friend.errorMessage)
+						
+						$location.path('/viewfriendrequest')
 					},
 					
 					function(errResponse)
@@ -132,7 +139,28 @@ app.controller('FriendController',['UserServices','FriendServices','$rootScope',
 
 
 	}
+	
 	self.getMyFriendRequest()
+	
+	self.getMyFriends = function()
+	{
+		console.log("FriendController ==> Starting getMyFriends function()")
+
+		FriendServices.getMyFriends().then
+		(
+			function(d)
+			{
+				self.myFriends = d;
+				
+				console.log("FriendController ==> Ending getMyFriends function()")
+
+			},
+			
+			null
+		)
+	}
+	
+	self.getMyFriends()
 
 	/*self.view = function()
 	{

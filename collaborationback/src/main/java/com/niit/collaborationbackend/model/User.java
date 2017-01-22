@@ -15,12 +15,12 @@ public class User extends BaseDomain {
 	
 	private String fname;
 
+	@Id
 	private String username;
-
 	
 	private String lname;
 	
-	@Id
+	
 	private String emailId;
 	
 	private String password;

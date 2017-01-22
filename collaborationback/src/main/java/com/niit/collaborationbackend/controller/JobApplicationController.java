@@ -70,22 +70,22 @@ public class JobApplicationController {
 	@RequestMapping(value="/applyForJob/{jobId}",method=RequestMethod.POST)
 	public ResponseEntity<JobApplication> applyForJob(@PathVariable("jobId") String jobId,HttpSession session)
 	{
-		String emailId = (String) session.getAttribute("loggedInUserID");
-		System.out.println(emailId);
+		String username = (String) session.getAttribute("loggedInUserId");
+		System.out.println(username);
 		
 		//User is not logged in
-		if(emailId==null)
+		if(username==null)
 		{
 			jobApplication.setErrorCode("404");
 			jobApplication.setErrorMessage("You are not Logged In.,. Please login,.,");
 		}
 		else
 		{		//if user is logged in and to check if not already applied for the job
-				if(jobApplicationDAO.getJobApplication(emailId, jobId)==null)
+				if(jobApplicationDAO.getJobApplication(username, jobId)==null)
 					{
 						jobApplication.setJobId(jobId);
 						jobApplication.setStatus('N');		//N-->New		S-->Selected		C-->Call For Interview
-						jobApplication.setEmailId(emailId);
+						jobApplication.setUsername(username);
 						jobApplication.setDate_Applied(new Date());
 						jobApplication.setId(jobApplicationDAO.maxID());
 						//if the saving jobApplication is successfull
@@ -112,9 +112,9 @@ public class JobApplicationController {
 	//if a person wants to see his all Applied Jobs
 	@RequestMapping(value="/myAppliedJobs", method=RequestMethod.GET)
 	public ResponseEntity<List<JobApplication>> myAppliedJobs(HttpSession session){
-		String emailId = (String) session.getAttribute("emailId");
+		String username = (String) session.getAttribute("username");
 		List<JobApplication> jobApplications = new ArrayList<JobApplication>();
-		if(emailId==null)
+		if(username==null)
 		{
 			jobApplication.setErrorCode("404");
 			jobApplication.setErrorMessage("We are Sorry!!,., You are not Logged in,.,.");
@@ -122,7 +122,7 @@ public class JobApplicationController {
 		else
 		{
 		
-		 jobApplications  = jobApplicationDAO.myAppliedJob(emailId);
+		 jobApplications  = jobApplicationDAO.myAppliedJob(username);
 		
 	
 		}
@@ -132,12 +132,12 @@ public class JobApplicationController {
 	
 	
 	//If a Person is selected for a Job
-	@RequestMapping(value="/selectJobApplication/{emailId}/{jobId}/{remarks}",method=RequestMethod.PUT)
-	public ResponseEntity<JobApplication> selectJobApplication(@PathVariable("emailId") String emailId, @PathVariable("jobId") String jobId,
+	@RequestMapping(value="/selectJobApplication/{username}/{jobId}/{remarks}",method=RequestMethod.PUT)
+	public ResponseEntity<JobApplication> selectJobApplication(@PathVariable("username") String username, @PathVariable("jobId") String jobId,
 			@PathVariable("remarks") String remarks)
 	{
 
-			jobApplication =updateJobApplication(emailId, jobId,'S', remarks);
+			jobApplication =updateJobApplication(username, jobId,'S', remarks);
 		
 		return new ResponseEntity<JobApplication>(jobApplication, HttpStatus.OK);
 	}
@@ -146,12 +146,12 @@ public class JobApplicationController {
 	
 	
 	//If a Person is rejected for a Job
-	@RequestMapping(value="/rejectJobApplication/{emailId}/{jobId}/{remarks}",method=RequestMethod.PUT)
-	public ResponseEntity<JobApplication> rejectJobApplication(@PathVariable("emailId") String emailId, @PathVariable("jobId") String jobId,
+	@RequestMapping(value="/rejectJobApplication/{username}/{jobId}/{remarks}",method=RequestMethod.PUT)
+	public ResponseEntity<JobApplication> rejectJobApplication(@PathVariable("username") String username, @PathVariable("jobId") String jobId,
 			@PathVariable("remarks") String remarks)
 	{
 
-			jobApplication =updateJobApplication(emailId, jobId,'R', remarks);
+			jobApplication =updateJobApplication(username, jobId,'R', remarks);
 		
 		return new ResponseEntity<JobApplication>(jobApplication, HttpStatus.OK);
 	}
@@ -159,12 +159,12 @@ public class JobApplicationController {
 	
 	
 	//If a Person has been called for an Interview
-	@RequestMapping(value="/callForInterview/{emailId}/{jobId}/{remarks}",method=RequestMethod.PUT)
-	public ResponseEntity<JobApplication> callForInterview(@PathVariable("emailId") String emailId, @PathVariable("jobId") String jobId,
+	@RequestMapping(value="/callForInterview/{username}/{jobId}/{remarks}",method=RequestMethod.PUT)
+	public ResponseEntity<JobApplication> callForInterview(@PathVariable("username") String username, @PathVariable("jobId") String jobId,
 			@PathVariable("remarks") String remarks)
 	{
 
-			jobApplication =updateJobApplication(emailId, jobId,'C', remarks);
+			jobApplication =updateJobApplication(username, jobId,'C', remarks);
 		
 		return new ResponseEntity<JobApplication>(jobApplication, HttpStatus.OK);
 	}
@@ -172,12 +172,12 @@ public class JobApplicationController {
 
 	
 	//Private method to minimize the Code
-	private JobApplication updateJobApplication(String emailId, String jobId, char status, String remarks)
+	private JobApplication updateJobApplication(String username, String jobId, char status, String remarks)
 	{
-		if(isUserAppliedForJob(emailId, jobId)==false)
+		if(isUserAppliedForJob(username, jobId)==false)
 		{
 			jobApplication.setErrorCode("404");
-			jobApplication.setErrorMessage(emailId+" Not Applied for the job");
+			jobApplication.setErrorMessage(username+" Not Applied for the job");
 			return jobApplication;
 		}
 		
@@ -191,14 +191,14 @@ public class JobApplicationController {
 
 		}
 		
-		if(!loggedInUserRole.equals("Admin"))
+		if(!loggedInUserRole.equals("admin"))
 		{
 			jobApplication.setErrorCode("404");
 			jobApplication.setErrorMessage("We are Sorry!!,., You are not authorized to process this,.,.");
 			return jobApplication;
 		}
 		
-		jobApplication = jobApplicationDAO.getJobApplication(emailId, jobId);
+		jobApplication = jobApplicationDAO.getJobApplication(username, jobId);
 		jobApplication.setStatus(status);
 		jobApplication.setRemarks(remarks);
 		if(jobApplicationDAO.updateJobApplication(jobApplication))
@@ -216,9 +216,9 @@ public class JobApplicationController {
 	}
 	
 	
-	private boolean isUserAppliedForJob(String emailId, String jobId)
+	private boolean isUserAppliedForJob(String username, String jobId)
 	{
-		if(jobApplicationDAO.getJobApplication(emailId, jobId)==null)
+		if(jobApplicationDAO.getJobApplication(username, jobId)==null)
 			return false;
 		else
 			return true;

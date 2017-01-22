@@ -1,0 +1,19 @@
+'use strict'
+
+app.controller('AdminController',['UserServices','$rootScope','$scope','$location',
+                               function(UserServices,FriendServices,$rootScope,$scope,$location){
+	
+	$scope.friendmessage="Message From AdminController"
+		
+		console.log("Starting ==>  AdminController")
+		
+		
+		
+		
+		
+		
+		
+}		
+		]
+
+)

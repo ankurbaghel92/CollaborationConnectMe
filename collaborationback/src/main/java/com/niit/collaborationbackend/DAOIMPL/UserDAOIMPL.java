@@ -54,6 +54,7 @@ public class UserDAOIMPL implements UserDAO {
 			}
 			}
 		
+		@Transactional
 		public boolean update(User user) {
 			try
 			{
@@ -69,8 +70,8 @@ public class UserDAOIMPL implements UserDAO {
 		}
 		
 		@Transactional
-		public User get(String UserId) {
-				return (User) sessionFactory.getCurrentSession().get(User.class, UserId) ;
+		public User get(String username) {
+				return (User) sessionFactory.getCurrentSession().get(User.class, username) ;
 			
 		}
 

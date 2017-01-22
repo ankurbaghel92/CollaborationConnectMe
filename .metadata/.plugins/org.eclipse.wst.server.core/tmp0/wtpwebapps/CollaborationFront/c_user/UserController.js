@@ -39,6 +39,7 @@ $scope.message="Message From User Contoller"
 app.controller('UserController',['$scope','UserServices','$location','$rootScope','$http',
                                  function($scope, UserServices, $location, $rootScope, $http){
 	$scope.message="Message From User Contoller"
+		console.log("Starting ==>  UserController")
 
 										var self =this;
 									
@@ -50,15 +51,20 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										
 										
 										//Start of fetchAllUsers function()
-										self.fetchAllUsers = function(){
+										self.fetchAllUsers = function(){	
+											console.log("UserController ==> Starting fetchAllUsers function()")
+											
 											UserServices.fetchAllUsers().then
 											    (
 														function(d){
 															self.users=d;
+															console.log("UserController ==> Ending fetchAllUsers function()")
 														},
 														function(errResponse)
 														{
 															console.error("Error  While Getting all the Users detials,.,.,.")
+															console.log("UserController ==> Ending fetchAllUsers function()")
+
 														}
 												)
 										};//end of fetchAllUsers function()
@@ -68,17 +74,20 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										
 										//start of createUser function()
 										self.createUser = function(user){
-											console.log(self.user.gender)
+											console.log("UserController ==> Starting createUser function()")
 											UserServices.createUser(user).then
 											(
 													function(d)
 													{
 														alert("ThankYou For Registration,.,,,,")
+														console.log("UserController ==> Ending createUser function()")
 														//location
 													},
 													function(errResponse)
 													{
 														console.error("Error While Registration,,., Please try again after some time,.,")
+														console.log("UserController ==> Ending createUser function()")
+
 													}
 											)
 										};//end of createUser function()
@@ -87,6 +96,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										
 										self.authenticate = function(user)
 										{
+											console.log("UserController ==> Starting createUser function()")
 											UserServices.authenticate(user).then
 											(
 													function(d)
@@ -97,6 +107,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 																alert(self.user.errorMessage)
 																self.username=''
 																self.password=''
+																	console.log("UserController ==> Ending createUser function()")
 																
 															}
 														else
@@ -104,21 +115,43 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 																$rootScope.currentUser = self.user
 																console.log("Logging in with Email :- "+$rootScope.currentUser.emailId)
 																$rootScope.IsLoggedIn="true"
-																$location.path('/createblog')
+																if($rootScope.currentUser.role==='admin')
+																	{
+																			console.log("UserController ==> Login as "+$rootScope.currentUser.role)
+																			console.log("UserController ==> Ending createUser function()")
+																			$location.path('/adminhome')
+																	}
+																else
+																	{
+																			$rootScope.showProfile="true"
+																			console.log("UserController ==> Login as "+$rootScope.currentUser.role)
+																			console.log("UserController ==> Ending createUser function()")
+																			$location.path('/blogs')	
+																	}
 															}
 													}
 											)
 										}
 										
-										self.makeAdmin = function(emailId){
-											UserServices.makeAdmin(emailId).then
+										
+										
+										
+										self.makeAdmin = function(username){
+											console.log("UserController ==> Starting makeAdmin function()")
+											console.log("UserController ==> Calling MakeAdmin Function with username "+username)
+											UserServices.makeAdmin(username).then
 											(
 													function(d)
 													{
 														self.user =  d;
+														console.log("UserController ==> Ending makeAdmin function()")
 														alert(self.user.errorMessage)
+														$location.path('/allusers')
 													}											)
 										}
+										
+										
+										
 										
 										self.logoutUser = function()
 										{

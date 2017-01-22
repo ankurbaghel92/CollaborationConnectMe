@@ -42,16 +42,18 @@
  <td hide="!friends.length">
  
                                         <img src="http://bootdey.com/img/Content/user_1.jpg" alt="">
-                                        <a href="#">{{friend.fname}} {{friend.fname}}    {{friend.username}}</a><br>
+                                        <a href="#">{{friend.fname}} {{friend.fname}}    {{friend.Fn}}</a><br>
                                         <span class="user-subhead">{{friend.role}}</span>
                                     </td>
 
                                     <td>{{friend.mobile}}</td>
                                     
                                     <td class="text-center">
-<!--                                                 <span ng-hide="IsSentFriendRequest'true'">
- -->                                    
-										  <button type="button" ng-click="ctrl.send(user.username)" class="btn btn-primary">Accept</button></span>
+                                                <span ng-hide="friendRequestAccepted=='true'">
+                                    
+										  <button type="button" ng-click="ctrl.acceptFriendRequest(friend.username)" class="btn btn-primary">Accept</button>
+										  
+										  </span>
 										  
                                     </td>
                                    

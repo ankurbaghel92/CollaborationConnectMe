@@ -196,7 +196,7 @@ public class FriendController {
 	}
 	
 	
-	@RequestMapping(value="/acceptFriendRequest/{friendId}",method=RequestMethod.PUT)
+	@RequestMapping(value="/acceptFriendRequest/{friendUserName}",method=RequestMethod.PUT)
 	public ResponseEntity<Friend> acceptFriendRequest(@PathVariable("friendUserName") String friendUserName)
 	{
 		log.debug("FriendController ====> Starting of the acceptFriendRequest method()");

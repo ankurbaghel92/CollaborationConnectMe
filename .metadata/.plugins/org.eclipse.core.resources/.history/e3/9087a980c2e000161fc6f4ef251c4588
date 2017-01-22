@@ -1,0 +1,71 @@
+<!-- <html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head> 
+<body>-->
+
+
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+<div ng-include src="'c_admin/adminNavbar.html'"></div>
+
+
+<div ng-controller="JobController as ctrl">
+
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-12">
+
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                <th><span>UserName</span></th>
+                                <th><span>JobId</span></th>
+                                <th class="text-center"><span>Date Applied</span></th>
+                                <th><span>Status</span></th>
+								 <th><span>Remarks</span></th>
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            
+                                <tr ng-repeat="job in ctrl.jobapplications">
+                                   
+ 									<td>
+ 									{{job.username}}
+                                    </td>
+
+                                    <td>{{job.jobid}}</td>
+                                    
+                                    <td class="text-center">
+                                   
+										 {{user.status}}
+										  
+                                    </td>
+                                   
+                                    <td><a href="#" style="text-decoration: none" >{{user.emailId}}</a> </td>
+                                    
+                                    <td ><a href="#" style="text-decoration: none" >{{user.role}}</a> </td>
+                                    
+ 
+ <td>							
+ <span ng-hide="user.role=='admin'"><button type="button" ng-click="ctrl.makeAdmin(user.username)" class="btn btn-primary">Make Admin</button></span>
+ </td>
+                                         </tr>
+                            </tbody>
+                        </table>
+                 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div><!-- 
+</body>
+</html> -->

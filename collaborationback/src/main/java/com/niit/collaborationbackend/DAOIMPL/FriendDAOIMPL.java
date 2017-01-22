@@ -106,11 +106,17 @@ public class FriendDAOIMPL implements FriendDAO {
 
 	@Transactional
 	public List<Friend> getMyFriends(String username) {
-		String hql1 = "Select friendUserName from Friend where username = '"+ username + "' and status ='A'";
+		String hql1 = "Select friendUserName as FN from Friend where username = '"+ username + "' and status ='A'";
 			//	+ "UNION +"
-				String hql2 = "Select emailId From Friend Where friendUserName = '" +username+ "' and status = 'A'";
+		
+/*		String hql1 = "From Friend where username = '"+ username + "' and status ='A'";
+*/
+				String hql2 = "Select username as FN From Friend Where friendUserName = '" +username+ "' and status = 'A'";
 						//+ "MINUS"
 						//+ "From Friend where emaild = '"+emailId+"'";
+		
+/*		String hql2 = "From Friend Where friendUserName = '" +username+ "' and status = 'A'";
+*/
 		
 		Query query1 = sessionFactory.getCurrentSession().createQuery(hql1);
 		Query query2 = sessionFactory.getCurrentSession().createQuery(hql2);

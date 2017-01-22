@@ -31,7 +31,7 @@ public class JobApplicationDAOIMPL implements JobApplicationDAO {
 	}
 
 	
-	
+	@Transactional
 	public List<JobApplication> list() {
 		String hql= "From JobApplication";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
@@ -65,30 +65,30 @@ public class JobApplicationDAOIMPL implements JobApplicationDAO {
 
 	
 	@Transactional
-	public JobApplication getJobApplication(String emailId, String jobId) {
-		String hql = "FROM JobApplication where emailId='"+emailId+"' and JobId = '"+jobId+"'";
+	public JobApplication getJobApplication(String username, String jobId) {
+		String hql = "FROM JobApplication where username='"+username+"' and JobId = '"+jobId+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		return (JobApplication) query.uniqueResult();
 	}
 	
 	@Transactional
-	public List<JobApplication> myAppliedJob(String emailId) 
+	public List<JobApplication> myAppliedJob(String username) 
 	{
-		String hql = "From JobApplication where emailId = '"+emailId+"'";
+		String hql = "From JobApplication where username = '"+username+"'";
 	Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		return query.list()	;
 	}
 	
 	@Transactional
-	public Long maxID()
+	public Integer maxID()
 	{
-		Long maxId = 100L;
+		Integer maxId = 100;
 		try {
 			String hql = "Select max(id) from JobApplication";
 			Query query = sessionFactory.getCurrentSession().createQuery(hql);
-			maxId= (Long) query.uniqueResult();
+			maxId= (Integer) query.uniqueResult();
 		} catch (HibernateException e) {
-			maxId= 100L;
+			maxId= 100;
 			e.printStackTrace();
 		}
 		return maxId+1;
