@@ -41,7 +41,7 @@ app.factory('JobServices',['$http','$q','$rootScope',function($http,$q,$rootScop
 											createJob : function(job){
 												console.log("JobServices ==> Starting createJob function()")
 
-												return $http.post(BaseURL+'/savejob/',job).then
+												return $http.post(BaseURL+'/postJob/',job).then
 												(
 														function(Response)
 														{
@@ -147,7 +147,91 @@ app.factory('JobServices',['$http','$q','$rootScope',function($http,$q,$rootScop
 												
 
 
+											},
+											
+											
+											rejectJobApplication : function(username,jobid,reason)
+											{
+												console.log("JobServices ==> Starting selectJobApplication function()")
+												return $http.put(BaseURL+'/rejectJobApplication/'+username+'/'+jobid+'/'+reason).then
+												(
+														function(Response)
+														{
+															console.log("JobServices ==> Ending selectJobApplication function()")
+
+															return Response.data
+														},
+														function(errResponse)
+														{
+															console.log("JobServices ==> Ending selectJobApplication function()")
+
+															console.error("Error While Selecting Job Application")
+															return $q.reject(errResponse)
+														}
+
+												)
+												
+
+
+											},
+											
+											
+											callForInterview : function(username,jobid,reason)
+											{
+												console.log("JobServices ==> Starting selectJobApplication function()")
+												return $http.put(BaseURL+'/callForInterview/'+username+'/'+jobid+'/'+reason).then
+												(
+														function(Response)
+														{
+															console.log("JobServices ==> Ending callForInterview function()")
+
+															return Response.data
+														},
+														function(errResponse)
+														{
+															console.log("JobServices ==> Ending callForInterview function()")
+
+															console.error("Error While Selecting Job Application")
+															return $q.reject(errResponse)
+														}
+
+												)
+												
+
+
+											},
+											
+											
+											myAppliedJobs : function()
+											{
+												console.log("JobServices ==> Starting myAppliedJobs function()")
+												return $http.get(BaseURL+'/myAppliedJobs').then
+												(
+														function(Response)
+														{
+															console.log("JobServices ==> Ending myAppliedJobs function()")
+
+															return Response.data
+														},
+														function(errResponse)
+														{
+															console.log("JobServices ==> Ending myAppliedJobs function()")
+
+															console.error("Error While getting my selected job")
+															return $q.reject(errResponse)
+														}
+
+												)
+
 											}
+											
+											
+											
+											
+
+
+											
+											
 											
 											
 											

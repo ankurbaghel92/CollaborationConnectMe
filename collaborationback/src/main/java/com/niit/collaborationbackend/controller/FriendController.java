@@ -1,9 +1,11 @@
 package com.niit.collaborationbackend.controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.xml.bind.JAXBException;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +15,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.xml.sax.SAXException;
 
 import com.niit.collaborationbackend.DAO.FriendDAO;
+import com.niit.collaborationbackend.DAO.UserDAO;
 import com.niit.collaborationbackend.model.Friend;
+import com.niit.collaborationbackend.model.User;
+import com.sun.xml.internal.bind.v2.runtime.reflect.ListIterator;
 
 
 @RestController
@@ -26,6 +32,9 @@ public class FriendController {
 	
 	@Autowired
 	FriendDAO friendDAO;
+	
+	@Autowired
+	UserDAO userDAO;
 	
 	@Autowired(required=false)
 	HttpSession session;
@@ -269,5 +278,13 @@ public class FriendController {
 
 		}
 		return friend;
+	}
+	
+	@RequestMapping(value="/fetchallFriends/{friendUserName}",method=RequestMethod.GET)
+	public ResponseEntity<List<User>> fetchallFriends(@PathVariable("friendUserName") String username) throws SAXException, JAXBException
+	{
+		ArrayList<User> selectedUsers = (ArrayList<User>) userDAO.getall(username);
+	
+	return new ResponseEntity<List<User>>(selectedUsers,HttpStatus.OK);
 	}
 }

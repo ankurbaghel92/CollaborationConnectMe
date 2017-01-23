@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.niit.collaborationbackend.DAO.JobApplicationDAO;
 import com.niit.collaborationbackend.DAO.JobDAO;
 import com.niit.collaborationbackend.model.Job;
 
@@ -24,6 +25,9 @@ public class JobController {
 	
 	@Autowired
 	JobDAO jobDAO;
+	
+	@Autowired
+	JobApplicationDAO jobApplicationDAO;
 	
 	
 	//To Get All the Jobs from the Job Table
@@ -62,6 +66,7 @@ public class JobController {
 	@RequestMapping(value="/postJob/",method=RequestMethod.POST)
 	public ResponseEntity<Job> postJob(@RequestBody Job job)
 		{
+		job.setId("Job"+jobApplicationDAO.maxID());
 		job.setDate(new Date());
 		job.setStatus('V');//v-->Vacant  F-->Filled  P-->Pending
 		if(jobDAO.saveJob(job)==false)

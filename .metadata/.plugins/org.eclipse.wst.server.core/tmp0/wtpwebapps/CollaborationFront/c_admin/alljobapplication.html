@@ -56,17 +56,29 @@
                                     
  
  <td>							
-<button type="button" ng-click="showme=true" class="btn btn-primary">Select/Reject </button>
-<p ng-show="showme">
- <input type="text" class="form-control" placeholder="Status" ng-model="job.status" maxlength="1" >
+<button type="button" ng-click="showselectme=true" class="btn btn-primary">Select</button>
+<button type="button" ng-click="showrejectme=true" class="btn btn-primary">Reject </button>
+<button type="button" ng-click="showinterview=true" class="btn btn-primary">Call for Interview </button>
+
+<p ng-show="showselectme">
  <input type="text" class="form-control" placeholder="Reason" ng-model="job.remarks" id="">
- <button type="button" ng-click="showme=false" class="btn btn-primary">Hide </button>
-  <button type="button" class="btn btn-primary" ng-click="ctrl.selectJobApplication(job.username,job.jobId,job.remarks)">Submit </button>
-    <button type="button" class="btn btn-primary" ng-click="ctrl.rejectJobApplication(job.username,job.status,job.remarks)">Reject </button>
-  
- 
- 
+ <button type="button" ng-click="showselectme=false" class="btn btn-primary">Hide </button>
+  <button type="button" class="btn btn-primary" ng-click="ctrl.selectJobApplication(job.username,job.jobId,job.remarks)">Select </button> 
 </p>
+
+<p ng-show="showrejectme">
+ <input type="text" class="form-control" placeholder="Reason" ng-model="job.remarks" id="">
+ <button type="button" ng-click="showrejectme=false" class="btn btn-primary">Hide </button>
+  <button type="button" class="btn btn-primary" ng-click="ctrl.rejectJobApplication(job.username,job.jobId,job.remarks)">Reject </button> 
+</p>
+
+
+<p ng-show="showinterview">
+ <input type="text" class="form-control" placeholder="Reason" ng-model="job.remarks" id="">
+ <button type="button" ng-click="showinterview=false" class="btn btn-primary">Hide </button>
+  <button type="button" class="btn btn-primary" ng-click="ctrl.callForInterview(job.username,job.jobId,job.remarks)">Call For Interview </button> 
+</p>
+
  </td>
                                          </tr>
                             </tbody>

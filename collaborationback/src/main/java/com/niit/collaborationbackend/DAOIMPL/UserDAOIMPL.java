@@ -1,5 +1,6 @@
 package com.niit.collaborationbackend.DAOIMPL;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -74,7 +75,16 @@ public class UserDAOIMPL implements UserDAO {
 				return (User) sessionFactory.getCurrentSession().get(User.class, username) ;
 			
 		}
-
+		
+		@Transactional
+		public List<User> getall(String username) {
+			String hql = "FROM User "
+					+ "NOT IN "
+					+ "FROM User where username='"+username+"'";
+			Query query =  sessionFactory.getCurrentSession().createQuery(hql);
+			return query.list();
+		}
+  
 		@Transactional
 		public List<User> list() {
 			String hql = "FROM User";

@@ -76,7 +76,14 @@ app.config(function($routeProvider){
 			controller:'JobController'
 
 	})
+
 	
+	.when('/myappliedjobs',{
+		templateUrl:'c_job/myappliedjobs.html',
+			controller:'JobController'
+
+	})
+
 	
 		.when('/jobHome',{
 		templateUrl:'c_job/jobHome.html',

@@ -123,6 +123,7 @@ public class FriendDAOIMPL implements FriendDAO {
 
 		List<Friend> myFriends1 = query1.list();
 		List<Friend> myFriends2 = query2.list();
+		
 
 		myFriends1.addAll(myFriends2);
 		return myFriends1;

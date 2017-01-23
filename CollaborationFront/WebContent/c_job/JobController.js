@@ -9,13 +9,15 @@ app.controller('JobController',['JobServices','$http','$rootScope','$location','
 
 	var self = this;
 	
-	self.job = {id : '', tittle : '', qualification : '', description : '', status : '', date : ''};
+	self.job = {Id : '', tittle : '', qualification : '', description : '', status : '', date : ''};
 	
 	self.jobs = [];
 	
 	self.jobapplication = {Id:'',username :'',jobId:'',date_Applied:'',status:'',remarks:''}
 	
 	self.jobapplications = [] 
+	
+	self.myJobapplications = [];
 	
 	
 	var currentUser = $rootScope.currentUser;
@@ -144,6 +146,7 @@ app.controller('JobController',['JobServices','$http','$rootScope','$location','
 		)
 	}
 	
+	
 	self.updateJob = function(job)
 	{
 		console.log("JobController ==> Starting updateJob function()")
@@ -178,8 +181,9 @@ app.controller('JobController',['JobServices','$http','$rootScope','$location','
 				{
 					self.jobapplication = d;
 					console.log("JobController ==> Ending selectJobApplication function()")
-
 					alert(self.jobapplication.errorMessage)
+					self.fetchAllJobApplications()
+					$location.path('/alljobapplication')
 				},
 				function(errResponse)
 				{
@@ -190,7 +194,88 @@ app.controller('JobController',['JobServices','$http','$rootScope','$location','
 		)
 
 	}
+		
+	self.rejectJobApplication = function(username,jobid,reason)
+	{
+		console.log("JobController ==> Starting rejectJobApplication function()")
+
+		console.log("JobController ==> Calling rejectJobApplication with "+username+"  "+jobid+"  "+reason)
+
+		JobServices.rejectJobApplication(username,jobid,reason).then
+		(
+				function(d)
+				{
+					self.jobapplication = d;
+					console.log("JobController ==> Ending rejectJobApplication function()")
+					alert(self.jobapplication.errorMessage)
+					self.fetchAllJobApplications()
+					//$location.path('/adminhome')
+				},
+				function(errResponse)
+				{
+					console.log("JobController ==> Ending rejectJobApplication function()")
+
+					console.log("Error While Updating Job.,.,Please try again after sometime,.,!!,.,!!,.,")
+				}
+		)
+
+	},
 	
+	self.callForInterview = function(username,jobid,reason)
+	{
+		console.log("JobController ==> Starting callForInterview function()")
+
+		console.log("JobController ==> Calling callForInterview with "+username+"  "+jobid+"  "+reason)
+
+		JobServices.callForInterview(username,jobid,reason).then
+		(
+				function(d)
+				{
+					self.jobapplication = d;
+					console.log("JobController ==> Ending callForInterview function()")
+					alert(self.jobapplication.errorMessage)
+					self.fetchAllJobApplications()
+					//$location.path('/adminhome')
+				},
+				function(errResponse)
+				{
+					console.log("JobController ==> Ending callForInterview function()")
+
+					console.log("Error While Updating Job.,.,Please try again after sometime,.,!!,.,!!,.,")
+				}
+		)
+
+	},
+	
+	
+	
+	self.myAppliedJobs = function()
+	{
+		console.log("JobController ==> Starting myAppliedJobs function()")
+
+	//	console.log("JobController ==> Calling myAppliedJobs with "+username+"  "+jobid+"  "+reason)
+		
+		JobServices.myAppliedJobs().then
+		(
+				function(d)
+				{
+					self.myJobapplications = d;
+					console.log("JobController ==> Ending myAppliedJobs function()")
+					//alert(self.jobapplication.errorMessage)
+					//self.fetchAllJobApplications()
+					//$location.path('/adminhome')
+				},
+				function(errResponse)
+				{
+					console.log("JobController ==> Ending myAppliedJobs function()")
+
+					console.log("Error While fetching myAppliedJobs,.,Please try again after sometime,.,!!,.,!!,.,")
+				}
+		)
+
+	}
+
+	self.myAppliedJobs();
 	
 	
 	self.submit =function()

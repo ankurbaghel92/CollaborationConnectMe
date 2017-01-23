@@ -112,7 +112,7 @@ public class JobApplicationController {
 	//if a person wants to see his all Applied Jobs
 	@RequestMapping(value="/myAppliedJobs", method=RequestMethod.GET)
 	public ResponseEntity<List<JobApplication>> myAppliedJobs(HttpSession session){
-		String username = (String) session.getAttribute("username");
+		String username = (String) session.getAttribute("loggedInUserId");
 		List<JobApplication> jobApplications = new ArrayList<JobApplication>();
 		if(username==null)
 		{

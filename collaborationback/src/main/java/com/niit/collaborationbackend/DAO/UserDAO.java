@@ -22,6 +22,7 @@ public interface UserDAO {
 
 	public void setOffline(String emailId);
 
+	public List<User> getall(String username);
 
 
 }

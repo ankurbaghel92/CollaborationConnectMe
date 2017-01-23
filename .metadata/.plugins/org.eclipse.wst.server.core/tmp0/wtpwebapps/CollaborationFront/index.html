@@ -62,23 +62,29 @@
     Jobs <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="#/createjob">Post a Job</a></li>
-        <li role="separator" class="divider"></li>
+<!--     <li><a href="#/createjob">Post a Job</a></li>
+ -->        <li role="separator" class="divider"></li>
     <li><a href="#/openJobs">All Jobs</a></li>
       </ul>
 </div>
 
+  <span ng-show="IsLoggedIn=='true'">
 
 <div class="btn-group">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     Friends <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="#">Friend Lists</a></li>
+  
+    <li ng-controller="FriendController as ctrl"><a href="#/myFriends"> MyFriends  </a></li>
+    
         <li role="separator" class="divider"></li>
     <li><a href="#/allfriends">Search For a Friend</a></li>
       </ul>
 </div>
+
+</span>
+
  <span ng-hide="IsLoggedIn=='true'">
  
  <div class="btn-group col-md-offset-2">

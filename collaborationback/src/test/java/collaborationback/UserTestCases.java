@@ -56,13 +56,13 @@ public class UserTestCases {
 		
 	}
 	
-	//@Test
+	@Test
 	public void GetuserTestCase() {
-		User user = userDAO.get("ankur.baghel92@gmail.com");
+		User user = userDAO.get("tom");
 		
 		System.out.println(user.getPassword());
 		System.out.println(user.getFname());
-		Assert.assertEquals("Get One user Test Case", null, userDAO.get("ankur.baghel92@gmail.com"));
+	//	Assert.assertEquals("Get One user Test Case", null, userDAO.get("ankur.baghel92@gmail.com"));
 	}
 
 	
@@ -83,7 +83,7 @@ public class UserTestCases {
 		System.out.println(u.getMobile());
 	}
 	
-	@Test
+	//@Test
 	public void getMaxId()
 	{
 		System.out.println(jobApplicationDAO.maxID());
