@@ -1,6 +1,12 @@
   <span ng-show="showProfile=='true'">
 <div ng-include src="'c_user/profile.html'"></div>
 </span>
+
+  <span ng-show="isAdmin=='true'">
+<div ng-include src="'c_admin/adminNavbar.html'"></div>
+</span>
+<br><br><br>
+
 <div class="col-md-offset-2" ng-controller="BlogController as ctrl">
 <br>
 <div ng-hide="IsLoggedIn=='true'">
@@ -12,13 +18,10 @@
 <div class="col-md-10">
 <div class="panel panel-login">
 	<div class="row">
-{{message}}
 		<div class="col-md-10">
 
 			<form class="form-horizontal" ng-submit="ctrl.submit()">
 
-{{currentUser.mobile}}
-{{IsLoggedIn}}
 				<fieldset>
 
 

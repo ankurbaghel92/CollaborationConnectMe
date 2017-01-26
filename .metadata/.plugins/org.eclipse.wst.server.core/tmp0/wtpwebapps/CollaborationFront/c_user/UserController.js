@@ -117,6 +117,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 																$rootScope.IsLoggedIn="true"
 																if($rootScope.currentUser.role==='admin')
 																	{
+																			$rootScope.isAdmin="true"
 																			console.log("UserController ==> Login as "+$rootScope.currentUser.role)
 																			console.log("UserController ==> Ending createUser function()")
 																			$location.path('/adminhome')

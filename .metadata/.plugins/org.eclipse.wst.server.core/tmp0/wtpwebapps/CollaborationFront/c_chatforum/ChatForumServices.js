@@ -17,7 +17,9 @@ app.factory('ChatForumServices',function($q,$timeout){
 	
 	service.reConnectTime = 30000;
 	
-	service.socketURL = 'collaborationback/chat_forum';
+//	service.socketURL = '/collaborationback/chat_forum';
+	
+	service.socketURL ='http://localhost:8088/collaborationback/chat_forum'
 	
 	service.chatTopic = '/topic/message';
 	
@@ -32,7 +34,7 @@ app.factory('ChatForumServices',function($q,$timeout){
 		return listner.promise;
 	}
 	
-	serivce.send = function(message)
+	service.send = function(message)
 	{
 		console.log("ChatForumServices ==> Starting send function()")
 
@@ -85,7 +87,7 @@ app.factory('ChatForumServices',function($q,$timeout){
 	
 	
 	
-	var startListner = function(){
+	var startListener = function(){
 		
 		console.log("ChatForumServices ==> Starting startListner function()")
 		
@@ -111,7 +113,7 @@ app.factory('ChatForumServices',function($q,$timeout){
 		
 		socket.stomp.connect({},startListener);
 		
-		stock.stomp.onclose = reconnect;
+		socket.stomp.onclose = reconnect;
 		
 		console.log("ChatForumServices ==> Ending initialize function()")
 

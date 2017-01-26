@@ -1,7 +1,14 @@
   <span ng-show="showProfile=='true'">
 <div ng-include src="'c_user/profile.html'"></div>
 </span>
-<div ng-controller="JobController as ctrl">
+
+  <span ng-show="isAdmin=='true'">
+<div ng-include src="'c_admin/adminNavbar.html'"></div>
+</span>
+
+
+
+<div ng-controller="JobController as ctrl" class="col-md-offset-2">
 		<p style="color: #0729e7;font-size:20px ">Search for the job
 	<input type="text" ng-model="search_text" placeholder="Type here,.,"></p>
 	<hr>

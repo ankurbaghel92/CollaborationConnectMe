@@ -1,6 +1,6 @@
 "use strict"
 
-app.controller('ChatForumController',function(ForumServices,$scope){
+app.controller('ChatForumController',function(ChatForumServices,$scope){
 	
 	console.log("Starting ==>  ChatForumController")
 
@@ -17,7 +17,7 @@ app.controller('ChatForumController',function(ForumServices,$scope){
 	{
 		console.log("ChatForumController ==> Starting addMessage function()")
 		
-		ChatForumSerives.send($scope.message);
+		ChatForumServices.send($scope.message);
 		
 		$scope.message = "";
 		
@@ -25,7 +25,7 @@ app.controller('ChatForumController',function(ForumServices,$scope){
 
 	}
 	
-	ChatForumSerivec.receive().then(null,null,function(message){
+	ChatForumServices.receive().then(null,null,function(message){
 		
 		console.log("ChatForumController ==> Starting ChatForumSerivec.receive function()")
 

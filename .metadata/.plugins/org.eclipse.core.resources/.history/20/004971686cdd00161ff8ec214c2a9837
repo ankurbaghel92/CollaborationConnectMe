@@ -1,8 +1,0 @@
-package com.niit.collaborationbackend.controller;
-
-import org.springframework.stereotype.Controller;
-
-@Controller
-public class ChatForumController {
-
-}

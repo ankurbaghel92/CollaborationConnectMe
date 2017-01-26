@@ -78,9 +78,7 @@ public class UserDAOIMPL implements UserDAO {
 		
 		@Transactional
 		public List<User> getall(String username) {
-			String hql = "FROM User "
-					+ "NOT IN "
-					+ "FROM User where username='"+username+"'";
+			String hql = "select * FROM User where username NOT IN '"+username+"'";
 			Query query =  sessionFactory.getCurrentSession().createQuery(hql);
 			return query.list();
 		}

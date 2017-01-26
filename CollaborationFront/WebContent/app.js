@@ -133,6 +133,12 @@ app.config(function($routeProvider){
 
 	
 	
+	.when('/chat',{
+		templateUrl:'c_chat/chat.html'
+			
+	})
+	
+	
 	
 	
 	

@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/websocket/spring-websocket.xsd">
 
     <websocket:message-broker application-destination-prefix="/app">
-        <websocket:stomp-endpoint path="/chat">
+        <websocket:stomp-endpoint path="/chat_forum">
 <!--         chat_forum also needs to add
  -->            <websocket:sockjs/>
         </websocket:stomp-endpoint>
