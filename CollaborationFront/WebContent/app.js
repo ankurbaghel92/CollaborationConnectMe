@@ -6,6 +6,11 @@ app.config(function($routeProvider){
 	.when('/',{
 		templateUrl:'c_user/home.html'
 	})
+
+	.when('/upload',{
+		templateUrl:'c_user/FileUpload.html'
+	})
+
 	
 	.when('/home',{
 		redirectTo:'/'

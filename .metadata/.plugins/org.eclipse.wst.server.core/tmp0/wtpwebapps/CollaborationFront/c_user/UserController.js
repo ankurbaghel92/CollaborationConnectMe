@@ -211,6 +211,17 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										}
 										
 										
+										self.fileUpload=function(uploadFile)
+										{
+											UserServices.fileUpload(uploadFile).then
+											(
+												function(d)
+												{
+													$location.path('/blogs')
+												}
+											)
+										}
+										
 										
 										self.fetchAllUsers();
 										

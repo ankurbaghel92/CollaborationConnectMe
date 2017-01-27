@@ -167,9 +167,21 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 				null
 		)
 		
-	}//end of myProfile function()
+	},//end of myProfile function()
+	
+	fileUpload : function(uploadFile)
+	{
+		return $http.get(BaseURL+'/upload/'+uploadFile).then
+		(
+			function(Response)
+			{
+				return Response.data
+			},
+			null
+		)
+	}
+	
 	
 	
 	}
-	
 }])

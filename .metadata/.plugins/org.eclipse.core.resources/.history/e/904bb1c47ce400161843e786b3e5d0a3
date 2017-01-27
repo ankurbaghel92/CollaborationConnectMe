@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="POST" action="http://localhost:8088/collaborationback/upload" enctype="multipart/form-data"></form>
+
+</body>
+</html>
