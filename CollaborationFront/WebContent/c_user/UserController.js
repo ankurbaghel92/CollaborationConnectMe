@@ -211,15 +211,10 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										}
 										
 										
-										self.fileUpload=function(uploadFile)
+										self.fileUpload=function()
 										{
-											UserServices.fileUpload(uploadFile).then
-											(
-												function(d)
-												{
+											
 													$location.path('/blogs')
-												}
-											)
 										}
 										
 										

@@ -23,7 +23,7 @@ app.factory('ChatForumServices',function($q,$timeout){
 	
 	service.chatTopic = '/topic/message';
 	
-	service.chatBroker = 'app/chat_forum';
+	service.chatBroker = '/app/chat_forum';
 	
 	service.receive = function()
 	{
@@ -93,7 +93,7 @@ app.factory('ChatForumServices',function($q,$timeout){
 		
 		socket.stomp.subscribe(service.chatTopic,function(data){
 			
-			listner.notify(getmessage(data.body));
+			listner.notify(getMessage(data.body));
 			
 		console.log("ChatForumServices ==> Ending startListner function()")
 

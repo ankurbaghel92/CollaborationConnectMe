@@ -12,10 +12,9 @@ import com.niit.collaborationbackend.model.Message;
 import com.niit.collaborationbackend.model.OutputMessage;
 
 @Controller
-@RequestMapping("/")
 public class ChatForumController {
 	public static Logger log = org.slf4j.LoggerFactory.getLogger(ChatForumController.class);
-
+	
 	@MessageMapping("/chat_forum")
 	@SendTo("/topic/message")
 	public OutputMessage sendMessage(Message message)
