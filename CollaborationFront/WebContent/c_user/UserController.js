@@ -36,8 +36,8 @@ $scope.message="Message From User Contoller"
 );*/
 	
 
-app.controller('UserController',['$scope','UserServices','$location','$rootScope','$http',
-                                 function($scope, UserServices, $location, $rootScope, $http){
+app.controller('UserController',['$scope','UserServices','$location','$rootScope','$http','$cookieStore',
+                                 function($scope, UserServices, $location, $rootScope, $http,$cookieStore){
 	$scope.message="Message From User Contoller"
 		console.log("Starting ==>  UserController")
 
@@ -113,6 +113,8 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 														else
 															{
 																$rootScope.currentUser = self.user
+																$cookieStore.put("currentUser",self.user)
+																$rootScope.username = self.user.username
 																console.log("Logging in with Email :- "+$rootScope.currentUser.emailId)
 																$rootScope.IsLoggedIn="true"
 																if($rootScope.currentUser.role==='admin')
@@ -156,6 +158,8 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										
 										self.logoutUser = function()
 										{
+											$rootScope.currentUser = {}
+											$cookieStore.remove("currentUser")
 											UserServices.logout().then
 											(
 													function(d)
@@ -207,6 +211,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										
 										self.logout = function()
 										{
+											
 											self.logoutUser()
 										}
 										

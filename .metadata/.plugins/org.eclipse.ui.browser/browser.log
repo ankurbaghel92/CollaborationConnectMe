@@ -1,0 +1,13 @@
+
+Jan 29, 2017 18:57:13.97 NEW SESSION
+Jan 29, 2017 18:57:13.97 [Child 3524] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+Jan 29, 2017 22:48:37.77 NEW SESSION
+Jan 29, 2017 22:48:37.77 [Child 3384] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Jan 29, 2017 22:54:29.69 [Child 3884] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Jan 29, 2017 23:14:27.95 [Child 3192] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Jan 29, 2017 23:38:08.96 [Parent 2600] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Jan 29, 2017 23:38:26.66 [Child 1092] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Jan 29, 2017 23:38:26.70 
+Jan 29, 2017 23:38:26.70 ###!!! [Child][MessageChannel] Error: (msgtype=0x4A00C3,name=PContent::Msg_ConsoleMessage) Channel closing: too late to send/recv, messages will be lost
+Jan 29, 2017 23:38:26.70 

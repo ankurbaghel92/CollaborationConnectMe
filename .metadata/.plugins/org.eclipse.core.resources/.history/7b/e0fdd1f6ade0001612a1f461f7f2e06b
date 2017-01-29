@@ -1,8 +1,0 @@
-'use strict'
-
-app.controller('AdminConttoller',['UserServices','FriendServices','$rootScope','$scope','$location',
-                               function(UserServices,FriendServices,$rootScope,$scope,$location){
-	
-	$scope.friendmessage="Message From Friend Controller"
-		
-		console.log("Starting ==>  FriendController")

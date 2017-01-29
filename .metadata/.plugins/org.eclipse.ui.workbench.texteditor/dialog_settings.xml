@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="sendMessage"/>
 			<item value="info"/>
 			<item value="service"/>
 			<item value="Login in with Username"/>
@@ -15,7 +16,6 @@
 			<item value="getuser"/>
 			<item value="emailId"/>
 			<item value="username"/>
-			<item value="FriendController"/>
 		</list>
 		<list key="replacehistory">
 			<item value="username"/>
