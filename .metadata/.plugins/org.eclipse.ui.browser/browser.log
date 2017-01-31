@@ -11,3 +11,8 @@ Jan 29, 2017 23:38:26.66 [Child 1092] WARNING: pipe error: 109: file c:/builds/m
 Jan 29, 2017 23:38:26.70 
 Jan 29, 2017 23:38:26.70 ###!!! [Child][MessageChannel] Error: (msgtype=0x4A00C3,name=PContent::Msg_ConsoleMessage) Channel closing: too late to send/recv, messages will be lost
 Jan 29, 2017 23:38:26.70 
+
+Jan 31, 2017 15:37:46.66 NEW SESSION
+Jan 31, 2017 15:37:46.66 [Child 3200] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Jan 31, 2017 15:37:46.67 [Child 3200] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Jan 31, 2017 15:58:16.71 console.warn: LoginHelper: dedupeLogins: Deduping with a scheme preference but couldn't get the preferred origin scheme.

@@ -48,6 +48,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										//console.log(self.user.gender)
 										
 										self.users = [];
+										self.friendUsers = [];
 										
 										
 										//Start of fetchAllUsers function()
@@ -70,7 +71,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										};//end of fetchAllUsers function()
 									
 										
-										
+																				
 										
 										//start of createUser function()
 										self.createUser = function(user){
@@ -127,6 +128,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 																else
 																	{
 																			$rootScope.showProfile="true"
+																				
 																			console.log("UserController ==> Login as "+$rootScope.currentUser.role)
 																			console.log("UserController ==> Ending createUser function()")
 																			$location.path('/blogs')	
@@ -224,6 +226,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										
 										
 										self.fetchAllUsers();
+
 										
 										//start of reset function
 										self.reset = function(){

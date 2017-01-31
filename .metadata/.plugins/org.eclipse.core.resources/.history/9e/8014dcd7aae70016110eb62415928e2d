@@ -1,0 +1,59 @@
+
+  <span ng-show="IsLoggedIn=='true'">
+<div ng-include src="'c_user/profile.html'"></div>
+</span>
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+<div ng-controller="FriendController as ctrl">
+{{empty}}
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-10">
+
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                <th><span>User</span></th>
+                                <th class="text-center"><span>Action</span></th>
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            								
+                                <tr ng-repeat="friend in ctrl.friends">
+                                
+                                
+                                
+                                   
+ <td>
+ 
+                                        <img src="Images/{{friend.username}}.jpg" alt="UserName">
+                                        <a href="#">{{{friend.username}}</a><br>
+                                    </td>
+
+                                    
+                                    <td class="text-center">
+                                                <span ng-hide="friendRequestAccepted=='true'">
+                                    
+										  <button type="button" ng-click="ctrl.acceptFriendRequest(friend.username)" class="btn btn-primary">Accept</button>
+						 <button type="button" ng-click="ctrl.rejectFriendRequest(friend.username)" class="btn btn-primary">Reject</button>
+										  
+										  </span>
+										  
+                                    </td>
+                                   
+                                    
+ 
+                                         </tr>
+                            </tbody>
+                        </table>
+                 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
