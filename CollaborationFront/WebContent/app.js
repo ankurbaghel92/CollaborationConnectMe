@@ -8,7 +8,13 @@ app.config(function($routeProvider){
 	})
 
 	.when('/upload',{
-		templateUrl:'c_user/FileUpload.html'
+		templateUrl:'c_user/FileUpload2.html'
+	})
+
+	
+	.when('/updateProfile',{
+		templateUrl:'c_user/updateprofile.html',
+		Controller:'UserController'
 	})
 
 	

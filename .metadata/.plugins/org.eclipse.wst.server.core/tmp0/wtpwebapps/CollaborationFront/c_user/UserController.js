@@ -161,6 +161,7 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										self.logoutUser = function()
 										{
 											$rootScope.currentUser = {}
+											$rootScope.isAdmin="false"
 											$cookieStore.remove("currentUser")
 											UserServices.logout().then
 											(

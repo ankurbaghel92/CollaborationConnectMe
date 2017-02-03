@@ -1,0 +1,37 @@
+  <span ng-show="showProfile=='true'">
+<div ng-include src="'c_user/profile.html'"></div>
+</span>
+<link rel="stylesheet" type="text/css" href="css/fileUpload.css">
+<div class="container" class="col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong>Upload Files</strong>
+        <div class="panel-body">
+
+          <!-- Standar Form -->
+          <h4>Select files from your computer</h4>
+          
+          
+<form method="POST" action="http://localhost:8088/collaborationback/upload" enctype="multipart/form-data" ng-submit="ctrl.fileUpload()">
+            <div class="form-inline">
+              <div class="form-group">
+                <input type="file" name="files[]" id="js-upload-files" multiple>
+              </div>
+              <input  type="submit" value="Upload">
+            </div>
+          </form>
+
+          <!-- Drop Zone -->
+          <h4>Or drag and drop files below</h4>
+          <div class="upload-drop-zone" id="drop-zone">
+            Just drag and drop files here
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
+</div>
+</div>
+</div>
