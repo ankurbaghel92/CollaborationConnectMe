@@ -94,6 +94,32 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 										};//end of createUser function()
 										
 										
+										self.updateUser = function(user){
+											console.log("UserController ==> Starting updateUser function()")
+											UserServices.updateUser(user).then
+											(
+													function(d)
+													{
+														self.user = d;
+														$rootScope.currentUser = self.user
+														alert("ThankYou For Profile has been updated,.,,,,")
+														console.log("UserController ==> Ending updateUser function()")
+														$location.path('/blogs')
+
+													},
+													function(errResponse)
+													{
+														console.error("Error While Updating,,., Please try again after some time,.,")
+														console.log("UserController ==> Ending updateUser function()")
+
+													}
+
+													
+											)
+											
+
+										}
+										
 										
 										self.authenticate = function(user)
 										{
@@ -206,6 +232,14 @@ app.controller('UserController',['$scope','UserServices','$location','$rootScope
 
 										};//end of submit function()
 										
+
+										self.update = function() {
+											{
+											self.updateUser(self.user);
+											}
+
+										};//end of submit function()
+
 										
 										self.login = function()
 										{

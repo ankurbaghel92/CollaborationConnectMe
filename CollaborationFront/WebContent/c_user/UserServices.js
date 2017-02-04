@@ -68,7 +68,7 @@ app.factory('UserServices',['$http','$q','$rootScope',function($http,$q,$rootSco
 	updateUser:function(user){
 		console.log("UserServices ==> Starting updateUser function()")
 
-		return $http.put(BaseURL+'/updateUser/'+user)
+		return $http.put(BaseURL+'/UpdateUser/',user)
 		.then(
 			function(Response)
 			{

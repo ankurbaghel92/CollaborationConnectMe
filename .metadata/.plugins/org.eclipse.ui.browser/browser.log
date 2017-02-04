@@ -1131,3 +1131,12 @@ Feb 03, 2017 17:08:21.95 1486121901923	addons.update-checker	WARN	Update manifes
 Feb 03, 2017 17:08:21.96 1486121901950	addons.update-checker	WARN	Update manifest for {972ce4c6-7e08-4474-a285-3208198ce6fd} did not contain an updates property
 Feb 03, 2017 17:08:23.07 1486121903058	addons.update-checker	WARN	Update manifest for e10srollout@mozilla.org did not contain an updates property
 Feb 03, 2017 17:11:26.18 [Parent 3608] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
+Feb 04, 2017 18:00:18.65 NEW SESSION
+Feb 04, 2017 18:00:18.65 1486211418651	addons.update-checker	WARN	Update manifest for aushelper@mozilla.org did not contain an updates property
+Feb 04, 2017 18:00:18.70 1486211418665	addons.update-checker	WARN	Update manifest for {972ce4c6-7e08-4474-a285-3208198ce6fd} did not contain an updates property
+Feb 04, 2017 18:00:18.70 1486211418679	addons.update-checker	WARN	Update manifest for webcompat@mozilla.org did not contain an updates property
+Feb 04, 2017 18:00:18.70 1486211418693	addons.update-checker	WARN	Update manifest for e10srollout@mozilla.org did not contain an updates property
+Feb 04, 2017 18:00:18.71 1486211418706	addons.update-checker	WARN	Update manifest for firefox@getpocket.com did not contain an updates property
+Feb 04, 2017 18:00:18.91 1486211418914	addons.update-checker	WARN	Update manifest for diagnostics@mozilla.org did not contain an updates property
+Feb 04, 2017 18:00:18.95 1486211418948	addons.update-checker	WARN	Update manifest for hsts-priming@mozilla.org did not contain an updates property
