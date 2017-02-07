@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.collaborationbackend.DAO.JobApplicationDAO;
+import com.niit.collaborationbackend.DAO.JobDAO;
 import com.niit.collaborationbackend.DAO.UserDAO;
 import com.niit.collaborationbackend.DAOIMPL.JobDAOIMPL;
 import com.niit.collaborationbackend.model.User;
@@ -23,6 +24,9 @@ public class UserTestCases {
 	@Autowired 
 	static JobApplicationDAO jobApplicationDAO;
 	
+	@Autowired	
+	static JobDAO jobDAO;
+	
 	@Autowired
 	static AnnotationConfigApplicationContext context;
 	
@@ -34,6 +38,8 @@ public class UserTestCases {
 		context.scan("com.niit");
 		context.refresh();
 		jobApplicationDAO = (JobApplicationDAO) context.getBean("jobApplicationDAO");
+		jobDAO = (JobDAO) context.getBean("jobDAO");
+
 		userDAO = (UserDAO) context.getBean("userDAO");
 		user= (User) context.getBean("user");
 	}
@@ -56,7 +62,7 @@ public class UserTestCases {
 		
 	}
 	
-	@Test
+	//@Test
 	public void GetuserTestCase() {
 		User user = userDAO.get("tom");
 		
@@ -94,4 +100,12 @@ public class UserTestCases {
 		fail("Not yet implemented");
 	}
 */
+	@Test
+	public void getopenjob()
+	{
+		Assert.assertEquals("getopenjob", 1, jobDAO.getjobs("ankurbaghel92").size());
+		
+		System.out.println(jobDAO.getJob("ankurbaghel92"));
+	}
+
 }

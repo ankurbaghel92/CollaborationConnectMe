@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -64,15 +65,44 @@ public class JobDAOIMPL implements JobDAO {
 	}
 
 	
-	@Transactional
+	/*@Transactional
 	public List<Job> getOpenJobs() {
 		String hql= "From Job";
 		Query query= sessionFactory.getCurrentSession().createQuery(hql);
 		return query.list();
 	}
+*/
+	
+	@Transactional
+	public List<Job> getjobs(String username) {
+		System.out.println("Calling getOpenJobs with "+username);
+		SQLQuery query1=(SQLQuery) sessionFactory.getCurrentSession().createSQLQuery("select * from Job where Id <> (select jobId from Job_applied where username = ?)");
+
+		query1.setString(0, username);
+
+			/*List<Job> alljobs = query1.list();
+			System.out.println("Ending getOpenJobs with "+username);
+			System.out.println(alljobs);
+*/
+
+			return query1.list();
+	}
 
 	
-	
+	@Transactional
+	public Integer maxID()
+	{
+		Integer maxId = 100;
+		try {
+			String hql = "Select max(id) from Job";
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+			maxId= (Integer) query.uniqueResult();
+		} catch (HibernateException e) {
+			maxId= 100;
+			e.printStackTrace();
+		}
+		return maxId+1;
+	}
 	
 
 }

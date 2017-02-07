@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Job extends BaseDomain {
 	
 	@Id
-	private String Id;
+	private Integer Id;
 	
 	private String tittle;
 	
@@ -19,15 +19,15 @@ public class Job extends BaseDomain {
 	
 	private String description;
 	
-	private char status;
+	private Character status;
 	
 	private Date Date_Time;
 
-	public String getId() {
+	public Integer getId() {
 		return Id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		Id = id;
 	}
 
@@ -55,11 +55,11 @@ public class Job extends BaseDomain {
 		this.description = description;
 	}
 
-	public char getStatus() {
+	public Character getStatus() {
 		return status;
 	}
 
-	public void setStatus(char status) {
+	public void setStatus(Character status) {
 		this.status = status;
 	}
 

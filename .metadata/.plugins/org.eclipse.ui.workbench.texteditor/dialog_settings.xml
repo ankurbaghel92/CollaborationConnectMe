@@ -8,14 +8,14 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="getopenjob"/>
+			<item value="getopen"/>
 			<item value="updateUser"/>
 			<item value="null"/>
 			<item value="ankurbaghel92"/>
 			<item value="users"/>
 			<item value="myFriends"/>
 			<item value="friends"/>
-			<item value="sendMessage"/>
-			<item value="info"/>
 		</list>
 		<list key="replacehistory">
 			<item value="username"/>

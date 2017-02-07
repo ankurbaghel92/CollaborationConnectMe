@@ -14,8 +14,12 @@ public interface JobDAO {
 	
 	public Job getJob(String id);
 	
-	public List<Job> getOpenJobs();
-	
+	public List<Job> getjobs(String username);
+
+//	public List<Job> getOpenJobs();
+
+	public Integer maxID();
+
 
 
 

@@ -3,6 +3,9 @@ package com.niit.collaborationbackend.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,18 +32,31 @@ public class JobController {
 	@Autowired
 	JobApplicationDAO jobApplicationDAO;
 	
+	@Autowired(required=false)
+	HttpSession session;
+	
+	public static Logger log = org.slf4j.LoggerFactory.getLogger(JobController.class);
+
 	
 	//To Get All the Jobs from the Job Table
 	@RequestMapping(value ="/getOpenJobs",method=RequestMethod.GET)
 	public ResponseEntity<List<Job>> getOpenJobs(){
 		
-		List<Job> jobs = jobDAO.getOpenJobs();
-		if(jobs==null){
+		log.debug("JobController ====> Starting of the getOpenJobs method()");
+
+		
+		String loggedInUserId = (String) session.getAttribute("loggedInUserId");
+
+		List<Job> jobs = jobDAO.getjobs(loggedInUserId);
+		
+		//List<Job> jobs = jobDAO.getOpenJobs();
+		/*if(jobs==null){
 			job.setErrorCode("404");
 			job.setErrorMessage("No Jobs Were found");
 			jobs.add(job);
-		}
-		
+		}*/
+		log.debug("JobController ====> ending of the getOpenJobs method()");
+
 		return new ResponseEntity<List<Job>>(jobs,HttpStatus.OK);
 	}
 	
@@ -66,7 +82,8 @@ public class JobController {
 	@RequestMapping(value="/postJob/",method=RequestMethod.POST)
 	public ResponseEntity<Job> postJob(@RequestBody Job job)
 		{
-		job.setId("Job"+jobApplicationDAO.maxID());
+		job.setId(jobDAO.maxID());
+
 		job.setDate(new Date());
 		job.setStatus('V');//v-->Vacant  F-->Filled  P-->Pending
 		if(jobDAO.saveJob(job)==false)
