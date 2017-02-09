@@ -1583,3 +1583,18 @@ Feb 07, 2017 17:08:44.92
 Feb 07, 2017 17:08:44.92 
 Feb 07, 2017 17:08:44.92 ###!!! [Child][MessageChannel] Error: (msgtype=0x4A00C3,name=PContent::Msg_ConsoleMessage) Channel closing: too late to send/recv, messages will be lost
 Feb 07, 2017 17:08:44.92 
+
+Feb 08, 2017 15:18:07.65 NEW SESSION
+Feb 08, 2017 15:18:07.65 console.warn: LoginHelper: dedupeLogins: Deduping with a scheme preference but couldn't get the preferred origin scheme.
+Feb 08, 2017 15:56:22.79 1486549582793	addons.update-checker	WARN	Update manifest for e10srollout@mozilla.org did not contain an updates property
+Feb 08, 2017 15:56:22.80 1486549582806	addons.update-checker	WARN	Update manifest for aushelper@mozilla.org did not contain an updates property
+Feb 08, 2017 15:56:22.82 1486549582821	addons.update-checker	WARN	Update manifest for {972ce4c6-7e08-4474-a285-3208198ce6fd} did not contain an updates property
+Feb 08, 2017 15:56:22.83 1486549582836	addons.update-checker	WARN	Update manifest for webcompat@mozilla.org did not contain an updates property
+Feb 08, 2017 15:56:23.07 1486549583071	addons.update-checker	WARN	Update manifest for diagnostics@mozilla.org did not contain an updates property
+Feb 08, 2017 15:56:23.08 1486549583084	addons.update-checker	WARN	Update manifest for hsts-priming@mozilla.org did not contain an updates property
+Feb 08, 2017 15:56:24.03 1486549584030	addons.update-checker	WARN	Update manifest for firefox@getpocket.com did not contain an updates property
+Feb 08, 2017 16:44:29.80 [Parent 2860] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Feb 08, 2017 16:44:29.82 [Parent 2860] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Feb 08, 2017 16:44:29.82 [Parent 2860] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Feb 08, 2017 16:44:31.55 [Parent 2860] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Feb 08, 2017 16:44:31.56 [Parent 2860] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346

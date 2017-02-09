@@ -1,0 +1,9 @@
+package com.niit.collaborationbackend.DAO;
+
+import com.niit.collaborationbackend.model.BlogComments;
+
+public interface BlogCommentsDAO {
+	
+	public boolean postComment(BlogComments blogComments);
+
+}

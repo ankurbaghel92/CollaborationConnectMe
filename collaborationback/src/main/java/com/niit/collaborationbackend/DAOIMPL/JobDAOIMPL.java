@@ -76,16 +76,19 @@ public class JobDAOIMPL implements JobDAO {
 	@Transactional
 	public List<Job> getjobs(String username) {
 		System.out.println("Calling getOpenJobs with "+username);
-		SQLQuery query1=(SQLQuery) sessionFactory.getCurrentSession().createSQLQuery("select * from Job where Id <> (select jobId from Job_applied where username = ?)");
+		
+		String hql= "From Job";
+		Query query= sessionFactory.getCurrentSession().createQuery(hql);
+		
+		List<Job> jobs = query.list();
+		
+		SQLQuery query1=(SQLQuery) sessionFactory.getCurrentSession().createSQLQuery("select Id from Job where Id <> (select jobId from Job_applied where username = ?)");
 
 		query1.setString(0, username);
-
-			/*List<Job> alljobs = query1.list();
-			System.out.println("Ending getOpenJobs with "+username);
-			System.out.println(alljobs);
-*/
-
-			return query1.list();
+		List<Job> job1 = query1.list();
+		jobs.remove(job1);
+		return jobs;
+		
 	}
 
 	

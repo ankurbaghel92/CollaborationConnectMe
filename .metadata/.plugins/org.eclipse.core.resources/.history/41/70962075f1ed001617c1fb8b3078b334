@@ -1,0 +1,17 @@
+package com.niit.collaborationbackend.DAOIMPL;
+
+import org.springframework.stereotype.Repository;
+
+import com.niit.collaborationbackend.DAO.BlogCommentsDAO;
+
+@Repository("blogCommentDAOIMPL")
+public class BlogCommentDAOIMPL implements BlogCommentsDAO {
+
+	
+	public boolean postComment(String username, String comment) {
+		
+		
+		return false;
+	}
+
+}

@@ -1,0 +1,99 @@
+  <span ng-show="showProfile=='true'">
+<div ng-include src="'c_user/profile.html'"></div>
+</span>
+
+  <span ng-show="isAdmin=='true'">
+<div ng-include src="'c_admin/adminNavbar.html'"></div>
+</span>
+
+<div ng-controller="BlogController as ctrl" class="col-md-offset-2">
+
+
+<h2 align="center" style="color: #0806a9 ;font-family:inherit" >List of All Blogs</h2>
+<br>
+	 
+ <p style="color: #0729e7;font-size:20px ">Search for the Blogs
+	<input type="text" ng-model="search_text" placeholder="Type here,.,"></p>
+ 
+ <div ng-repeat ="blog in ctrl.blogs | filter: search_text">
+	
+		<span class="glyphicon glyphicon-user " style="color:DarkCyan"></span>
+		 <div class="alert alert-success">			
+		<h4 >Blog Tittle:- {{blog.tittle}} </h4>
+		<div class="alert alert-success fade in">
+						<h4 style="font-family: Monotype Corsiva;font-size:32px">{{blog.description}}</h4>					
+		
+		 <h4 align="right" style="color: #e87e13 ">Blog Witten By:- {{blog.emailId}}</h4>
+
+	<button type="submit" class="btn btn-success green" ng-click="showcommentbox=true"><i class="fa fa-share"></i> Comment</button>
+		<button type="submit" class="btn btn-success green" ng-click="ctrl.blogComments(blog.id)"><i class="fa fa-share"></i> Show Comments</button>
+	
+	
+		
+		</div>
+						</div>
+						
+						
+						<div class="alert alert-warning" ng-show="showcomments">
+						<p ng-repeat ="blogComment in ctrl.blogComments">
+						<span ng-if="blogComment.blogId == blog.id">
+						<!-- {{blogComment.id}}
+						{{blogComment.username}}
+						{{blogComment.userComment}}
+						 -->
+						 
+						 
+						 
+    <div class="row">
+		
+				<h3 class="text-success">Comments</h3>
+                <hr/>
+				<ul class="comments">
+				<li class="clearfix">
+				  <img src="Images/{{currentUser.username}}.jpg" class="avatar" alt="" width="80px">
+				  <div class="post-comments">
+				      <p class="meta">{{blogComment.username}} says : <i class="pull-right"><a href="#"><small>Reply</small></a></i></p>
+				      <p>
+				         {{blogComment.userComment}}
+				      </p>
+				  </div>
+				  </li>
+				  </ul>
+			</div>
+		</div>
+	</div>
+</div>	 
+						 
+						 </span>
+						</p>
+					</div>
+						
+						
+						
+						
+								<div class="col-md-12 alert alert-warning" ng-show="showcommentbox">
+									<form 		class="form-horizontal" ng-submit="ctrl.postBlogComment(blog.id,ctrl.blogComment.comment)" role="form" name="form">
+  <div class="form-group">
+    <textarea  class="form-control" placeholder="Share You thoughts" ng-model="ctrl.blogComment.comment"></textarea>
+  </div>
+<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+<button type="button" ng-click="showcommentbox=false" class="btn btn-primary">Hide </button>
+ <div class="pull-right">
+<div class="btn-group">
+  <button type="button" class="btn btn-default"><i class="fa fa-pencil" aria-hidden="true"></i> Text</button>
+  <button type="button" class="btn btn-default"><i class="fa fa-file-image-o" aria-hidden="true"></i> Image</button>
+  <button type="button" class="btn btn-default"><i class="fa fa-file-video-o" aria-hidden="true"></i> Video</button>
+</div>
+</div>
+  </form>
+
+								</div>
+							</div>
+		
+	
+		</div>
+		<hr style="border-width: 10px;color: black">
+ 
+ </div>
+ 
+  

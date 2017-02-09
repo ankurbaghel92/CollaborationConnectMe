@@ -77,7 +77,50 @@ app.factory('BlogServices', ['$http', '$rootScope', '$q',function($http,$rootSco
 					
 			)
 		},//end of getBlog function()
+
 		
+		postBlogComment:function(blogId,comment){
+			console.log("BlogServices=====>Starting postBlogComment function()=====>")
+
+			return $http.post(BaseURL+'/postBlogComment/'+blogId+"/"+comment).then(
+					function(Response){
+						console.log("BlogServices=====>Ending postBlogComment function()=====>")
+						return Response.data;
+					},
+					function(errResponse)
+					{
+						console.log("BlogServices=====>Ending postBlogComment function()=====>")
+						$q.reject(errResponse)
+					}
+					
+			)
+		},//end of getBlog function()
+
+		
+		allBlogComments:function(){
+			return $http.get(BaseURL+'/allBlogComments').then(
+					function(Response){
+						return Response.data;
+					},
+					function(errResponse){
+						return $q.reject(errResponse);
+					}
+			)
+		},//end of allBlogComments function()
+		
+		
+		blogComments:function(blogId){
+			console
+			.log("BlogServices=====>Calling blogComments function() with BLOGID=====>"+blogId)
+			return $http.get(BaseURL+'/blogComments/'+blogId).then(
+					function(Response){
+						return Response.data;
+					},
+					function(errResponse){
+						return $q.reject(errResponse);
+					}
+			)
+		}
 		
 	}
 }])

@@ -1,0 +1,7 @@
+package com.niit.collaborationbackend.DAO;
+
+public interface BlogCommentsDAO {
+	
+	public boolean postComment(String username,String comment);
+
+}

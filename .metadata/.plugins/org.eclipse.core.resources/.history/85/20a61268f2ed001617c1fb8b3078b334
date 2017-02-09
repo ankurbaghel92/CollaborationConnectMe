@@ -1,0 +1,34 @@
+package com.niit.collaborationbackend.DAOIMPL;
+
+import org.hibernate.HibernateException;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import com.niit.collaborationbackend.DAO.BlogCommentsDAO;
+import com.niit.collaborationbackend.model.BlogComments;
+
+@Repository("blogCommentDAOIMPL")
+public class BlogCommentDAOIMPL implements BlogCommentsDAO {
+	
+		@Autowired
+		SessionFactory sessionFactory;
+
+	public BlogCommentDAOIMPL(SessionFactory sessionFactory)
+	{
+		this.sessionFactory = sessionFactory;
+	}
+	
+	public boolean postComment(BlogComments blogComments) {
+		try {
+			sessionFactory.getCurrentSession().save(blogComments);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+
+		}
+		return true;
+
+		
+	}
+
+}

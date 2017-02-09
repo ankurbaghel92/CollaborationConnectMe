@@ -1,0 +1,15 @@
+package com.niit.collaborationbackend.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table(name="Blog")
+@Component
+public class BlogComments {
+	
+	private int id;
+
+}

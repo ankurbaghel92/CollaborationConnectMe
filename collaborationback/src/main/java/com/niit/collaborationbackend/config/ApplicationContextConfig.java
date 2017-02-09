@@ -15,6 +15,7 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.collaborationbackend.model.Blog;
+import com.niit.collaborationbackend.model.BlogComments;
 import com.niit.collaborationbackend.model.Friend;
 import com.niit.collaborationbackend.model.Job;
 import com.niit.collaborationbackend.model.JobApplication;
@@ -78,6 +79,7 @@ sessionBuilder.addAnnotatedClass(Cart.class);
 		sessionBuilder.addAnnotatedClass(Job.class);
 		sessionBuilder.addAnnotatedClass(JobApplication.class);
 		sessionBuilder.addAnnotatedClass(Friend.class);
+		sessionBuilder.addAnnotatedClass(BlogComments.class);
 
 return sessionBuilder.buildSessionFactory();
 	}

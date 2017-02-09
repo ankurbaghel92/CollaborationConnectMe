@@ -1,0 +1,7 @@
+package com.niit.collaborationbackend.DAOIMPL;
+
+import com.niit.collaborationbackend.DAO.BlogCommentsDAO;
+
+public class BlogCommentDAOIMPL implements BlogCommentsDAO {
+
+}

@@ -25,6 +25,15 @@ app
 								description : ''
 							};
 
+							self.blogComment = {
+									Id : "",
+									blogId : "",
+									username : "",
+									userComment :""
+							}
+							
+							self.blogComments = [];
+							
 							self.blogs = [];
 
 									// start of the fetchAllBlogs function()
@@ -139,6 +148,71 @@ app
 
 									},// end of the getBlogFunction()
 
+									self.postBlogComment = function(blogId,comment) {
+										console.log("BlogController=====>Starting postBlogComment function()=====>")
+										console.log("BlogController=====>Calling postBlogComment function() with blogID==>"+blogId+" comment==>"+comment)
+
+										BlogServices
+												.postBlogComment(blogId,comment)
+												.then(
+														function(d) {
+															self.blogComment = d;
+															
+															console
+															.log("BlogController=====>Ending postBlogComment function()=====>")
+
+																											},
+														function(errResponse) {
+															console
+																	.log("Error while fetching the blog")
+																	console
+																	.log("BlogController=====>Ending postBlogComment function()=====>")
+
+														}
+
+												)
+
+									},// end of the postBlogComment()
+
+									
+									self.allBlogComments = function() {
+										console.log("BlogController=====>Calling blogComments function() with BLOGID=====>")
+
+										BlogServices
+												.allBlogComments()
+												.then(
+
+														function(d) {
+															self.blogComments = d;
+
+														},
+														function(errResponse) {
+															console
+																	.log("Error while fetching all the Blogs")
+														})
+									},// end of the allBlogComments function()
+
+									/*self.blogComments = function(blogId) {
+										console
+										.log("BlogController=====>Calling blogComments function() with BLOGID=====>"+blogId)
+										$rootScope.showcomments="true"
+										BlogServices
+												.blogComments(blogId)
+												.then(
+
+														function(d) {
+															self.blogComments = d;
+
+														},
+														function(errResponse) {
+															console
+																	.log("Error while fetching all the Blogs")
+														})
+									}
+*/									
+									self.allBlogComments();
+
+									
 									self.submit = function() {
 										self.createBlog(self.blog);
 										self.reset();
